@@ -53,7 +53,7 @@ export default function FeaturedArticles() {
     <section className="px-4 py-8 bg-white">
       {/* Header section */}
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold mb-2">Featured Articles</h2>
+        <h2 className="text-2xl font-bold mb-2 text-black">Featured Articles</h2>
         <p className="text-gray-600 max-w-xl mx-auto">
           Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semper pellentesque ut. Nam sed non nullam nisl non pulvinar.
         </p>
