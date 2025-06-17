@@ -50,7 +50,7 @@ const articles = [
 
 export default function FeaturedArticles() {
   return (
-    <section className="px-4 py-8 bg-white">
+    <section className="px-32 py-8 bg-[#FAFAFA]">
       {/* Header section */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2 text-black">Featured Articles</h2>
@@ -81,7 +81,7 @@ export default function FeaturedArticles() {
               </h3>
               {/* Read button */}
               <button className="bg-blue-500 text-white px-4 py-2 text-sm rounded hover:bg-blue-600">
-                Read
+                Read &rarr;
               </button>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function FeaturedArticles() {
         {/* See More Button */}
       <div className="mt-10 text-center">
         <button className="bg-gray-200 text-gray-800 px-6 py-2 rounded hover:bg-gray-300">
-          See More Articles
+          See More Articles &rarr;
         </button>
       </div>
     </section>
