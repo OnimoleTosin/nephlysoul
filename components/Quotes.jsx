@@ -1,21 +1,26 @@
 'use client';
-import Quotebg from "@/assets/Quotebg.jpg"
+
+import Quotebg from "@/assets/Quotebg.jpg";
 import { useEffect, useState } from 'react';
 
+// ✅ Added 'id' to each object for reliable React keys
 const sliderData = [
   {
+    id: 1,
     quote: 'Even in days when things are not working well. Always stay positive!',
     verse: 'Romans 8:28 NLT',
     imgSrc: Quotebg,
     text: 'And we know that God causes everything to work together for the good of those who love God and are called according to his purpose for them.',
   },
   {
+    id: 2,
     quote: 'Let your faith be bigger than your fear.',
     verse: 'Proverbs 3:5',
     imgSrc: Quotebg,
     text: 'Trust in the Lord with all your heart and lean not on your own understanding.',
   },
   {
+    id: 3,
     quote: 'Your current situation is not your final destination.',
     verse: 'Jeremiah 29:11',
     imgSrc: Quotebg,
@@ -24,15 +29,15 @@ const sliderData = [
 ];
 
 export default function QuoteCarousel() {
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // ✅ No need to include sliderData.length in the dependency array
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderData.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [sliderData.length]);
+  }, []);
 
   const handleSlideChange = (index) => {
     setCurrentSlide(index);
@@ -40,7 +45,7 @@ export default function QuoteCarousel() {
 
   return (
     <div className="overflow-hidden relative w-full">
-      {/* Slider Images */}
+      {/* Slider Wrapper */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -51,22 +56,26 @@ export default function QuoteCarousel() {
             className="relative flex items-center justify-center min-w-full h-[400px] md:h-[500px] bg-cover bg-center text-white"
             style={{ backgroundImage: `url(${slide.imgSrc.src})` }}
           >
-            <div className="md:pl-8 mt-10 md:mt-0">
+            <div className="md:pl-8 mt-10 md:mt-0 text-center md:text-left">
               <h2 className="text-xl md:text-2xl font-semibold mb-4">Quote Of The Day</h2>
-              <p className="italic mb-6 text-lg max-w-xl mx-auto">{slide.quote}</p>
+              <p className="italic mb-6 text-lg max-w-xl mx-auto md:mx-0">{slide.quote}</p>
               <h3 className="text-xl font-semibold mb-1">Verse Of The Day</h3>
               <h1 className="text-sm font-bold mb-1">{slide.verse}</h1>
-              <p className="text-sm max-w-2xl mx-auto"> {slide.text}</p>
+              <p className="text-sm max-w-2xl mx-auto md:mx-0">{slide.text}</p>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Optional Dots */}
       {/* <div className="flex items-center justify-center gap-2 mt-4">
         {sliderData.map((_, index) => (
           <div
             key={index}
             onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${currentSlide === index ? "bg-[#166F64]" : "bg-gray-500/30"}`}
+            className={`h-2 w-2 rounded-full cursor-pointer ${
+              currentSlide === index ? "bg-[#166F64]" : "bg-gray-500/30"
+            }`}
           ></div>
         ))}
       </div> */}
