@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Testimony from "@/assets/testimony.png"
-import { FaQuoteLeft } from 'react-icons/fa';
+import { FaArrowRight, FaQuoteLeft } from 'react-icons/fa';
 
 const testimonials = [
   {
@@ -36,8 +36,8 @@ export default function TestimonialPagee() {
   const [current, setCurrent] = useState(0);
 
   return (
-    <section className="bg-white py-20 text-center">
-      <h2 className="text-2xl font-bold mb-2">What People Are Saying</h2>
+    <section className="bg-[#EDF4FC] py-20 text-center">
+      <h2 className="text-2xl font-bold mb-2 text-[#645674]">What People Are Saying</h2>
       <p className="text-gray-500 mb-10 max-w-xl mx-auto">
         Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semper pellentesque ut.
         Nam sed non nullam nisl non pulvinar.
@@ -64,6 +64,7 @@ export default function TestimonialPagee() {
 
         {/* Bullets */}
         <div className="flex gap-2 mt-8">
+          <FaArrowRight className='text-black'/>
           {testimonials.map((_, index) => (
             <button
               key={index}

@@ -46,8 +46,8 @@ const groups = [
 export default function PopularGroups() {
   return (
     <section className="text-center px-32 py-8 bg-[#FAFAFA]">
-      <h2 className="text-2xl font-bold mb-2">Popular Groups To Join</h2>
-      <p className="text-gray-500 mb-10 max-w-xl mx-auto">
+      <h2 className="text-2xl font-bold mb-2 text-[#645674]">Popular Groups To Join</h2>
+      <p className="text-[#333333] mb-10 max-w-xl mx-auto">
         Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semper
         pellentesque ut. Nam sed non nullam nisl non pulvinar.
       </p>
@@ -62,7 +62,7 @@ export default function PopularGroups() {
               <Image
                 src={group.image}
                 alt={group.name}
-                width={70}
+                width={50}
                 height={70}
                 className="rounded-full object-cover"
               />

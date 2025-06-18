@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between p-4 shadow-md bg-[#FAFAFA]">
+    <div className="flex items-center justify-between p-4 shadow-md bg-[#FAFAFA] ">
       {/* Logo */}
       <p className="cursor-pointer text-xl font-bold text-[#166F64]">
         Soul Circle
