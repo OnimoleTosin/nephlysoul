@@ -53,7 +53,6 @@ export default function Slider() {
 
   return (
     <div className="overflow-hidden relative w-full">
-      {/* Slider Images */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -75,7 +74,6 @@ export default function Slider() {
                 </button>
                 <button className="group flex items-center gap-2 px-6 py-2 font-medium">
                   {slide.buttonText2}
-                  {/* <Image className="group-hover:translate-x-1 transition" src={arrow_icon} alt="arrow" /> */}
                 </button>
               </div>
             </div>
@@ -83,7 +81,6 @@ export default function Slider() {
         ))}
       </div>
 
-      {/* Pills Navigation Dots */}
       <div className="flex items-center justify-center gap-2 mt-4">
         {sliderData.map((_, index) => (
           <div

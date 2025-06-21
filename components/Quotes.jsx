@@ -3,7 +3,6 @@
 import Quotebg from "@/assets/Quotebg.jpg";
 import { useEffect, useState } from 'react';
 
-// ✅ Added 'id' to each object for reliable React keys
 const sliderData = [
   {
     id: 1,
@@ -28,10 +27,9 @@ const sliderData = [
   },
 ];
 
-export default function QuoteCarousel() {
+export default function Quotes() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // ✅ No need to include sliderData.length in the dependency array
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderData.length);
@@ -45,7 +43,6 @@ export default function QuoteCarousel() {
 
   return (
     <div className="overflow-hidden relative w-full">
-      {/* Slider Wrapper */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -67,18 +64,27 @@ export default function QuoteCarousel() {
         ))}
       </div>
 
-      {/* Optional Dots */}
-      {/* <div className="flex items-center justify-center gap-2 mt-4">
-        {sliderData.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              currentSlide === index ? "bg-[#166F64]" : "bg-gray-500/30"
-            }`}
-          ></div>
-        ))}
-      </div> */}
+      <section className="bg-gradient-to-br from-[#8C766A] to-[#5B4F6A] text-white py-24 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            For Promotions
+          </h2>
+        </div>
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <div className='h-2 w-2 rounded-full cursor-pointer'></div>
+        </div>
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {sliderData.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => handleSlideChange(index)}
+              className={`h-2 w-2 rounded-full cursor-pointer ${currentSlide === index ? "bg-[#FAFAFA]" : "bg-gray-500/30"
+                }`}
+            ></div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }

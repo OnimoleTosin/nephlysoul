@@ -2,37 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Testimony from "@/assets/testimony.png"
 import { FaArrowRight, FaQuoteLeft } from 'react-icons/fa';
+import { testimonials } from '@/Data/Dummydata';
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'John Doe',
-    title: 'CEO',
-    image: Testimony,
-    message:
-      'Lorem ipsum dolor sit amet consectetur. Urna pharetra pharetra nam vehicula vestibulum vestibulum arcu ac. Quis molestie sed turpis et gravida bibendum sit. Purus rhoncus sit dui maecenas lobortis et pulvinar suspendisse.',
-  },
-  {
-    id: 2,
-    name: 'Grace O.',
-    title: 'Community Lead',
-    image: Testimony,
-    message:
-      'This platform helped me connect with people I never thought I’d meet. The devotionals are inspiring and the interface is easy to use.',
-  },
-  {
-    id: 3,
-    name: 'Daniel K.',
-    title: 'Youth Pastor',
-    image: Testimony,
-    message:
-      'Everything is streamlined and spirit-filled. Being able to connect with like-minded people daily is a blessing!',
-  },
-];
-
-export default function TestimonialPagee() {
+export default function Testimony() {
   const [current, setCurrent] = useState(0);
 
   return (
@@ -62,20 +35,42 @@ export default function TestimonialPagee() {
           </div>
         </div>
 
-        {/* Bullets */}
         <div className="flex gap-2 mt-8">
-          <FaArrowRight className='text-black'/>
+          <FaArrowRight className='text-black' />
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`h-3 w-3 rounded-full ${
-                current === index ? 'bg-blue-600' : 'bg-gray-300'
-              }`}
+              className={`h-3 w-3 rounded-full ${current === index ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
             />
           ))}
         </div>
       </div>
+      < div className="bg-cover bg-center text-white py-20 px-4" style={{ backgroundImage: `url('/assets/newsletter.png')` }
+      }>
+        <div className="max-w-xl mx-auto text-center">
+          <h1 className="text-4xl font-bold mb-4 text-black">Newsletter</h1>
+          <p className="mb-6 text-lg text-black">Fill the form below to connect with a friend just near you and talk.</p>
+          <form className="flex flex-col md:flex-row gap-[19px] w-full max-w-[597px] mx-auto">
+            <input
+              type="email"
+              required
+              placeholder="Email Address"
+              className="bg-white text-black border-2 border-black rounded-[12px] px-4 py-3 w-full md:w-[400px]"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 bg-[#3566A0] hover:bg-blue-600 text-white text-base px-6 py-3 rounded-lg transition "
+            >
+              Subscribe <FaArrowRight className="text-lg" />
+            </button>
+          </form>
+
+        </div>
+      </div >
+
     </section>
+
   );
 }

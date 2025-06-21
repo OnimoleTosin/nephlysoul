@@ -2,7 +2,6 @@ export default function Footer() {
   return (
     <footer className="bg-[#1F2B40] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Left section with logo and text */}
         <div>
           <div className="w-10 h-10 rounded-full bg-white mb-4" />
           <p className="text-sm text-gray-300">
@@ -11,7 +10,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Two columns of links */}
         <div>
           <h4 className="font-semibold mb-2">Lorem ipsum</h4>
           <ul className="space-y-1 text-sm text-gray-300">
@@ -31,7 +29,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Social icons */}
         <div className="flex space-x-4 mt-4 md:mt-0">
           <button className="w-8 h-8 bg-white text-black rounded-full">F</button>
           <button className="w-8 h-8 bg-white text-black rounded-full">W</button>
@@ -41,7 +38,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom copyright */}
       <div className="mt-8 text-center text-sm text-gray-400">
         © 2025 A product of Soul Circle Group
       </div>
