@@ -6,23 +6,38 @@ import { groups } from '@/Data/Dummydata';
 export default function CommunitySection() {
   return (
     <>
-      <section className="bg-cover bg-center text-white py-20 px-4 relative" style={{ backgroundImage: `url('/assets/img1.png')` }}>
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#FDFDFD]">
-            Never experience loneliness again.
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-[#FDFDFD]">
-            Join our community of over 300,000 members and enrich your life with activities,
-            interest groups, social connections, companionship and more.
-          </p>
+      <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white py-12 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          {/* Text */}
+          <div className="md:w-1/2 space-y-4">
+            <h2 className="text-3xl font-bold">Every Journey Deserves Company.<br />A Place To Be Heard and Held</h2>
+            <p>
+              With SoulCircle, connection is just a gentle step away—a familiar voice, a shared prayer, or someone to listen to.
+            </p>
+            <p>This is a space where hearts meet, faith is shared, and every soul feels seen.</p>
+            <button className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Call a Friend</button>
+          </div>
 
-          <button className="inline-flex items-center gap-2 bg-[#3566A0] hover:bg-blue-600 text-white text-base px-6 py-3 rounded-lg transition">
-            Call a friend <FaArrowRight className="text-lg" />
-          </button>
+          {/* Images */}
+          <div className="md:w-1/2 relative flex items-center justify-center">
+            <div className="w-64 h-64 rounded-full overflow-hidden ring-4 ring-white relative">
+              <Image src="/assets/article1.png" alt="Group" fill className="object-contain object-center"
+              />
+            </div>
+
+            <div className="absolute top-0 right-0 w-24 h-24 rounded-full overflow-hidden ring-2 ring-white translate-x-6 -translate-y-4 relative">
+              <Image  src="/assets/article2.jpg" alt="Smiling Couple" fill className="object-contain object-center"
+              />
+            </div>
+
+            <div className="absolute bottom-0 right-0 w-24 h-24 rounded-full overflow-hidden ring-2 ring-white translate-x-6 translate-y-6 relative">
+              <Image src="/assets/article3.jpg"  alt="Elderly Conversation" fill className="object-contain object-center"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
-
 
       <section className="text-center px-4 md:px-32 py-8 bg-[#FAFAFA]">
         <h2 className="text-2xl font-bold mb-2 text-[#645674]">Popular Groups To Join</h2>
