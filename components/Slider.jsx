@@ -7,26 +7,26 @@ export default function Slider() {
   const sliderData = [
     {
       id: 1,
-      title: "Breaking: Election Results Update – Close Race in Major States",
+      title: "Never go through life alone. Your voice still matters.",
       offer: "Top Story",
-      buttonText1: "Read More",
-      buttonText2: "View All Headlines",
+      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
+      buttonText1: "Call A Friend",
       imgSrc: img1,
     },
     {
       id: 2,
-      title: "Global Markets React to Interest Rate Changes",
+      title: "Never go through life alone. Your voice still matters.",
       offer: "Business News",
-      buttonText1: "Explore",
-      buttonText2: "Market Trends",
+      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
+      buttonText1: "Call A Friend ",
       imgSrc: img1,
     },
     {
       id: 3,
-      title: "New Health Guidelines Released Amid Rising Flu Cases",
+      title: "Never go through life alone. Your voice still matters.",
       offer: "Health",
-      buttonText1: "Learn More",
-      buttonText2: "Stay Updated",
+      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
+      buttonText1: "Call A Friend",
       imgSrc: img1,
     },
   ];
@@ -73,7 +73,7 @@ export default function Slider() {
                   {slide.buttonText1}
                 </button>
                 <button className="group flex items-center gap-2 px-6 py-2 font-medium">
-                  {slide.buttonText2}
+                  {slide.buttonText2} &rarr;
                 </button>
               </div>
             </div>
