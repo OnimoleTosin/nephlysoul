@@ -91,13 +91,11 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // ✅ Load initial user on mount
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
 
-    // ✅ Listen for login/logout changes
     const handleUserChange = () => {
       const updatedUser = localStorage.getItem('currentUser');
       setUser(updatedUser ? JSON.parse(updatedUser) : null);
@@ -105,7 +103,6 @@ const Navbar = () => {
 
     window.addEventListener('userChanged', handleUserChange);
 
-    // ✅ Clean up on unmount
     return () => {
       window.removeEventListener('userChanged', handleUserChange);
     };
@@ -113,13 +110,16 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
-    window.dispatchEvent(new Event('userChanged')); // 👈 notify others
+    window.dispatchEvent(new Event('userChanged')); 
     router.push('/');
   };
 
   return (
     <div className="flex items-center justify-between p-4 shadow-md bg-[#FAFAFA]">
-      <p className="cursor-pointer text-xl font-bold text-[#166F64]">Soul Circle</p>
+      <div className="flex justify-center items-center space-x-2">
+        <div className="w-[48px] h-[48px] bg-black rounded-full "></div>
+        <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
+      </div>
 
       <div className="hidden md:flex items-center gap-10">
         <Link href="/HomePage"><span className="cursor-pointer text-black hover:text-[#166F64] transition">Home</span></Link>
@@ -140,8 +140,8 @@ const Navbar = () => {
         ) : (
           <>
             <Link href="/">
-              <button className="cursor-pointer px-4 py-2 border border-[#3566A0] text-[#3566A0] rounded font-medium">
-                <FaUser/>
+              <button className="flex cursor-pointer px-4 py-2 border border-[#3566A0] text-[#3566A0] rounded font-medium">
+                <FaUser /> 👈
               </button>
             </Link>
             <button
