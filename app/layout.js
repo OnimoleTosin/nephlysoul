@@ -1,8 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar"; // ✅ Import your Navbar component
+import Navbar from "@/components/Navbar";
 
-// Load fonts from Google Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,23 +12,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Optional metadata used by Next.js for SEO
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
 export const metadata = {
-  title: "Soul Circle", // updated to your app name
+  title: "Soul Circle",
   description: "Connect and grow with your circle",
 };
 
-// ✅ This RootLayout wraps all pages in your app
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} antialiased font-nunito`}
       >
-        {/* ✅ Navbar will show on every page */}
-       
-
-        {/* ✅ Render the actual page content below the Navbar */}
+        {/* Navbar */}
+        
+        {/* Page Content */}
         <main>{children}</main>
       </body>
     </html>

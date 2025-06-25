@@ -75,13 +75,13 @@
 //     </main>
 //   );
 // }
-
-
 'use client';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FaExclamationCircle } from 'react-icons/fa';
 
 export default function AuthPage() {
   const router = useRouter();
@@ -91,6 +91,10 @@ export default function AuthPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [showWelcome, setShowWelcome] = useState(false);
+  const [currentUserName, setCurrentUserName] = useState('');
 
   useEffect(() => {
     const user = localStorage.getItem('currentUser');
@@ -107,7 +111,12 @@ export default function AuthPage() {
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        router.push('/HomePage');
+        setCurrentUserName(user.firstName || 'User');
+        setShowWelcome(true);
+
+        setTimeout(() => {
+          router.push('/HomePage');
+        }, 2000);
       } else {
         setError('Invalid email or password');
       }
@@ -122,119 +131,166 @@ export default function AuthPage() {
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('currentUser', JSON.stringify(newUser));
-      router.push('/HomePage');
+      setCurrentUserName(newUser.firstName || 'User');
+      setShowWelcome(true);
+
+      setTimeout(() => {
+        router.push('/HomePage');
+      }, 5000);
     }
   };
 
   return (
-    <div className="flex min-h-screen p-10">
-      {/* LEFT: IMAGE */}
+    <div className="flex min-h-screen">
       <div className="hidden md:block w-1/2 relative">
         <Image
-          src="/assets/Auth.png" // your image in /public folder
+          src="/assets/Auth.png"
           alt="Group of people"
           fill
           className="object-cover"
         />
       </div>
 
-      {/* RIGHT: FORM */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-[#f6f8fb]">
-        <div className="bg-white rounded-xl shadow-md w-full max-w-md p-8 relative">
-          {/* Top right toggle */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-[#f6f8fb] px-4">
+        <div className="bg-[#f6f8fb] flex flex-col w-full max-w-md relative space-y-6 rounded-lg">
+
+          <div className="flex justify-center items-center space-x-2">
+            <div className="w-[48px] h-[48px] border-t-transparent rounded-full animate-spin border-2 border-black"></div>
+            <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
+          </div>
+
           <div className="absolute top-4 right-4 text-sm">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-blue-500 font-medium"
+              className="text-sm cursor-pointer text-[#3566A0] hover:text-black-600"
             >
               {isLogin ? 'Sign up' : 'Sign in'}
             </button>
           </div>
 
-          <h2 className="text-2xl font-semibold text-center mb-6 text-black">
+          <h2 className="text-2xl font-semibold text-gray-800">
             {isLogin ? 'Sign in' : 'Sign up'}
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
               <>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full px-4 py-3 border rounded-md text-black border-1 border-black"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full px-4 py-3 border rounded-md text-black border-1 border-black"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                />
+                <div>
+                  <label className="block font-medium text-black">First Name</label>
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium text-black">Last Name</label>
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                  />
+                </div>
               </>
             )}
 
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full px-4 py-3 border rounded-md text-black border-1 border-black"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full px-4 py-3 border rounded-md text-black border-1 border-black"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div>
+              <label className="block font-medium text-black">Email</label>
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="relative">
+              <label className="block font-medium text-black">Password</label>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Password"
+                className="w-full px-4 py-3 border rounded-md text-black border-black bg-white pr-10"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div
+                className="absolute top-[38px] right-3 cursor-pointer text-gray-600"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+              </div>
+            </div>
 
             {isLogin && (
               <div className="flex items-center justify-between text-sm">
                 <label className="flex items-center gap-2 text-black">
-                  <input type="checkbox" className="accent-blue-600 " />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 rounded-full border border-black accent-blue-600"
+                  />
                   Remember
                 </label>
                 <a href="#" className="text-blue-600">Forgot Password?</a>
               </div>
             )}
 
-            {error && <p className="text-red-600 text-sm">{error}</p>}
+            {error && <p className="flex text-red-600 text-sm"><FaExclamationCircle size={18}/> {error}</p>}
 
             <button
               type="submit"
-              className="w-full bg-[#3566A0] text-white py-3 rounded-md font-semibold"
+              className="w-full bg-[#3566A0] cursor-pointer text-white font-semibold py-2 rounded-md hover:bg-[#2c5384]"
             >
-                           {isLogin ? 'Sign In' : 'Sign Up'}
-
+              {isLogin ? 'Sign In' : 'Sign Up'}
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="my-4 flex items-center ">
+          <div className="flex items-center">
             <hr className="flex-grow border-black" />
             <span className="mx-3 text-sm text-black">or</span>
             <hr className="flex-grow border-black" />
           </div>
 
-          {/* Social Buttons */}
-          <div className="space-y-3">
-            <button className="w-full flex items-center justify-center gap-2 border py-2 rounded-md text-black">
+          <div className="flex flex-col md:flex-row gap-4">
+            <button className="bg-white flex items-center justify-center w-full border py-2 rounded-md text-black gap-2">
               <Image src="/assets/Google-icon.png" alt="Google" width={20} height={20} />
               Continue with Google
             </button>
-            <button className="w-full flex items-center justify-center gap-2 border py-2 rounded-md text-black">
+            <button className="bg-white flex items-center justify-center w-full h-11 border py-2 rounded-md gap-2 text-black">
               <Image src="/assets/Facebook-icon.png" alt="Facebook" width={20} height={20} />
               Continue with Facebook
             </button>
           </div>
+
+          <p className="text-xs text-center text-black">
+            By signing up, you agree to Terms of Service
+          </p>
         </div>
       </div>
+
+     {showWelcome && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
+      <h2 className="text-2xl font-bold text-[#3566A0] mb-2">✅ Welcome {currentUserName}!</h2>
+      <p className="text-gray-700 mb-4">
+       Ready to meet and connect with friends of like minds? 
+       <p>Redirecting you now...</p>
+      </p>
+      <div className="flex justify-center">
+        <div className="w-6 h-6 border-2 border-[#3566A0] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
