@@ -43,6 +43,7 @@ export default function Quotes() {
 
   return (
     <div className="overflow-hidden relative w-full">
+      {/* Slide container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -53,7 +54,11 @@ export default function Quotes() {
             className="relative flex items-center justify-center min-w-full h-[400px] md:h-[500px] bg-cover bg-center text-white"
             style={{ backgroundImage: `url(${slide.imgSrc.src})` }}
           >
-            <div className="md:pl-8 mt-10 md:mt-0 text-center md:text-left">
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/60 z-0" />
+
+            {/* Text content */}
+            <div className="md:pl-8 mt-10 md:mt-0 text-center md:text-left relative z-10 px-6">
               <h2 className="text-xl md:text-2xl font-semibold mb-4">Quote Of The Day</h2>
               <p className="italic mb-6 text-lg max-w-xl mx-auto md:mx-0">{slide.quote}</p>
               <h3 className="text-xl font-semibold mb-1">Verse Of The Day</h3>
@@ -64,27 +69,27 @@ export default function Quotes() {
         ))}
       </div>
 
+      {/* Promotions Section */}
       <section className="bg-gradient-to-br from-[#8C766A] to-[#5B4F6A] text-white py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             For Promotions
           </h2>
         </div>
-        <div className="flex items-center justify-center gap-2 mt-4">
-          <div className='h-2 w-2 rounded-full cursor-pointer'></div>
-        </div>
+
+        {/* Slider indicators */}
         <div className="flex items-center justify-center gap-2 mt-4">
           {sliderData.map((_, index) => (
             <div
               key={index}
               onClick={() => handleSlideChange(index)}
-              className={`h-2 w-2 rounded-full cursor-pointer ${currentSlide === index ? "bg-[#FAFAFA]" : "bg-gray-500/30"
-                }`}
+              className={`h-2 w-2 rounded-full cursor-pointer ${
+                currentSlide === index ? "bg-[#FAFAFA]" : "bg-gray-500/30"
+              }`}
             ></div>
           ))}
         </div>
       </section>
-
     </div>
   );
 }

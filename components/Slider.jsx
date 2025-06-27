@@ -1,110 +1,47 @@
-"use client"
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import img1 from '@/assets/img1.png';
+'use client'
 
-export default function Slider() {
-  const sliderData = [
-    {
-      id: 1,
-      title: "Never go through life alone. Your voice still matters.",
-      offer: "Top Story",
-      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
-      buttonText1: "Call A Friend",
-      imgSrc: img1,
-    },
-    {
-      id: 2,
-      title: "Never go through life alone. Your voice still matters.",
-      offer: "Business News",
-      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
-      buttonText1: "Call A Friend ",
-      imgSrc: img1,
-    },
-    {
-      id: 3,
-      title: "Never go through life alone. Your voice still matters.",
-      offer: "Health",
-      buttonText2: "Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too! ",
-      buttonText1: "Call A Friend",
-      imgSrc: img1,
-    },
-  ];
+import Image from "next/image"
+import img1 from '@/assets/img1.png'
+import SearchCity from "@/components/SearchCity"
+import React from "react"
 
-  const boxSection = [
-    { id: 2, text: "Protecting Animals and Nature in Adventure Travel" },
-    { id: 3, text: "Guides are the Storytellers of Destinations" },
-    { id: 4, text: "Together to Promote Sustainable Development" },
-    { id: 5, text: "Empowers Adventure Operators in Kyrgyzstan" },
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % sliderData.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [sliderData.length]);
-
-  const handleSlideChange = (index) => {
-    setCurrentSlide(index);
-  };
-
+export default function HeroSection() {
   return (
-    <div className="overflow-hidden relative w-full">
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {sliderData.map((slide) => (
-          <div
-            key={slide.id}
-            className="relative flex items-center justify-center min-w-full h-[400px] md:h-[500px] bg-cover bg-center text-white"
-            style={{ backgroundImage: `url(${slide.imgSrc.src})` }}
-          >
-            <div className="md:pl-8 mt-10 md:mt-0">
-              <p className="text-[#166F64] pb-1">{slide.offer}</p>
-              <h1 className="max-w-lg md:text-[40px] text-2xl font-semibold">
-                {slide.title}
-              </h1>
-              <div className="flex items-center mt-4">
-                <button className="px-7 py-2 bg-[#166F64] text-white rounded-full font-medium">
-                  {slide.buttonText1}
-                </button>
-                <button className="group flex items-center gap-2 px-6 py-2 font-medium">
-                  {slide.buttonText2} &rarr;
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src={img1}
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+        priority
+      />
 
-      <div className="flex items-center justify-center gap-2 mt-4">
-        {sliderData.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${currentSlide === index ? "bg-[#166F64]" : "bg-gray-500/30"}`}
-          ></div>
-        ))}
-      </div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0" />
 
-      {/* Info Pills Section */}
-      {/* <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0">
-        {boxSection.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center gap-3 px-4 py-2 bg-white/10 text-white rounded-full backdrop-blur-md border border-white/20"
-          >
-            <div className="w-6 h-6 flex items-center justify-center text-sm font-bold bg-white/30 text-white rounded-full">
-              {item.id}
-            </div>
-            <p className="text-sm">{item.text}</p>
-          </div>
-        ))}
-      </div> */}
+      {/* Foreground content */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 text-white max-w-2xl mx-auto">
+        <p className="text-[#66d3c2] pb-1 text-sm md:text-base">Top Story</p>
+
+        <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+          Never go through life alone. Your voice still matters.
+        </h1>
+
+        <p className="mt-4 text-base md:text-lg font-light text-white/90">
+          Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too!
+        </p>
+
+        {/* Stacked column for button and search input */}
+        <div className=" flex flex-col gap-4 w-full max-w-sm">
+          <SearchCity />
+          <button className="w-[400px] h-[60px] px-6 py-2 bg-[#166F64] text-white rounded-[12px] font-medium">
+            Call A Friend &rarr;
+          </button>
+
+        </div>
+      </div>
     </div>
-  );
+  )
 }
