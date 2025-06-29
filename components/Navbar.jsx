@@ -115,7 +115,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 shadow-md bg-[#FAFAFA]">
+    <div className="flex items-center justify-between p-4 px-[40px] shadow-md bg-[#FAFAFA] font-sans">
       <div className="flex justify-center items-center space-x-2">
         <div className="w-[48px] h-[48px] bg-black rounded-full "></div>
         <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
