@@ -1,5 +1,11 @@
 // dummydata.jsx
-import Books from "@/assets/Books.png";
+import Book1 from "@/assets/book1.png";
+import Book2 from "@/assets/book2.png";
+import Book3 from "@/assets/book3.png";
+import Book4 from "@/assets/book4.png";
+import Book5 from "@/assets/book5.png";
+import Book6 from "@/assets/book6.png";
+
 import article1 from "@/assets/article1.png";
 import article2 from "@/assets/article2.jpg";
 import article3 from "@/assets/article3.jpg";
@@ -11,16 +17,68 @@ import talk from "@/assets/Groups/talk.jpg";
 import connect from "@/assets/Groups/connect.jpg";
 import testimony from "@/assets/testimony.png"
 
-export const books = Array(6).fill({
+export const books = [
+  {
   id: 1,
-  title: 'The 21 Irrefutable Laws of Leadership Revised',
-  author: 'John C. Maxwell',
-  image: Books,
+  title: 'Collected Poems of Clarence Edwin Flynn',
+  author: 'Clarence Edwin',
+  image: Book1,
   rating: 4.5,
   tag: 'Faith',
   badge: 'Recently added',
-  views: '20 people viewing now',
-});
+  views: '22 people viewing now', 
+},
+  {
+  id: 2,
+  title: 'The Unlimited Power of Faith: Operating In A World of Possibilities',
+  author: 'Rachel Engstrom',
+  image: Book2,
+  rating: 4.5,
+  tag: 'Faith',
+  badge: 'Recently added',
+  views: '20 people viewing now', 
+},
+  {
+  id: 3,
+  title: 'Handbook of Mental Health & Aging',
+  author: 'Nathan Hantke, Amit Etkin & Ruth O’Hara',
+  image: Book3,
+  rating: 4.5,
+  tag: 'Faith',
+  badge: 'Recently added',
+  views: '18 people viewing now', 
+},
+  {
+  id: 4,
+  title: 'The Widower’s Toolbox: Repairing Your Life After Losing Your Spouse',
+  author: 'Gerald J. Schaefer',
+  image: Book4,
+  rating: 4.5,
+  tag: 'Faith',
+  badge: 'Recently added',
+  views: ' 58 people viewing now', 
+},
+  {
+  id: 5,
+  title: 'Spiritual Aging: Weekly Reflecions For Embracing Life',
+  author: 'Carol Orsborn, Ph.D.',
+  image: Book5,
+  rating: 4.5,
+  tag: 'Faith',
+  badge: 'Recently added',
+  views: '37 people viewing now', 
+},
+  {
+  id: 6,
+  title: 'The Peasants: Spring',
+  author: 'John C. Maxwell',
+  image: Book6,
+  rating: 4.5,
+  tag: 'Faith',
+  badge: 'Recently added',
+  views: '34 people viewing now', 
+}
+];
 
 export const articles = [
   {
@@ -74,28 +132,28 @@ export const groups = [
     image: faith,
   },
   {
-    name: 'Daily Devotional',
-    members: '130k',
+    name: 'HeartTalk Community',
+    members: '124k',
     image: devotion,
   },
   {
-    name: "what's happening?",
+    name: "Soul Sisters",
     members: '130k',
     image: happening,
   },
   {
-    name: "Let's Pray",
-    members: '130k',
+    name: "Quite Heart Clubs",
+    members: '24k',
     image: pray,
   },
   {
-    name: "Let's talk life",
-    members: '130k',
+    name: "Hope and Healing",
+    members: '114k',
     image: talk,
   },
   {
-    name: 'Soul connect',
-    members: '130k',
+    name: 'Morning Prayer Circle',
+    members: '33k',
     image: connect,
   },
 ];

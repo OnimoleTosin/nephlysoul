@@ -39,7 +39,7 @@ export default function Articles() {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <button className="bg-[#3566A0] text-white px-6 py-2 rounded mb-15 ">
+        <button className="bg-[#3566A0] text-white px-6 py-2 rounded mb-15 hover:bg-blue-700">
           See More Articles &rarr;
         </button>
       </div>

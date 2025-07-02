@@ -1,43 +1,61 @@
-import React from "react";
+'use client';
+
 import Image from 'next/image';
+import React from 'react';
 
-export default function Community() {
+export default function Commmunity() {
   return (
-    <>
-      <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white py-12 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
-          {/* Text */}
-          <div className="md:w-1/2 space-y-4">
-            <h2 className="text-3xl font-bold">Every Journey Deserves Company.<br />A Place To Be Heard and Held</h2>
-            <p>
-              With SoulCircle, connection is just a gentle step away—a familiar voice, a shared prayer, or someone to listen to.
-            </p>
-            <p>This is a space where hearts meet, faith is shared, and every soul feels seen.</p>
-            <button className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Call a Friend</button>
-          </div>
-
-          {/* Images */}
-          <div className="md:w-1/2 relative flex items-center justify-center">
-            <div className="w-64 h-64 rounded-full overflow-hidden ring-4 ring-white relative">
-              <Image src="/assets/article1.png" alt="Group" fill className="object-contain object-center"
-              />
-            </div>
-
-            <div className="absolute top-0 right-0 w-24 h-24 rounded-full overflow-hidden ring-2 ring-white translate-x-6 -translate-y-4 relative">
-              <Image  src="/assets/article2.jpg" alt="Smiling Couple" fill className="object-contain object-center"
-              />
-            </div>
-
-            <div className="absolute bottom-0 right-0 w-24 h-24 rounded-full overflow-hidden ring-2 ring-white translate-x-6 translate-y-6 relative">
-              <Image src="/assets/article3.jpg"  alt="Elderly Conversation" fill className="object-contain object-center"
-              />
-            </div>
-          </div>
-
+    <div className="relative w-full bg-[#3A3244] text-white px-4 py-16 md:py-24 font-sans overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 relative z-10">
+        
+        {/* Left Text */}
+        <div className="flex-1 z-10 w-[300px]">
+          <h1 className="text-[30px] md:text-4xl font-bold">
+            Every Journey Deserves Company.<br />
+            A Place To Be Heard and Held
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 mb-8">
+            With <span className="font-semibold text-white">SoulCircle</span>, connection is just a gentle step<br/> away, a familiar voice, a shared prayer, or<br/> someone to listen to.<br />
+            This is a space where hearts meet, faith is shared,<br/> and every soul feels seen.
+          </p>
+          <button className="bg-[#3566A0] hover:bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium transition duration-300">
+            Call a friend &rarr;
+          </button>
         </div>
-      </section>
 
-      
-    </>
+        {/* Right Side Image Group */}
+        <div className="flex-1 relative w-full max-w-md aspect-square">
+          {/* Circle 2 - Top Right (under) */}
+          <div className="absolute top-[-200px] right-[-200px] w-full h-full rounded-full overflow-hidden border-4 border-white z-0 shadow-md">
+            <Image
+              src="/assets/circleup.png" // Replace with your top-right image
+              alt="Circle 2"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+
+          {/* Circle 3 - Bottom Right (under) */}
+          <div className="absolute bottom-[-200px] right-[-200px] w-full h-full rounded-full overflow-hidden border-4 border-white z-0 shadow-md">
+            <Image
+              src="/assets/circle.png" // Replace with your bottom-right image
+              alt="Circle 3"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+
+          {/* Circle 1 - Main (on top) */}
+          <div className="relative w-full h-full left-[-100px] rounded-full overflow-hidden border-4 border-white shadow-lg z-10">
+            <Image
+              src="/assets/Circle1.png" // Replace with your main image
+              alt="Main Circle"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

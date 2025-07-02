@@ -13,9 +13,9 @@ export default function Books() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40px] radius-[8px]">
+                <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40px] radius-[8px]">
                     {books.map((book, index) => (
-                        <div key={index} className="bg-white p-4 rounded-xl shadow-xl hover:shadow-md transition">
+                        <div key={index} className="bg-white p-4 rounded-xl shadow-xl hover:shadow-md transition   ">
                             <div className="relative w-full h-60 mb-4">
                                 <Image
                                     src={book.image}

@@ -36,7 +36,7 @@ export default function HeroSection() {
 
         {/* Button block */}
         <div className="flex flex-col items-center gap-4 w-full max-w-sm text-center">
-          <button className="w-[179px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium">
+          <button className="w-[179px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700">
             Call A friend &rarr; 
             {/* <FaGreaterThan/> */}
           </button>

@@ -93,9 +93,6 @@ export default function AuthPage() {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const [showWelcome, setShowWelcome] = useState(false);
-  const [currentUserName, setCurrentUserName] = useState('');
-
   useEffect(() => {
     const user = localStorage.getItem('currentUser');
     if (user) router.push('/');
@@ -111,12 +108,7 @@ export default function AuthPage() {
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        setCurrentUserName(user.firstName || 'User');
-        setShowWelcome(true);
-
-        setTimeout(() => {
-          router.push('/');
-        }, 2000);
+        router.push('/'); // ✅ LOGIN redirects to homepage
       } else {
         setError('Invalid email or password');
       }
@@ -131,17 +123,13 @@ export default function AuthPage() {
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('currentUser', JSON.stringify(newUser));
-      setCurrentUserName(newUser.firstName || 'User');
-      setShowWelcome(true);
-
-      setTimeout(() => {
-        router.push('/');
-      }, 5000);
+      router.push('/OTP'); // ✅ SIGNUP redirects to OTP
     }
   };
 
   return (
     <div className="flex min-h-screen">
+      {/* Left image side (desktop only) */}
       <div className="hidden md:block w-1/2 relative">
         <Image
           src="/assets/Auth.png"
@@ -151,14 +139,17 @@ export default function AuthPage() {
         />
       </div>
 
+      {/* Right form area */}
       <div className="w-full md:w-1/2 flex items-center justify-center bg-[#f6f8fb] px-4">
         <div className="bg-[#f6f8fb] flex flex-col w-full max-w-md relative space-y-6 rounded-lg">
 
+          {/* Spinner logo */}
           <div className="flex justify-center items-center space-x-2">
             <div className="w-[48px] h-[48px] border-t-transparent rounded-full animate-spin border-2 border-black"></div>
-            <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
+            <div className="h-[12px] w-[108px] bg-black rounded-[8px]" />
           </div>
 
+          {/* Switch button top-right */}
           <div className="absolute top-4 right-4 text-sm">
             <button
               onClick={() => setIsLogin(!isLogin)}
@@ -243,7 +234,7 @@ export default function AuthPage() {
               </div>
             )}
 
-            {error && <p className="flex text-red-600 text-sm"><FaExclamationCircle size={18}/> {error}</p>}
+            {error && <p className="flex text-red-600 text-sm"><FaExclamationCircle size={18} /> {error}</p>}
 
             <button
               type="submit"
@@ -275,22 +266,6 @@ export default function AuthPage() {
           </p>
         </div>
       </div>
-
-     {showWelcome && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
-      <h2 className="text-2xl font-bold text-[#3566A0] mb-2">✅ Welcome {currentUserName}!</h2>
-      <p className="text-gray-700 mb-4">
-       Ready to meet and connect with friends of like minds? 
-       <p>Redirecting you now...</p>
-      </p>
-      <div className="flex justify-center">
-        <div className="w-6 h-6 border-2 border-[#3566A0] border-t-transparent rounded-full animate-spin"></div>
-      </div>
-    </div>
-  </div>
-)}
-
     </div>
   );
 }
