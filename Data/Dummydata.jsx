@@ -165,22 +165,22 @@ export const testimonials = [
     title: 'CEO',
     image: testimony,
     message:
-      'Lorem ipsum dolor sit amet consectetur. Urna pharetra pharetra nam vehicula vestibulum vestibulum arcu ac. Quis molestie sed turpis et gravida bibendum sit. Purus rhoncus sit dui maecenas lobortis et pulvinar suspendisse.',
+      'It’s been a long time since I felt like someone was waiting to hear my voice. Now, every morning feels like someone is holding my hand in prayer. Also, never thought I’d find a place to laugh again, to talk freely without judgment. This isn’t just a website, it’s become part of my healing.',
   },
-  {
-    id: 2,
-    name: 'Grace O.',
-    title: 'Community Lead',
-    image: testimony,
-    message:
-      'This platform helped me connect with people I never thought I’d meet. The devotionals are inspiring and the interface is easy to use.',
-  },
-  {
-    id: 3,
-    name: 'Daniel K.',
-    title: 'Youth Pastor',
-    image: testimony,
-    message:
-      'Everything is streamlined and spirit-filled. Being able to connect with like-minded people daily is a blessing!',
-  },
+  // {
+  //   id: 2,
+  //   name: 'Grace O.',
+  //   title: 'Community Lead',
+  //   image: testimony,
+  //   message:
+  //     'This platform helped me connect with people I never thought I’d meet. The devotionals are inspiring and the interface is easy to use.',
+  // },
+  // {
+  //   id: 3,
+  //   name: 'Daniel K.',
+  //   title: 'Youth Pastor',
+  //   image: testimony,
+  //   message:
+  //     'Everything is streamlined and spirit-filled. Being able to connect with like-minded people daily is a blessing!',
+  // },
 ];

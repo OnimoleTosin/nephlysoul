@@ -3,11 +3,11 @@
 import React from "react"
 import { FaArrowRight } from "react-icons/fa"
 import Image from "next/image"
-import News from "@/assets/Groups/newsLetter.png"
+import News from "@/assets/newsletter.png"
 
 export default function NewsLetter() {
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+    <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden">
       {/* Background Image */}
       <Image
         src={News}

@@ -1,9 +1,8 @@
-'use client'
+'use client';
 
-import Image from "next/image"
-import img1 from '@/assets/img1.png'
-import React from "react"
-import { FaArrowRight, FaFastForward, FaGreaterThan } from "react-icons/fa"
+import Image from 'next/image';
+import img1 from '@/assets/img1.png';
+import React from 'react';
 
 export default function HeroSection() {
   return (
@@ -22,26 +21,24 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/60 z-0" />
 
       {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 text-white gap-[56px]">
+      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white px-4 md:px-8 text-center">
         {/* Text block */}
-        <div className="gap-[16px] w-full max-w-3xl px-6">
-          <h1 className="text-[56px] md:text-5xl font-bold">
+        <div className="max-w-3xl w-full space-y-4">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight">
             Never go through life alone. Your voice still matters.
           </h1>
-
-          <p className="mt-4 text-base md:text-xl font-xl text-white/90">
+          <p className="text-base sm:text-lg md:text-xl text-white/90">
             Find comfort, friendship, and connection. Over 5,000 members are finding joy again through the community. You can too!
           </p>
         </div>
 
         {/* Button block */}
-        <div className="flex flex-col items-center gap-4 w-full max-w-sm text-center">
-          <button className="w-[179px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700">
-            Call A friend &rarr; 
-            {/* <FaGreaterThan/> */}
+        <div className="mt-6">
+          <button className="w-[180px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700 transition">
+            Call a Friend →
           </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
