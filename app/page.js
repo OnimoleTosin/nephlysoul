@@ -10,6 +10,7 @@ import Community from '@/components/Community';
 import Books from '@/components/Books';
 import Groups from '@/components/Groups';
 import NewsLetter from '@/components/NewsLetter';
+import Promotions from '@/components/Promtions';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Books/>
         <Quotes/>
         <Groups/>
+        <Promotions/>
         <Testimony/>
         <NewsLetter/>
       </div>

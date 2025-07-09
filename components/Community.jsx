@@ -8,7 +8,6 @@ export default function Community() {
     <div className=" relative w-full bg-[#3A3244] text-white px-4 sm:px-8 py-16 md:py-24 font-sans overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 relative z-10">
         
-        {/* Left Text */}
         <div className="flex-1 z-10 w-full max-w-lg text-center md:text-left">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Every Journey Deserves Company.<br />
@@ -25,9 +24,7 @@ export default function Community() {
           </button>
         </div>
 
-        {/* Right Side Image Group */}
         <div className="flex-1 relative w-full max-w-sm sm:max-w-md aspect-square mx-auto">
-          {/* Circle 2 - Top Right */}
           <div className="absolute top-[-200px] right-[-350px] w-full h-full rounded-full overflow-hidden border-4 border-white z-0 shadow-md hidden sm:block">
             <Image
               src="/assets/circleup.png"
@@ -37,7 +34,6 @@ export default function Community() {
             />
           </div>
 
-          {/* Circle 3 - Bottom Right */}
           <div className="absolute bottom-[-200px] right-[-350px] w-full h-full rounded-full overflow-hidden border-4 border-white z-0 shadow-md hidden sm:block">
             <Image
               src="/assets/circle.png"
@@ -47,7 +43,6 @@ export default function Community() {
             />
           </div>
 
-          {/* Circle 1 - Main */}
           <div className="relative w-full h-full right-[-50px] rounded-full overflow-hidden border-4 border-white shadow-lg z-10">
             <Image
               src="/assets/Circle1.png"

@@ -2,13 +2,13 @@
 import React from "react"
 import { FaArrowRight } from "react-icons/fa"
 import Image from "next/image"
-import News from "@/assets/newsletter.png"
+import Promotion from "@/assets/OpeningSoon.png"
 
-export default function NewsLetter() {
+export default function Promotions() {
   return (
     <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden">
       <Image
-        src={News}
+        src={Promotion}
         alt="Newsletter Background"
         layout="fill"
         objectFit="cover"
@@ -16,11 +16,11 @@ export default function NewsLetter() {
         priority
       />
 
-      <div className="absolute inset-0 bg-black/60 z-0" />
+      {/* <div className="absolute inset-0 bg-black/60 z-0"/>
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 text-white">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4"> NewsLetter </h1>
-        <p className="mb-6 text-lg">
-          Stay Connected, Stay Encouraged. Subscribe to our newsletter today to get updates.
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">Find A Friend Near You.</h1>
+        <p className="mb-6 text-lg max-w-md">
+          Fill the form below to connect with a friend just near you and talk.
         </p>
 
         <form className="flex flex-col md:flex-row gap-4 w-full max-w-xl">
@@ -37,7 +37,7 @@ export default function NewsLetter() {
             Subscribe <FaArrowRight className="text-lg" />
           </button>
         </form>
-      </div>
+      </div> */}
     </section>
   )
 }

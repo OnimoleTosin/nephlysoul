@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1F2B40] text-white py-10 px-6 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-        {/* Logo & Description */}
+
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <div className="w-[48px] h-[48px] bg-white rounded-full" />
@@ -16,7 +16,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Navigation 1 */}
         <div>
           <ul className="space-y-2 text-sm">
             <li className="hover:underline cursor-pointer">Find Friends</li>
@@ -26,7 +25,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Navigation 2 */}
         <div>
           <ul className="space-y-2 text-sm">
             <li className="hover:underline cursor-pointer">Subscribe</li>
@@ -53,7 +51,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="mt-10 text-center text-sm text-gray-400">
         © 2025 A product of Soul Circle Group
       </div>

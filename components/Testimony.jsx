@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { FaArrowAltCircleRight, FaArrowCircleLeft, FaArrowRight, FaQuoteLeft } from 'react-icons/fa';
+import { FaArrowAltCircleRight, FaArrowCircleLeft, FaQuoteLeft } from 'react-icons/fa';
 import { testimonials } from '@/Data/Dummydata';
 
 export default function Testimony() {
