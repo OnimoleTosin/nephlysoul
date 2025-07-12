@@ -7,15 +7,17 @@ import React from 'react';
 export default function HeroSection() {
   return (
     <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden font-sans">
-      {/* Background Image */}
-      <Image
-        src={img1}
-        alt="Background"
-        layout="fill"
-        objectFit="cover"
-        className="z-0"
-        priority
-      />
+      
+<Image
+  src={img1}
+  alt="Background"
+  width={1920}
+  height={1080}
+  className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
+  priority
+/>
+
+
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />

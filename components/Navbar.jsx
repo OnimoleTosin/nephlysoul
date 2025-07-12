@@ -102,9 +102,9 @@ const Navbar = () => {
               </div>
 
               {dropdownOpen && (
-                <div className="absolute top-[60px] right-4 bg-white shadow-lg rounded-md w-[150px] border z-50">
+                <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px] border z-50">
                   <button
-                    onClick={() => router.push('/profile')}
+                    onClick={() => router.push('/Profile')}
                     className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     View Profile

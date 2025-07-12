@@ -23,7 +23,7 @@ export default function Books() {
         {books.map((book, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition duration-200"
+            className="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-102"
           >
             <div className="relative w-full h-60 mb-4">
               <Image
@@ -31,7 +31,7 @@ export default function Books() {
                 alt={book.title}
                 layout="fill"
                 objectFit="contain"
-                className="rounded"
+                className="rounded transition-transform duration-300 hover:scale-102"
               />
             </div>
 

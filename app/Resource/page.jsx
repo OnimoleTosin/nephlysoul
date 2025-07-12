@@ -1,14 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { books } from '@/Data/Dummydata';
 import Navbar from '@/components/Navbar';
-import { FaSearch } from 'react-icons/fa';
+import { FaAdn, FaSearch } from 'react-icons/fa';
 import NewsLetter from '@/components/NewsLetter';
 import Footer from '@/components/Footer';
 
 const BookLibrary = () => {
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedAuthors, setSelectedAuthors] = useState([]);
+  const [selectedRatings, setSelectedRatings] = useState([]);
+  const [selectedFormats, setSelectedFormats] = useState([]);
+
+
+  const toggleFilter = (value, selectedList, setSelectedList) => {
+    if (selectedList.includes(value)) {
+      setSelectedList(selectedList.filter((item) => item !== value));
+    } else {
+      setSelectedList([...selectedList, value]);
+    }
+  };
+
+  const clearAuthors = () => {
+    setSelectedAuthors([]);
+  };
+  const clearCategories = () => {
+    setSelectedCategories([]);
+  };
   return (
     <div className="flex flex-col font-sans bg-[#FAFAFA] min-h-screen">
       <Navbar />
@@ -64,15 +84,23 @@ const BookLibrary = () => {
             ))}
 
             <div className="col-span-full text-center mt-6">
-              <button className="bg-[#3566A0] text-white px-6 py-2 text-sm sm:text-base rounded hover:bg-blue-700 transition cursor-pointer">
-                See More Books &rarr;
+              <button className="bg-white text-black px-6 py-2 text-sm sm:text-base rounded ">
+                <span className='text-blue-700 m-2 cursor-pointer'>1</span> 
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>2</span> 
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>3</span> 
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>4</span> 
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500' >5</span> 
+                
+                 &rarr;
               </button>
             </div>
           </div>
         </div>
 
+
         {/* RIGHT SIDEBAR (Search + Filters + Recent Books) */}
         <div className="w-full md:w-1/3 rounded-lg p-4 h-fit">
+
           {/* Search */}
           <div className="w-full flex flex-row gap-5 px-3 py-2 border border-[#A1A1A1] mb-10 rounded text-gray-700 bg-white">
             <FaSearch />
@@ -88,16 +116,39 @@ const BookLibrary = () => {
             <h4 className="font-semibold mb-3 bg-[#3566A0] text-white px-3 py-2 rounded-t">
               Category
             </h4>
-            <div className="space-y-4 p-3">
+            <div>
+              {selectedCategories.length > 0 && (
+                <div className="w-31 flex items-center justify-between bg-gray-100 px-3 py-1 rounded-full mb-4 ml-2 text-sm text-gray-700">
+                  <span>
+                    Category ({selectedCategories.length})
+                  </span>
+                  <button onClick={clearCategories}>
+                    <FaAdn size={16} className="text-gray-600 hover:text-red-500" />
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="p-3 space-y-2 max-h-64 overflow-y-auto">
               {[
-                'Devotionals', 'Grief', 'Prayer', 'Memoirs',
-                'Faith', 'Healing', 'Wisdom', 'Love', 'Forgiveness',
+                'Devotionals', 'Grief', 'Prayer', 'Memoirs', 'Faith',
+                'Healing', 'Wisdom', 'Love', 'Forgiveness', 'Hope',
+                'Peace', 'Discipline', 'Joy', 'Trust', 'Obedience',
+                'Humility', 'Spiritual Growth', 'Mercy', 'Kindness', 'Sacrifice',
               ].map((category, idx) => (
                 <label
                   key={idx}
-                  className="block text-base text-black font-medium cursor-pointer hover:bg-[#FAFAFA]"
+                  className={`block text-base font-medium cursor-pointer hover:bg-[#FAFAFA] ${selectedCategories.includes(category) ? 'text-[#3566A0]' : 'text-black'
+                    }`}
                 >
-                  <input type="radio" name="category" className="mr-2 accent-[#3566A0]" />
+
+                  <input
+                    type="checkbox"
+                    className="mr-2 accent-[#3566A0]"
+                    checked={selectedCategories.includes(category)}
+                    onChange={() =>
+                      toggleFilter(category, selectedCategories, setSelectedCategories)
+                    }
+                  />
                   {category}
                 </label>
               ))}
@@ -107,18 +158,38 @@ const BookLibrary = () => {
           {/* Authors */}
           <div className="mb-8 shadow rounded bg-white">
             <h4 className="font-semibold mb-3 bg-[#3566A0] text-white px-3 py-2 rounded-t">
-              Author
-            </h4>
-            <div className="space-y-4 p-3">
+              Author    </h4>
+            <div>
+              {selectedAuthors.length > 0 && (
+                <div className="w-31 ml-2 flex items-center justify-between bg-gray-100 px-3 py-1 rounded-full mb-4 text-sm text-gray-700">
+                  <span>
+                    Authors ({selectedAuthors.length})
+                  </span>
+                  <button onClick={clearAuthors}>
+                    <FaAdn size={16} className="text-gray-600 hover:text-red-500" />
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="p-3 space-y-2 max-h-64 overflow-y-auto">
               {[
-                'Alexander Hope', 'Amit Etkin', 'Amy Tan',
-                'George Martin', 'Clarence Edwin',
+                'Alexander Hope', 'Amit Etkin', 'Amy Tan', 'Ayn Rand', 'George Martin',
+                'Gerald J. Schaefer', 'Gray Masters', 'Carol Orsborn, Ph.D.', 'Clarence Edwin',
+                'Olivia Grace', 'Stephen King', 'Tony Evans', 'Rick Warren', 'Beth Moore',
+                'Joyce Meyer', 'Max Lucado', 'C.S. Lewis', 'Tim Keller', 'Lisa Bevere', 'Andy Stanley',
               ].map((author, idx) => (
                 <label
                   key={idx}
-                  className="block text-base text-black font-medium cursor-pointer hover:bg-[#FAFAFA]"
+                  className={`block text-base font-medium cursor-pointer hover:bg-[#FAFAFA] ${selectedAuthors.includes(author) ? 'text-[#3566A0]' : 'text-black'
+                    }`}
                 >
-                  <input type="radio" name="author" className="mr-2 accent-[#3566A0]" />
+
+                  <input
+                    type="checkbox"
+                    className="mr-2 accent-[#3566A0]"
+                    checked={selectedAuthors.includes(author)}
+                    onChange={() => toggleFilter(author, selectedAuthors, setSelectedAuthors)}
+                  />
                   {author}
                 </label>
               ))}
@@ -134,9 +205,12 @@ const BookLibrary = () => {
               {[5, 4, 3, 2, 1].map((star) => (
                 <label
                   key={star}
-                  className="block text-base text-yellow-500 font-medium cursor-pointer hover:bg-[#FAFAFA]"
+                  className={`block text-base font-medium cursor-pointer hover:bg-[#FAFAFA] ${selectedRatings.includes(star) ? 'text-yellow-500' : 'text-yellow-600'
+                    }`}
                 >
-                  <input type="radio" name="rating" className="mr-2 accent-[#3566A0]" />
+                  <input type="radio" name="rating"
+                    onChange={() => toggleFilter(star, selectedRatings, setSelectedRatings)}
+                    className="mr-2 accent-[#3566A0]" />
                   {'★'.repeat(star)}{'☆'.repeat(5 - star)}
                 </label>
               ))}
@@ -152,9 +226,12 @@ const BookLibrary = () => {
               {['Softcopy', 'Hardcopy'].map((format, idx) => (
                 <label
                   key={idx}
-                  className="block text-base text-black font-medium cursor-pointer hover:bg-[#FAFAFA]"
+                  className={`block text-base font-medium cursor-pointer hover:bg-[#FAFAFA] ${selectedFormats.includes(format) ? 'text-[#3566A0]' : 'text-black'
+                    }`}
                 >
-                  <input type="radio" name="format" className="mr-2 accent-[#3566A0]" />
+                  <input type="radio" name="format" className="mr-2 accent-[#3566A0]"
+                    onChange={() => toggleFilter(format, selectedFormats,)}
+                  />
                   {format}
                 </label>
               ))}
@@ -166,7 +243,7 @@ const BookLibrary = () => {
             <h4 className="font-semibold mb-3 bg-[#3566A0] text-white px-3 py-2 rounded-t">
               Recent Books
             </h4>
-            <div className="space-y-1">
+            <div className="p-3 space-y-2  overflow-y-auto">
               {books.slice(0, 5).map((book) => (
                 <div
                   key={book.id}
@@ -195,6 +272,7 @@ const BookLibrary = () => {
             </div>
           </div>
         </div>
+
       </div>
 
       <NewsLetter />

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from 'next/image';
 import { groups } from '@/Data/Dummydata';
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function Groups() {
   const [joinedGroups, setJoinedGroups] = useState([]);
@@ -33,14 +34,14 @@ export default function Groups() {
           return (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-xl hover:shadow-md transition duration-300"
+              className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl ttransition-transform duration-300 hover:scale-104"
             >
               {/* Group Avatar */}
               <div className="flex justify-center mb-4">
                 <Image
                   src={group.image}
                   alt={group.name}
-                  className="rounded-full object-cover w-25 h-25"
+                  className="rounded-full object-cover w-25 h-25 transition-transform duration-300 hover:scale-102"
                 />
               </div>
 
@@ -49,7 +50,7 @@ export default function Groups() {
               <p className="text-[#333333] text-sm mb-2">{group.members} members</p>
 
               {/* Avatars + Friends */}
-              <div className="flex justify-center items-center -space-x-2 mb-4">
+              <div className="flex justify-center items-center -space-x-2 mb-4 ">
                 {[1, 2, 3].map((i) => (
                   <Image
                     key={i}
@@ -57,7 +58,7 @@ export default function Groups() {
                     alt={`friend ${i}`}
                     width={20}
                     height={20}
-                    className="rounded-full border-2 border-white w-5 h-5"
+                    className="rounded-full border-2 border-white w-5 h-5 transition-transform duration-300 hover:scale-110"
                   />
                 ))}
                 <p className="text-xs text-gray-500 ml-3">20 friends are members</p>
@@ -67,10 +68,10 @@ export default function Groups() {
               <button
                 onClick={() => handleJoin(index)}
                 className={`text-white text-sm px-4 py-2 rounded transition-all duration-300 ${
-                  isJoined ? 'bg-green-600 hover:bg-green-700' : 'bg-[#3566A0] hover:bg-blue-700'
+                  isJoined ? 'bg-white' : 'bg-[#3566A0] hover:bg-blue-700'
                 }`}
               >
-                {isJoined ? 'Joined' : 'Join →'}
+                {isJoined ? <FaCheckCircle className="text-blue-700 text-[30px] "/> : 'Join →'}
               </button>
             </div>
           );

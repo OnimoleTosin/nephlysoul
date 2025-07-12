@@ -12,16 +12,19 @@ export default function Articles() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
         {articles.map((article) => (
-          <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-all duration-300">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={400}
-              height={220}
-              className="w-full h-[200px] object-cover"
-            />
+          <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform duration-300 hover:scale-102">
+            <div className="overflow-hidden h-[200px]">
+              <Image
+                src={article.image}
+                alt={article.title}
+                width={400}
+                height={220}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
             <div className="p-5">
               <div className="text-[11px] text-gray-500 flex items-center gap-2 mb-1">
                 <span className="font-medium text-black border border-black rounded-full px-2 py-0.5">{article.category}</span>

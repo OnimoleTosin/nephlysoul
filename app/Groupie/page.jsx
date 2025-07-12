@@ -141,7 +141,7 @@ export default function Groupie() {
               Ready to meet and connect with friends of like minds?
             </p>
             <button className="bg-[#3566A0] text-white px-6 py-2 rounded hover:bg-blue-700">
-            
+            Let's Go
              </button>
           </div>
         </div>

@@ -10,7 +10,7 @@ export default function QuickActions() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex flex-col items-center justify-center h-[300px] bg-[#F2EEF6] border-1 border-[#85729A] rounded-[24px] p-6 hover:shadow-md transition">
+          <div className="flex flex-col items-center justify-center h-[300px] bg-[#F2EEF6] border-1 border-[#85729A] rounded-[24px] p-6 hover:shadow-xl hover:scale-105 transform transition-transform duration-300">
             <div className="flex items-center justify-center w-[80px] h-[80px] bg-[#85729A] rounded-full mx-auto mb-4">
               <FaUsers className="w-[48px] h-[48px] text-white " />
             </div>
@@ -20,7 +20,7 @@ export default function QuickActions() {
             </p>
           </div>
 
-          <div className=" flex flex-col items-center justify-center h-[300px] bg-[#FFF2EB] border-1 border-[#B59888] rounded-[24px] p-6 hover:shadow-md transition">
+          <div className=" flex flex-col items-center justify-center h-[300px] bg-[#FFF2EB] border-1 border-[#B59888] rounded-[24px] p-6 hover:shadow-xl hover:scale-105 transform transition-transform duration-300">
             <div className="flex items-center justify-center w-[80px] h-[80px] bg-[#B59888] rounded-full mx-auto mb-4">
               <FaBible className="w-[48px] h-[48px] text-white " />
             </div>
@@ -30,15 +30,16 @@ export default function QuickActions() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center h-[300px] bg-[#E6F2E6] border-1 border-[#008000] rounded-[24px] p-6 hover:shadow-md transition">
+          <div className="flex flex-col items-center justify-center h-[300px] bg-[#E6F2E6] border-1 border-[#008000] rounded-[24px] p-6 hover:shadow-xl hover:scale-105 transform transition-transform duration-300">
             <div className="flex items-center justify-center w-[80px] h-[80px] bg-[#008000] rounded-full mx-auto mb-4">
-              <FaMeetup className="w-[48px] h-[48px] text-white " />
+              <FaMeetup className="w-[48px] h-[48px] text-white" />
             </div>
             <h3 className="text-xl font-bold text-[#008000] mb-2">Join Prayer Rooms</h3>
             <p className="max-w-2xl mx-auto mb-10 text-black">
               Step into a live prayer room and feel the power of shared faith. You are never praying alone.
             </p>
           </div>
+
         </div>
       </div>
     </section>

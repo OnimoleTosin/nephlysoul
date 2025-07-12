@@ -20,7 +20,7 @@ export default function NewsLetter() {
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 text-white">
         <h1 className="text-3xl md:text-4xl font-bold mb-4"> NewsLetter </h1>
         <p className="mb-6 text-lg">
-          Stay Connected, Stay Encouraged. Subscribe to our newsletter today to get updates.
+          Stay Connected, Stay Encouraged. Subscribe to our newsletter today to get<br/> updates.
         </p>
 
         <form className="flex flex-col md:flex-row gap-4 w-full max-w-xl">
