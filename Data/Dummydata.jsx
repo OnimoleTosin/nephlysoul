@@ -155,6 +155,37 @@ export const groups = [
     members: '33k',
     image: connect,
   },
+   {
+    name: 'The Lifestyle of Faith',
+    members: '130k',
+    image: faith,
+  },
+  {
+    name: 'HeartTalk Community',
+    members: '124k',
+    image: devotion,
+  },
+  {
+    name: "Soul Sisters",
+    members: '130k',
+    image: happening,
+  },
+  {
+    name: "Quite Heart Clubs",
+    members: '24k',
+    image: pray,
+  },
+  {
+    name: "Hope and Healing",
+    members: '114k',
+    image: talk,
+  },
+  {
+    name: 'Morning Prayer Circle',
+    members: '33k',
+    image: connect,
+  },
+  
 ];
 
 export const testimonials = [

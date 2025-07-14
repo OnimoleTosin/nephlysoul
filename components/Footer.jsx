@@ -39,7 +39,7 @@ export default function Footer() {
           <a href="#" className="text-white hover:text-blue-400">
             <FaFacebook size={20} />
           </a>
-          <a href="#" className="text-white hover:text-green-400">
+          <a href="#" className="text-white hover:text-green-500">
             <FaWhatsapp size={20} />
           </a>
           <a href="#" className="text-white hover:text-pink-400">

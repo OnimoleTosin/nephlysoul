@@ -76,6 +76,76 @@
 //   );
 // }
 
+// import { useEffect, useState } from "react"
+
+// const backendResponse = {
+//     statusCode: 200,
+//     status: "success",
+//     data: []
+// }
+// const backendFailedResponse = {
+//     statusCode: 400,
+//     status: "failed",
+//     message: 'Internal Server error'
+// }
+
+// export const useFetch = (endpoint, deps) => {
+//     const [loading, setLoading] = useState(false)
+//     const [data, setData] = useState()
+//     const [error, setError] = useState('')
+
+//     const getData = async () => {
+//         try {
+//             setLoading(true)
+//             const request = await fetch('https://mydomain.com' + endpoint)
+//             const response = await request.json()
+//             if (response.status === "success") {
+//                 setData(response.data)
+//             } else {
+//                 throw new Error(response.message)
+//             }
+//         }
+//         catch (error) {
+//             setError(error.message)
+//         }
+//         finally {
+//             setLoading(false)
+//         }
+//     }
+
+//     useEffect(() => {
+//         getData()
+//     }, [...deps])
+
+//     return { loading, data, error, refetch: getData }
+// }
+
+
+
+// const UserList = () => {
+//     const { data, loading, error, refetch } = useFetch("/user/list")
+
+//     return (
+//         <div>
+//             {loading && <p>loading....</p>}
+
+//             {error && !loading && (
+//                 <div>
+//                     <p>{error}</p>
+//                     <button onClick={refetch} >Try again</button>
+//                 </div>
+//             )}
+
+
+//             {data && data.length > 0 &&
+//                 data.map((item, index) => (
+//                     <h1 key={item.id || index}>{item.name}</h1>
+//                 ))
+//             }
+//         </div>
+//     )
+
+
 
 'use client';
 
@@ -110,7 +180,7 @@ export default function AuthPage() {
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        router.push('/'); // ✅ LOGIN redirects to homepage
+        router.push('/'); 
       } else {
         setError('Invalid email or password');
       }
@@ -125,13 +195,12 @@ export default function AuthPage() {
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('currentUser', JSON.stringify(newUser));
-      router.push('/OTP'); // ✅ SIGNUP redirects to OTP
+      router.push('/OTP'); 
     }
   };
 
   return (
     <div className="flex min-h-screen">
-      {/* Left image side (desktop only) */}
       <div className="hidden md:block w-1/2 relative">
         <Image
           src="/assets/Auth.png"
@@ -155,7 +224,7 @@ export default function AuthPage() {
           <div className="absolute top-4 right-4 text-sm">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-sm cursor-pointer text-[#3566A0] hover:text-black-600"
+              className="text-sm cursor-pointer text-[#3566A0] hover:text-black-600 transition-transform duration-300 hover:scale-102"
             >
               {isLogin ? 'Sign up' : 'Sign in'}
             </button>
@@ -240,7 +309,7 @@ export default function AuthPage() {
 
             <button
               type="submit"
-              className="w-full bg-[#3566A0] cursor-pointer text-white font-semibold py-2 rounded-md hover:bg-[#2c5384]"
+              className="w-full bg-[#3566A0] cursor-pointer text-white font-semibold py-2 rounded-md hover:bg-[#2c5384] transition-transform duration-300 hover:scale-102"
             >
               {isLogin ? 'Sign In' : 'Sign Up'}
             </button>
@@ -253,11 +322,11 @@ export default function AuthPage() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="bg-white flex items-center justify-center w-full border py-2 rounded-md text-black gap-2">
+            <button className="bg-white flex items-center justify-center w-full border py-2 rounded-md text-black gap-2 transition-transform duration-300 hover:scale-102">
               <Image src="/assets/Google-icon.png" alt="Google" width={20} height={20} />
               Continue with Google
             </button>
-            <button className="bg-white flex items-center justify-center w-full h-11 border py-2 rounded-md gap-2 text-black">
+            <button className="bg-white flex items-center justify-center w-full h-11 border py-2 rounded-md gap-2 text-black transition-transform duration-300 hover:scale-102">
               <Image src="/assets/Facebook-icon.png" alt="Facebook" width={20} height={20} />
               Continue with Facebook
             </button>

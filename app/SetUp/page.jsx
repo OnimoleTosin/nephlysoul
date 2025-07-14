@@ -189,7 +189,7 @@ export default function FinishSetup() {
           {/* Submit Button */}
           <button
             onClick={handleInterest}
-            className="w-full bg-[#3566A0] cursor-pointer text-white font-semibold py-3 rounded-md hover:bg-[#2c5384]"
+            className="w-full bg-[#3566A0] transition-transform duration-300 hover:scale-102 cursor-pointer text-white font-semibold py-3 rounded-md hover:bg-[#2c5384]"
           >
             Finish Setting Up
           </button>

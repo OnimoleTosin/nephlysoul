@@ -43,7 +43,7 @@ export default function OTPPage() {
 
             <button
               onClick={navigate}
-              className="w-full bg-[#3566A0] cursor-pointer  text-white font-semibold py-2 rounded-md hover:bg-[#2c5384]">
+              className="w-full bg-[#3566A0] cursor-pointer transition-transform duration-300 hover:scale-102 text-white font-semibold py-2 rounded-md hover:bg-[#2c5384]">
               Continue
             </button>
 

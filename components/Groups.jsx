@@ -7,6 +7,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function Groups() {
   const [joinedGroups, setJoinedGroups] = useState([]);
+  const [showAll, setShowAll] = useState(false); // 🔥 control to show more or less
 
   const handleJoin = (index) => {
     setJoinedGroups((prev) =>
@@ -15,6 +16,8 @@ export default function Groups() {
         : [...prev, index]
     );
   };
+
+  const visibleGroups = showAll ? groups : groups.slice(0, 6); // 🔥 limit to 6 or show all
 
   return (
     <section className="text-center px-4 md:px-32 py-8 bg-[#FAFAFA]">
@@ -28,16 +31,16 @@ export default function Groups() {
 
       {/* Groups Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {groups.map((group, index) => {
+        {visibleGroups.map((group, index) => {
           const isJoined = joinedGroups.includes(index);
 
           return (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl ttransition-transform duration-300 hover:scale-104"
+              className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl transition-transform duration-300 hover:scale-105"
             >
               {/* Group Avatar */}
-              <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4">
                 <Image
                   src={group.image}
                   alt={group.name}
@@ -71,7 +74,7 @@ export default function Groups() {
                   isJoined ? 'bg-white' : 'bg-[#3566A0] hover:bg-blue-700'
                 }`}
               >
-                {isJoined ? <FaCheckCircle className="text-blue-700 text-[30px] "/> : 'Join →'}
+                {isJoined ? <FaCheckCircle className="text-blue-700 text-[30px]" /> : 'Join →'}
               </button>
             </div>
           );
@@ -79,8 +82,11 @@ export default function Groups() {
       </div>
 
       {/* See More Button */}
-      <button className="mt-10 bg-[#3566A0] text-white px-6 py-2 rounded hover:bg-blue-700">
-        See more groups →
+      <button
+        onClick={() => setShowAll((prev) => !prev)}
+        className="mt-10 bg-[#3566A0] text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+      >
+        {showAll ? 'See less ←' : 'See more groups →'}
       </button>
     </section>
   );
