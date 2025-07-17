@@ -9,14 +9,14 @@ const Navbar = () => {
         Soul Circle
       </p>
 
-      <div className="hidden md:flex items-center gap-36px">
+      <div className="hidden md:flex items-center gap-[36px]">
         <Link href="/" passHref>
           <span className="cursor-pointer text-black hover:text-[#166F64] transition">Home</span>
         </Link>
-        <Link href="/friends" passHref>
+        <Link href="/FindFriends" passHref>
           <span className="cursor-pointer text-black hover:text-[#166F64] transition">Find Friends</span>
         </Link>
-        <Link href="/" passHref>
+        <Link href="/Forum" passHref>
           <span className="cursor-pointer text-black hover:text-[#166F64] transition">Forum</span>
         </Link>
         <Link href="/" passHref>
