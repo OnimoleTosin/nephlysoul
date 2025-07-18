@@ -25,7 +25,14 @@ export default function Footer() {
           </ul>
         </div>
 
+
         <div>
+          <ul className="space-y-2 text-sm">
+            <li className="hover:underline cursor-pointer">Subscribe</li>
+            <li className="hover:underline cursor-pointer">Privacy Policy</li>
+            <li className="hover:underline cursor-pointer">Terms of Use</li>
+            <li className="hover:underline cursor-pointer">Contact</li>
+            </ul>
           <ul className="space-y-2 text-sm">
             <li className="hover:underline cursor-pointer">Subscribe</li>
             <li className="hover:underline cursor-pointer">Privacy Policy</li>
