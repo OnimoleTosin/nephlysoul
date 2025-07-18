@@ -1,75 +1,3 @@
-// 'use client';
-
-// import React from 'react';
-// import { useRouter } from 'next/navigation';
-
-// export default function FinishSetup() {
-//   const router = useRouter();
-
-//   const handleinterest = () => {
-//     router.push('/Interest');
-//   };
-
-//   return (
-//     <>
-//       <div className="p-4 px-[40px] shadow-md bg-[#FAFAFA] font-sans">
-//         <div className="flex  items-center space-x-2">
-//           <div className="w-[48px] h-[48px] bg-black rounded-full "></div>
-//           <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
-//         </div>
-//       </div>
-
-//       <div className="min-h-screen flex items-center  justify-center bg-blue-50">
-//         <div className="mb-[400px] w-full max-w-md text-center">
-//           <h2 className="mt-4 text-[24px] font-bold mb-4 text-[#645674]">Finishing SetUp</h2>
-//           <p className="text-lg text-[#333333] mb-15">
-//             Fill the spaces below to complete setting up your profile to have full access to the platform.
-//           </p>
-
-//           {/* Location Dropdown */}
-//           <div className="mb-10">
-//             <input
-//               type="text"
-//               className="w-full px-4 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
-//               placeholder="Enter your location"
-//             />
-//           </div>
-
-
-//           {/* Gender Dropdown */}
-//           <select className="w-full px-4 py-3 border mb-10 rounded-md text-black border-[#A1A1A1] bg-white  ">
-//             <option>Select Gender</option>
-//             <option>Male</option>
-//             <option>Female</option>
-//             <option>Other</option>
-//           </select>
-
-//           {/* Date of Birth Dropdown */}
-//           <div className="mb-10">
-
-//             <input
-//               type="date"
-//               className="w-full px-4 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
-//               placeholder="Select your date of birth"
-//             />
-//           </div>
-
-
-//           {/* Submit Button */}
-
-//           <button
-//             onClick={handleinterest}
-//             className="w-full bg-[#3566A0] cursor-pointer  text-white font-semibold py-2 rounded-md hover:bg-[#2c5384]">
-//             Finish setting up
-//           </button>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-
-
 'use client';
 
 import React, { useState } from 'react';
@@ -85,31 +13,33 @@ export default function FinishSetup() {
   const [year, setYear] = useState('');
 
   const handleInterest = () => {
-    // Optionally validate before redirect
+    // Validate inputs if needed
     router.push('/Interest');
   };
 
-  // Example static location list
   const locations = ['Lagos', 'Abuja', 'Ibadan', 'Kano', 'Port Harcourt'];
 
   return (
     <>
-      <div className="p-4 px-[40px] shadow-md bg-[#FAFAFA] font-sans">
+      {/* Header */}
+      <div className="p-4 sm:px-10 px-6 shadow-md bg-[#FAFAFA] font-sans">
         <div className="flex items-center space-x-2">
-          <div className="w-[48px] h-[48px] bg-black rounded-full"></div>
-          <div className="h-[12px] w-[108px] bg-black rounded-[8px]"></div>
+          <div className="w-10 h-10 bg-black rounded-full"></div>
+          <div className="h-3 w-28 bg-black rounded-md"></div>
         </div>
       </div>
 
-      <div className="min-h-screen flex items-center justify-center bg-blue-50">
-        <div className="mb-[400px] w-full max-w-md text-center">
-          <h2 className="mt-4 text-[24px] font-bold mb-4 text-[#645674]">Finishing Setup</h2>
-          <p className="text-lg text-[#333333] mb-10">
+      {/* Main Content */}
+      <div className="min-h-screen flex items-center justify-center bg-blue-50 px-4 sm:px-6 md:px-8">
+        <div className="w-full max-w-md sm:max-w-lg text-center py-10 space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#645674]">Finishing Setup</h2>
+
+          <p className="text-sm sm:text-base text-[#333333]">
             Fill the spaces below to complete setting up your profile to have full access to the platform.
           </p>
 
           {/* Location Dropdown */}
-          <div className="mb-6">
+          <div>
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -125,7 +55,7 @@ export default function FinishSetup() {
           </div>
 
           {/* Gender Dropdown */}
-          <div className="mb-6">
+          <div>
             <select
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -138,13 +68,13 @@ export default function FinishSetup() {
             </select>
           </div>
 
-          {/* Date of Birth Dropdown */}
-          <div className="flex gap-2 mb-10">
+          {/* Date of Birth */}
+          <div className="flex flex-col sm:flex-row gap-3">
             {/* Day */}
             <select
               value={day}
               onChange={(e) => setDay(e.target.value)}
-              className="w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+              className="w-full sm:w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
             >
               <option value="">Day</option>
               {[...Array(31)].map((_, i) => (
@@ -158,7 +88,7 @@ export default function FinishSetup() {
             <select
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+              className="w-full sm:w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
             >
               <option value="">Month</option>
               {[
@@ -175,7 +105,7 @@ export default function FinishSetup() {
             <select
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+              className="w-full sm:w-1/3 px-3 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
             >
               <option value="">Year</option>
               {Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
@@ -189,7 +119,7 @@ export default function FinishSetup() {
           {/* Submit Button */}
           <button
             onClick={handleInterest}
-            className="w-full bg-[#3566A0] transition-transform duration-300 hover:scale-102 cursor-pointer text-white font-semibold py-3 rounded-md hover:bg-[#2c5384]"
+            className="w-full bg-[#3566A0] transition-transform duration-300 hover:scale-105 cursor-pointer text-white font-semibold py-3 rounded-md hover:bg-[#2c5384]"
           >
             Finish Setting Up
           </button>
