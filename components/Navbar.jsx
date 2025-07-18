@@ -45,8 +45,8 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/friends', label: 'Find Friends' },
-    { href: '/forum', label: 'Forum' },
+    { href: '/FindFriends', label: 'Find Friends' },
+    { href: '/Forum', label: 'Forum' },
     { href: '/Resource', label: 'Resources' },
     { href: '/about', label: 'About' },
   ];

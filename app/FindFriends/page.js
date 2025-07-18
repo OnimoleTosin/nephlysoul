@@ -39,17 +39,19 @@ const Page = () => {
 
       {/* Hero Section */}
       <div
-        className="h-auto bg-cover bg-center"
+        className="h-auto bg-cover bg-center" 
         style={{ backgroundImage: `url(${friendsbg.src})` }}
       >
-        <div className="text-center pt-[100px] px-4 md:pt-[166px]">
-          <h3 className="text-3xl md:text-[56px] font-semibold text-white leading-tight">
+
+        <div className="text-center pt-[100px] px-4 md:pt-[166px] font-sans">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight">
             Find A Friend Near You.
-          </h3>
+          </h1>
           <p className="text-lg md:text-[28px] text-white max-w-2xl mx-auto mt-3">
             Fill the form below to connect with a friend just near you and talk.
           </p>
         </div>
+
 
         <div className="flex flex-col md:flex-row justify-center md:items-center gap-3 pt-10 pb-20 px-4">
           <input

@@ -18,8 +18,8 @@ export default function Footer() {
 
         <div>
           <ul className="space-y-2 text-sm">
-            <li className="hover:underline cursor-pointer">Find Friends</li>
-            <li className="hover:underline cursor-pointer">Forum</li>
+            <Link href="/FindFriends" className="hover:underline cursor-pointer">Find Friends</Link><br/>
+            <Link href="/Forum" className="hover:underline cursor-pointer">Forum</Link> <br/>
             <Link href="/Resource" className="hover:underline cursor-pointer">Resources</Link><br/>
             <Link href="/" className="hover:underline cursor-pointer">Home</Link>
           </ul>
@@ -33,12 +33,6 @@ export default function Footer() {
             <li className="hover:underline cursor-pointer">Terms of Use</li>
             <li className="hover:underline cursor-pointer">Contact</li>
             </ul>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline cursor-pointer">Subscribe</li>
-            <li className="hover:underline cursor-pointer">Privacy Policy</li>
-            <li className="hover:underline cursor-pointer">Terms of Use</li>
-            <li className="hover:underline cursor-pointer">Contact</li>
-          </ul>
         </div>
 
         {/* Social Media */}
