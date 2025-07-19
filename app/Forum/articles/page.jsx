@@ -11,6 +11,8 @@ import wife1 from "@/assets/wife1.png";
 import wife2 from "@/assets/wife2.png";
 import wife3 from "@/assets/wife3.png";
 import qoutebg from "@/assets/quotebg.png";
+import Link from "next/link";
+
 
 const Comment = ({ nested = false }) => {
   const [liked, setLiked] = useState(false);
@@ -76,11 +78,11 @@ const ArticlePage = () => {
 
       <header className="flex justify-between items-center px-4 sm:px-6 py-3 border-b text-sm flex-wrap gap-2">
         <div className="flex items-center gap-6">
-          <span className="text-gray-700 cursor-pointer">Community</span>
+          <Link href="/Forum" className="text-gray-700 cursor-pointer">Community</Link>
           <span className="text-blue-600 border-b-2 border-blue-600 pb-1 cursor-pointer">Articles</span>
         </div>
         <div className="text-xs text-gray-500">
-          <a href="#" className="hover:underline">Forum / Articles</a>
+          <a href="#" className="hover:underline">Forum / <span className="text-blue-700">Articles </span></a>
         </div>
       </header>
 

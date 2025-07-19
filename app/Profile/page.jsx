@@ -42,15 +42,14 @@ export default function ProfilePage() {
     switch (activeSection) {
       case 'Personal Info':
         return (
-          <div className="p-1">
+          <div className=" bg-[#FAFAFA]">
             <div className="flex flex-col items-center text-center">
               <Image
                 src={Profile}
                 alt="Profile"
                 className="rounded-full object-cover w-25 h-25 transition-transform duration-300 hover:scale-102"
               />
-              <h2 className="text-xl font-semibold mt-2 text-black">John Doe</h2>
-              <p className="text-gray-500">@john2doe</p>
+              <h2 className="text-xl font-semibold mt-2 text-black">John Doe <span className="text-gray-500 text-xs">@john2doe</span></h2>
               <p className="text-sm mt-1 text-black">I love singing. I love nature</p>
             </div>
 
@@ -116,10 +115,8 @@ export default function ProfilePage() {
                   className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
                   placeholder="Birth Date" />
               </div>
-              <div>
-                <label className="block font-medium text-black">Bio</label>
-              <textarea className="col-span-2 border rounded-md text-black border-black bg-white p-2 rounded" placeholder="Something About Me..." rows="3" />
-             </div>
+              <label className="block font-medium text-black">Bio</label>
+              <textarea className="col-span-2 border w-[100] rounded-md text-black border-black bg-white p-2 rounded" placeholder="Something About Me..." rows="3" />
               <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded w-30 ">Save Changes</button>
             </form>
           </div>
@@ -128,56 +125,75 @@ export default function ProfilePage() {
       case 'Security':
         return (
           <div className="p-6 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-2">Security</h2>
-            <p className="text-gray-600 mb-6">Adjust security settings</p>
+            <h2 className="text-2xl font-bold mb-2">Security</h2>
+            <p className="text-black mb-6">Adjust security settings</p>
+
+            <div className="flex items-center py-2">
+              <hr className="flex-grow border-black" />
+            </div>
 
             {/* Password Settings */}
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-4">Password Settings</h3>
               <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block font-medium text-black">Current Password</label>
                 <input
                   type="password"
-                  className="border p-2 rounded"
-                  placeholder="Current Password"
-                />
-                <input
-                  type="password"
-                  className="border p-2 rounded"
-                  placeholder="New Password"
-                />
-                <input
-                  type="password"
-                  className="border p-2 rounded col-span-2"
-                  placeholder="Confirm Password"
-                />
+                  className="w-full px-4 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+                  placeholder="Current Password" />
               </div>
-              <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+
+              <div>
+                <label className="block font-medium text-black">New Password</label>
+                <input
+                  type="password"
+                  className="w-full px-4 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+                  placeholder="New Password" />
+              </div>
+
+              <div>
+                <label className="block font-medium text-black">Confirm Password</label>
+                <input
+                  type="password"
+                  className="w-full px-4 py-3 border rounded-md text-black border-[#A1A1A1] bg-white"
+                  placeholder="Confirm Password" />
+              </div>
+
+              </div>
+              <button className="mt-4 bg-[#3566A0] text-white px-4 py-2 rounded hover:bg-blue-800">
                 Save Changes
               </button>
+            </div>
+
+            <div className="flex items-center py-2">
+              <hr className="flex-grow border-black" />
             </div>
 
             {/* Connected Accounts */}
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Connected accounts</h3>
-              <div className="flex items-center justify-between border p-3 rounded">
+              <div className="flex items-center justify-between p-3">          
                 <div className="flex items-center gap-3">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                    alt="Google Icon"
-                    className="w-6 h-6"
-                  />
+                  <Image src="/assets/Google-icon.png" alt="Google" width={30} height={30} />
+                  <div className='flex flex-col'>
+                  <p className="text-gray-800 text-md text-semibold">Google</p>
                   <p className="text-gray-800">abc@gmail.com</p>
+                  </div>
                 </div>
-                <button className="text-blue-500 hover:underline">Disconnect</button>
+                <button className="text-[#E80000] hover:underline">Disconnect</button>
               </div>
             </div>
 
+            <div className="flex items-center py-2">
+              <hr className="flex-grow border-black" />
+            </div>
             {/* Restore Security Settings */}
             <div>
               <h3 className="text-lg font-semibold mb-2">Restore security settings</h3>
-              <div className="flex items-center justify-between border p-3 rounded">
+              <div className="flex items-center justify-between p-3 ">
                 <p className="text-gray-700">Restore to default security settings</p>
-                <button className="text-blue-500 hover:underline">Restore</button>
+                <button className="text-[#E80000] hover:underline">Restore</button>
               </div>
             </div>
           </div>
@@ -231,9 +247,9 @@ export default function ProfilePage() {
   return (
     <>
       <Navbar />
-      <div className="flex h-screen p-5 bg- ">
+      <div className="flex h-screen p-3 bg-[#FAFAFA] ">
         {/* Sidebar */}
-        <div className="w-1/4 bg-gray-100 p-4 fixed h-full">
+        <div className="w-1/4 bg-[#FAFAFA] p-4  fixed h-full">
           <h2 className="text-lg font-semibold mb-4 text-black">Settings</h2>
           <ul>
             {sections.map((section) => (

@@ -6,7 +6,7 @@ import Slider from '@/components/Slider';
 import Articles from '@/components/Articles';
 import Testimony from '@/components/Testimony';
 import QuickActions from '@/components/QuickActions';
-// import Community from '@/components/Community';
+import Community from '@/components/Community';
 import Books from '@/components/Books';
 import Groups from '@/components/Groups';
 import NewsLetter from '@/components/NewsLetter';
@@ -20,7 +20,7 @@ export default function Home() {
         <Slider/>
         <QuickActions/>
         <Articles/>
-        
+        <Community/>
         <Books/>
         <Quotes/>
         <Groups/>

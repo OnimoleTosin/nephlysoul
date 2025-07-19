@@ -55,7 +55,9 @@ const Navbar = () => {
     <nav className="bg-[#FAFAFA] shadow-md px-4 md:px-10 py-4 font-sans relative z-50">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <div
+        onClick={handleLogout}
+        className="flex items-center space-x-2">
           <div className="w-[48px] h-[48px] bg-black rounded-full"></div>
           <div className="h-[12px] w-[108px] bg-black rounded-[8px]"></div>
         </div>

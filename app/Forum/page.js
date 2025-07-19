@@ -31,7 +31,7 @@ const Page = () => {
   const [showMoreTags, setShowMoreTags] = useState(false);
   const [expandedPost, setExpandedPost] = useState(false);
   const fileInputRef = useRef(null);
-const pathname = usePathname();
+  const pathname = usePathname();
 
   const quotes = [
     "One peaceful breath can be more powerful than a thousand noisy worries.",
@@ -115,9 +115,8 @@ const pathname = usePathname();
       <div className="flex justify-around text-sm text-gray-700">
         <button
           onClick={handleLike}
-          className={`flex items-center gap-1 ${
-            liked ? "text-red-600" : "hover:text-red-600"
-          }`}
+          className={`flex items-center gap-1 ${liked ? "text-red-600" : "hover:text-red-600"
+            }`}
         >
           {liked ? <FaHeart /> : <FaRegHeart />} Like
         </button>
@@ -135,9 +134,8 @@ const pathname = usePathname();
 
         <button
           onClick={handleSave}
-          className={`flex items-center gap-1 ${
-            saved ? "text-blue-600" : "hover:text-blue-600"
-          }`}
+          className={`flex items-center gap-1 ${saved ? "text-blue-600" : "hover:text-blue-600"
+            }`}
         >
           {saved ? <FaBookmark /> : <FaRegBookmark />} Save
         </button>
@@ -150,21 +148,20 @@ const pathname = usePathname();
       <Navbar />
 
       <div className="bg-[#FAFAFA] px-10 py-4">
-        <div className="flex justify-between items-center flex-wrap">
-        <Link href="/forum">
-  <span className={`pb-1 font-medium ${pathname === "/forum" ? "text-blue-700 border-b-2 border-blue-700" : "text-gray-600 hover:text-blue-700"}`}>
-    Community
-  </span>
-</Link>
-<Link href="/Forum/articles">
-  <span className={`pb-1 font-medium ${pathname === "/forum/articles" ? "text-blue-700 border-b-2 border-blue-700" : "text-gray-600 hover:text-blue-700"}`}>
-    Articles
-  </span>
-</Link>
+        <header className="flex justify-between items-center px-4 sm:px-6 py-3 border-b text-sm flex-wrap gap-2">
+          <div className="flex items-center gap-6">
+            <Link href="/Forum" className="text-[#3566A0] border-b-2 border-blue-600 pb-1 cursor-pointer">Community</Link>
+            <Link href="/Forum/articles">
+              <span className={`pb-1 font-medium ${pathname === "/forum/articles" ? "text-blue-700 border-b-2 border-blue-700" : "text-gray-600 hover:text-blue-700"}`}>
+                Articles
+              </span>
+            </Link>               
+            </div>
+
           <div className="text-xs text-gray-500">
-            Forum / <span className="text-blue-600">Community</span>
+            <a href="#" className="hover:underline"><span className="text-blue-700">Forum </span>/ Articles</a>
           </div>
-        </div>
+        </header>
 
         <div className="mt-4 flex gap-3 overflow-x-auto whitespace-nowrap">
           {[
@@ -225,11 +222,10 @@ const pathname = usePathname();
               </div>
               <button
                 onClick={handlePost}
-                className={`px-4 py-1 rounded text-sm ${
-                  postText
-                    ? "bg-blue-600 text-white"
-                    : "bg-blue-100 text-blue-400 cursor-not-allowed"
-                }`}
+                className={`px-4 py-1 rounded text-sm ${postText
+                  ? "bg-[#3566A0] text-white"
+                  : "bg-blue-100 text-blue-400 cursor-not-allowed hover:bg-blue-600"
+                  }`}
                 disabled={!postText}
               >
                 Post
@@ -399,7 +395,7 @@ const pathname = usePathname();
           </div>
         </aside>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
