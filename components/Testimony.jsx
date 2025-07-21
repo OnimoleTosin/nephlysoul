@@ -37,16 +37,30 @@ export default function Testimony() {
         </div>
 
         <div className="flex gap-2 mt-8">
-          <FaArrowCircleLeft className='text-[30px] text-black' />
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`h-3 w-3 rounded-full ${current === index ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-            />
-          ))}
-          <FaArrowAltCircleRight className='text-[30px] text-black'/>
+<FaArrowCircleLeft
+  onClick={() =>
+    setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+  }
+  className="text-[30px] text-black cursor-pointer hover:text-blue-600"
+/>
+
+{testimonials.map((_, index) => (
+  <button
+    key={index}
+    onClick={() => setCurrent(index)}
+    className={`h-3 w-3 rounded-full transition-all duration-200 ${
+      current === index ? 'bg-blue-600 scale-125' : 'bg-gray-300'
+    }`}
+  />
+))}
+
+<FaArrowAltCircleRight
+  onClick={() =>
+    setCurrent((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+  }
+  className="text-[30px] text-black cursor-pointer hover:text-blue-600"
+/>
+
         </div>
       </div>
     </section>

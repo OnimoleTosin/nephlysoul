@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaBell, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBell, FaChevronDown, FaEllipsisV, FaTimes } from 'react-icons/fa';
 import img1 from '@/assets/img1.png';
 
 const Navbar = () => {
@@ -138,7 +138,7 @@ const Navbar = () => {
               onClick={() => setMobileOpen((prev) => !prev)}
               className="text-xl text-gray-800"
             >
-              {mobileOpen ? <FaTimes /> : <FaBars />}
+              {mobileOpen ? <FaTimes /> : <FaEllipsisV />}
             </button>
           </div>
         </div>
