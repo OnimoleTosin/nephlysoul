@@ -1,25 +1,32 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Quotes from '@/components/Quotes';
 import Slider from '@/components/Slider';
-import Features from '@/components/Features';
+import Articles from '@/components/Articles';
 import Testimony from '@/components/Testimony';
 import QuickActions from '@/components/QuickActions';
-import CommunitySection from '@/components/CommunitySection';
+import Community from '@/components/Community';
+import Books from '@/components/Books';
+import Groups from '@/components/Groups';
+import NewsLetter from '@/components/NewsLetter';
+import Promotions from '@/components/Promtions';
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+    <Navbar/>
       <div className="min-h-screen bg-[#FAFAFA]">
         <Slider/>
         <QuickActions/>
-        <Features/>
-        <CommunitySection/>
+        <Articles/>
+        <Community/>
+        <Books/>
         <Quotes/>
+        <Groups/>
+        <Promotions/>
         <Testimony/>
+        <NewsLetter/>
       </div>
       <Footer/>
     </>
