@@ -10,7 +10,7 @@ import Community from '@/components/Community';
 import Books from '@/components/Books';
 import Groups from '@/components/Groups';
 import NewsLetter from '@/components/NewsLetter';
-import Promotions from '@/components/Promtions';
+import Promotions from '@/components/Promotions';
 
 export default function Home() {
   return (
