@@ -113,7 +113,7 @@ const Navbar = () => {
               </div>
 
               {dropdownOpen && (
-                <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px] border z-50 mt-2">
+                <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px]  z-50 mt-2">
                   <button
                     onClick={() => router.push('/Profile')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
@@ -123,7 +123,7 @@ const Navbar = () => {
                   </button>
 
                   <button
-                    onClick={() => router.push('/Profile')}
+                    onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <FaComment className='text-blue-8000 border-1 border-black' />
@@ -131,7 +131,7 @@ const Navbar = () => {
                   </button>
 
                   <button
-                    onClick={() => router.push('/Profile')}
+                    onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <FaConnectdevelop />
@@ -139,7 +139,7 @@ const Navbar = () => {
                   </button>
 
                   <button
-                    onClick={() => router.push('/Profile')}
+                    onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <FaPeopleArrows />
@@ -147,7 +147,7 @@ const Navbar = () => {
                   </button>
 
                   <button
-                    onClick={() => router.push('/Profile')}
+                    onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <FaBookmark />
@@ -156,7 +156,7 @@ const Navbar = () => {
 
 
                   <button
-                    onClick={() => router.push('/Profile')}
+                    onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <FaCogs />
