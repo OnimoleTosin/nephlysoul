@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaBell, FaChevronDown, FaEllipsisV, FaTimes } from 'react-icons/fa';
+import { FaBell, FaBookmark, FaChevronDown, FaCogs, FaComment, FaConnectdevelop, FaEllipsisV, FaPeopleArrows, FaSignOutAlt, FaTimes, FaUser } from 'react-icons/fa';
 import img1 from '@/assets/img1.png';
 
 const Navbar = () => {
@@ -56,8 +56,8 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div
-        onClick={handleLogout}
-        className="flex items-center space-x-2">
+          onClick={handleLogout}
+          className="flex items-center space-x-2">
           <div className="w-[48px] h-[48px] bg-black rounded-full"></div>
           <div className="h-[12px] w-[108px] bg-black rounded-[8px]"></div>
         </div>
@@ -70,10 +70,9 @@ const Navbar = () => {
               <Link key={label} href={href}>
                 <span
                   className={`relative px-4 py-2 rounded transition-all duration-200 cursor-pointer
-                    ${
-                      isActive
-                        ? 'text-blue-600 font-bold border-b-2 border-blue-600'
-                        : 'text-gray-700 hover:bg-blue-100 hover:border-b'
+                    ${isActive
+                      ? 'text-blue-600 font-bold border-b-2 border-blue-600'
+                      : 'text-gray-700 hover:bg-blue-100 hover:border-b'
                     }
                   `}
                 >
@@ -95,7 +94,7 @@ const Navbar = () => {
             </button>
           ) : (
             <>
-              <Link href="/">
+              <Link href="#">
                 <button className="text-[22px] text-black hover:text-blue-600 transition">
                   <FaBell />
                 </button>
@@ -114,18 +113,62 @@ const Navbar = () => {
               </div>
 
               {dropdownOpen && (
-                <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px] border z-50">
+                <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px] border z-50 mt-2">
                   <button
                     onClick={() => router.push('/Profile')}
-                    className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    View Profile
+                    <FaUser />
+                    <span className="text-sm">Profile</span>
                   </button>
+
+                  <button
+                    onClick={() => router.push('/Profile')}
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    <FaComment className='text-blue-8000 border-1 border-black' />
+                    <span className="text-sm">Messages</span>
+                  </button>
+
+                  <button
+                    onClick={() => router.push('/Profile')}
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    <FaConnectdevelop />
+                    <span className="text-sm">Connections</span>
+                  </button>
+
+                  <button
+                    onClick={() => router.push('/Profile')}
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    <FaPeopleArrows />
+                    <span className="text-sm">My Groups</span>
+                  </button>
+
+                  <button
+                    onClick={() => router.push('/Profile')}
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    <FaBookmark />
+                    <span className="text-sm">Bookmarks</span>
+                  </button>
+
+
+                  <button
+                    onClick={() => router.push('/Profile')}
+                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    <FaCogs />
+                    <span className="text-sm">Setting</span>
+                  </button>
+
                   <button
                     onClick={handleLogout}
-                    className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-100"
+                    className="flex gap-3 block w-full px-4 py-2 border-t border-black text-left text-sm text-red-600 hover:bg-gray-100"
                   >
-                    Logout
+                    <FaSignOutAlt />
+                    <span className="text-sm">LogOut</span>
                   </button>
                 </div>
               )}
@@ -154,10 +197,9 @@ const Navbar = () => {
                 <span
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-2 rounded transition-all duration-200
-                    ${
-                      isActive
-                        ? 'text-blue-600 font-bold border-b-2 border-blue-600'
-                        : 'text-gray-700 hover:bg-blue-100 hover:border-b'
+                    ${isActive
+                      ? 'text-blue-600 font-bold border-b-2 border-blue-600'
+                      : 'text-gray-700 hover:bg-blue-100 hover:border-b'
                     }
                   `}
                 >
