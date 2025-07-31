@@ -46,15 +46,13 @@ const Page = () => {
     <>
       <Navbar />
 
-      {/* Hero Section */}
   <div
-  className="relative bg-cover bg-center min-h-[60vh]"
+  className="relative bg-cover bg-center min-h-[563px]"
   style={{ backgroundImage: `url(${friendsbg.src})` }}
 >
-  {/* Dark overlay */}
+
   <div className="absolute inset-0 bg-black/50 z-0" />
 
-  {/* Content on top of the overlay */}
   <div className="relative z-10 text-center pt-[100px] px-4 md:pt-[166px] font-sans">
     <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight text-white">
       Find A Friend Near You....
@@ -81,7 +79,6 @@ const Page = () => {
 
       </div>
 
-      {/* How It Works Section */}
       <section className="px-4 bg-white text-center mt-10 md:mt-20">
         <h2 className="text-2xl md:text-3xl font-semibold text-[#645674] mb-2">
           How It Works?
@@ -95,17 +92,17 @@ const Page = () => {
           {[
             {
               step: 1,
-              color: "#ffffffff",
+              color: "#8C766A",
               text: "Type your ZIP code, city, LGA, or state. This helps us connect you with someone nearby who wants to make friends.",
             },
             {
               step: 2,
-              color: "#ffffffff",
+              color: "#4600A9", 
               text: "We'll search our community for a warm, trusted person close to you — someone who is also willing to speak with a friend.",
             },
             {
               step: 3,
-              color: "#ffffffff",
+              color: "#AC6828",
               text: "Once found, you can give them a call. It's safe, simple, and built for companionship.",
             },
           ].map(({ step, color, text }) => (
@@ -126,7 +123,6 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Loader */}
       {loading && (
         <div className="fixed inset-0 flex flex-col items-center justify-center backdrop-blur-md bg-black/20 z-50">
           <FiLoader className="w-16 h-16 sm:w-20 sm:h-20 text-[white] animate-spin" />
@@ -134,7 +130,6 @@ const Page = () => {
         </div>
       )}
 
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/20 z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-6xl h-[90vh] overflow-y-auto relative">

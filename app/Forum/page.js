@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import qoutebg from "@/assets/quotebg.png";
@@ -21,17 +20,35 @@ import Group4 from "@/assets/Group4.png";
 import { IoIosArrowForward } from "react-icons/io";
 import Footer from "@/components/Footer";
 
+// --- Add initial posts array ---
+const initialPosts = Array(5)
+  .fill(0)
+  .map((_, i) => ({
+    id: i + 1,
+    user: {
+      name: "John Doe",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      date: "Jun 7",
+      group: "Growing Stronger",
+    },
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam...",
+    image: Group4.src,
+    liked: false,
+    saved: false,
+    likeCount: 12,
+    commentCount: 12,
+    expanded: false,
+  }));
 
 const Page = () => {
   const [postText, setPostText] = useState("");
-  const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [likeCount, setLikeCount] = useState(12);
-  const [commentCount, setCommentCount] = useState(12);
   const [showMoreTags, setShowMoreTags] = useState(false);
-  const [expandedPost, setExpandedPost] = useState(false);
   const fileInputRef = useRef(null);
   const pathname = usePathname();
+
+  // --- Manage posts state ---
+  const [posts, setPosts] = useState(initialPosts);
 
   const quotes = [
     "One peaceful breath can be more powerful than a thousand noisy worries.",
@@ -54,17 +71,43 @@ const Page = () => {
     setPostText("");
   };
 
-  const handleLike = () => {
-    setLiked(!liked);
-    setLikeCount((prev) => (liked ? prev - 1 : prev + 1));
+ 
+  const handleLike = (id) => {
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              liked: !post.liked,
+              likeCount: post.liked ? post.likeCount - 1 : post.likeCount + 1,
+            }
+          : post
+      )
+    );
   };
 
-  const handleSave = () => {
-    setSaved(!saved);
+  const handleSave = (id) => {
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id ? { ...post, saved: !post.saved } : post
+      )
+    );
   };
 
-  const handleComment = () => {
-    setCommentCount((prev) => prev + 1);
+  const handleExpand = (id) => {
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id ? { ...post, expanded: !post.expanded } : post
+      )
+    );
+  };
+
+  const handleComment = (id) => {
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id ? { ...post, commentCount: post.commentCount + 1 } : post
+      )
+    );
     alert("Comment clicked");
   };
 
@@ -72,41 +115,41 @@ const Page = () => {
     fileInputRef.current.click();
   };
 
-  const PostCard = () => (
+ 
+  const PostCard = ({ post, onLike, onSave, onExpand, onComment }) => (
     <div className="bg-white p-4 rounded-lg shadow-sm">
       <div className="flex items-center space-x-3 mb-2">
         <img
-          src="https://randomuser.me/api/portraits/men/32.jpg"
+          src={post.user.avatar}
           alt="user"
           className="w-10 h-10 rounded-full"
         />
         <div>
-          <p className="font-semibold text-[#333333]">John Doe • Jun 7</p>
-          <p className="text-xs text-gray-500">In Growing Stronger</p>
+          <p className="font-semibold text-[#333333]">
+            {post.user.name} • {post.user.date}
+          </p>
+          <p className="text-xs text-gray-500">In {post.user.group}</p>
         </div>
       </div>
 
       <p className="text-gray-700 text-sm mb-3">
-        {expandedPost
+        {post.expanded
           ? `Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam aliquet a enim dui molestie. Urna ullamcorper ipsum ornare a vehicula vel. Rhoncus pellen ...more.`
-          : `Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam...`}
-        <button
-          className="text-blue-600 text-sm ml-1"
-          onClick={() => setExpandedPost(!expandedPost)}
-        >
-          {expandedPost ? "less" : "more"}
+          : post.content}
+        <button className="text-blue-600 text-sm ml-1" onClick={onExpand}>
+          {post.expanded ? "less" : "more"}
         </button>
       </p>
 
       <img
-        src={Group4.src}
+        src={post.image}
         alt="Post content"
         className="rounded-md object-cover h-[382px] w-full"
       />
 
       <div className="text-sm text-gray-500 mb-2">
-        <span>{likeCount} Likes • </span>
-        <span>{commentCount} Comments • </span>
+        <span>{post.likeCount} Likes • </span>
+        <span>{post.commentCount} Comments • </span>
         <span>12 Shares</span>
       </div>
 
@@ -114,15 +157,16 @@ const Page = () => {
 
       <div className="flex justify-around text-sm text-gray-700">
         <button
-          onClick={handleLike}
-          className={`flex items-center gap-1 ${liked ? "text-red-600" : "hover:text-red-600"
-            }`}
+          onClick={onLike}
+          className={`flex items-center gap-1 ${
+            post.liked ? "text-red-600" : "hover:text-red-600"
+          }`}
         >
-          {liked ? <FaHeart /> : <FaRegHeart />} Like
+          {post.liked ? <FaHeart /> : <FaRegHeart />} Like
         </button>
 
         <button
-          onClick={handleComment}
+          onClick={onComment}
           className="flex items-center gap-1 hover:text-blue-600"
         >
           <FaRegComment /> Comment
@@ -133,11 +177,12 @@ const Page = () => {
         </button>
 
         <button
-          onClick={handleSave}
-          className={`flex items-center gap-1 ${saved ? "text-blue-600" : "hover:text-blue-600"
-            }`}
+          onClick={onSave}
+          className={`flex items-center gap-1 ${
+            post.saved ? "text-blue-600" : "hover:text-blue-600"
+          }`}
         >
-          {saved ? <FaBookmark /> : <FaRegBookmark />} Save
+          {post.saved ? <FaBookmark /> : <FaRegBookmark />} Save
         </button>
       </div>
     </div>
@@ -150,16 +195,29 @@ const Page = () => {
       <div className="bg-[#FAFAFA] px-10 py-4">
         <header className="flex justify-between items-center px-4 sm:px-6 py-3 border-b text-sm flex-wrap gap-2">
           <div className="flex items-center gap-6">
-            <Link href="/Forum" className="text-[#3566A0] border-b-2 border-blue-600 pb-1 cursor-pointer">Community</Link>
+            <Link
+              href="/Forum"
+              className="text-[#3566A0] border-b-2 border-blue-600 pb-1 cursor-pointer"
+            >
+              Community
+            </Link>
             <Link href="/Forum/articles">
-              <span className={`pb-1 font-medium ${pathname === "/forum/articles" ? "text-blue-700 border-b-2 border-blue-700" : "text-gray-600 hover:text-blue-700"}`}>
+              <span
+                className={`pb-1 font-medium ${
+                  pathname === "/forum/articles"
+                    ? "text-blue-700 border-b-2 border-blue-700"
+                    : "text-gray-600 hover:text-blue-700"
+                }`}
+              >
                 Articles
               </span>
-            </Link>               
-            </div>
+            </Link>
+          </div>
 
           <div className="text-xs text-gray-500">
-            <a href="#" className="hover:underline"><span className="text-blue-700">Forum </span>/ Articles</a>
+            <a href="#" className="hover:underline">
+              <span className="text-blue-700">Forum </span>/ Articles
+            </a>
           </div>
         </header>
 
@@ -222,10 +280,11 @@ const Page = () => {
               </div>
               <button
                 onClick={handlePost}
-                className={`px-4 py-1 rounded text-sm ${postText
-                  ? "bg-[#3566A0] text-white"
-                  : "bg-blue-100 text-blue-400 cursor-not-allowed hover:bg-blue-600"
-                  }`}
+                className={`px-4 py-1 rounded text-sm ${
+                  postText
+                    ? "bg-[#3566A0] text-white"
+                    : "bg-blue-100 text-blue-400 cursor-not-allowed hover:bg-blue-600"
+                }`}
                 disabled={!postText}
               >
                 Post
@@ -233,8 +292,16 @@ const Page = () => {
             </div>
           </div>
 
-          {[...Array(5)].map((_, i) => (
-            <PostCard key={i} />
+         
+          {posts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onLike={() => handleLike(post.id)}
+              onSave={() => handleSave(post.id)}
+              onExpand={() => handleExpand(post.id)}
+              onComment={() => handleComment(post.id)}
+            />
           ))}
         </div>
 
@@ -305,7 +372,7 @@ const Page = () => {
             <div className="bg-[#3566A0] text-white px-4 py-2 font-semibold">
               My Groups
             </div>
-            <div className="p-4 space-y-4 max-h-[300px] overflow-y-auto">
+            <div className="p-4 space-y-4 max-h-[300px] overflow-y-auto ">
               {[
                 {
                   name: "Grief to Grace",
@@ -343,7 +410,7 @@ const Page = () => {
                   img: "https://i.pravatar.cc/40?img=27",
                 },
               ].map((group, index) => (
-                <div key={index} className="flex items-center gap-3">
+                <div key={index} className="flex items-center gap-3 hover:bg-blue-100 transition">
                   <img
                     src={group.img}
                     alt={group.name}
@@ -359,6 +426,19 @@ const Page = () => {
                   </div>
                 </div>
               ))}
+              <div className="flex items-center gap-3 hover:bg-blue-100 transition mt-4 pt-4">
+                {/* <img
+                  src="https://i.pravatar.cc/40?img=8"
+                  alt="Grief to Grace"
+                  className="w-10 h-10 rounded-full object-cover"
+                /> */}
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    Grief to Grace
+                  </p>
+                  <p className="text-xs text-gray-500">12k members</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -386,7 +466,11 @@ const Page = () => {
                 <br /> today!{" "}
               </h4>
               <button className="bg-[#4A90E2] text-white font-medium px-6 py-2 rounded-md hover:bg-blue-600 transition inline-flex items-center gap-2 cursor-pointer">
-                Find friend
+                <Link
+                href="/FindFriends"
+              >
+                Find Friends
+              </Link>
                 <span className="text-lg">
                   <IoIosArrowForward />
                 </span>

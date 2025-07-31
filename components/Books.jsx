@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { books } from "@/Data/Dummydata";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Books() {
   const router = useRouter();
@@ -64,7 +65,9 @@ export default function Books() {
 
       <div className="mt-10 text-center">
         <button onClick={seeMore} className="bg-[#3566A0] text-white px-6 py-2 text-sm sm:text-base rounded hover:bg-blue-700 transition">
+          <Link href ="/Resource">
           See More Books &rarr;
+          </Link>
         </button>
       </div>
     </section>
