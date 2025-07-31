@@ -3,19 +3,27 @@
 import Image from 'next/image';
 import img1 from '@/assets/img1.png';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+
 
 export default function HeroSection() {
+  const router = useRouter()
+
+  const handleFriends = () => {
+    router.push("/FindFriends")
+  }
+
   return (
     <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden font-sans">
-      
-<Image
-  src={img1}
-  alt="Background"
-  width={1920}
-  height={1080}
-  className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
-  priority
-/>
+
+      <Image
+        src={img1}
+        alt="Background"
+        width={1920}
+        height={1080}
+        className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
+        priority
+      />
 
 
 
@@ -35,7 +43,9 @@ export default function HeroSection() {
         </div>
 
         {/* Button block */}
-        <div className="mt-6">
+        <div
+          onClick={handleFriends}
+          className="mt-6">
           <button className="w-[180px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700 transition">
             Call a Friend →
           </button>

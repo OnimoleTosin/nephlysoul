@@ -5,9 +5,12 @@ import Book4 from "@/assets/book4.png";
 import Book5 from "@/assets/book5.png";
 import Book6 from "@/assets/book6.png";
 
-import article1 from "@/assets/article1.png";
+import article1 from "@/assets/article1.jpg";
 import article2 from "@/assets/article2.jpg";
 import article3 from "@/assets/article3.jpg";
+import article4 from "@/assets/article4.jpg";
+import article5 from "@/assets/article5.jpg";
+import article6 from "@/assets/article6.jpg";
 import faith from "@/assets/Groups/faith.png";
 import devotion from "@/assets/Groups/devotion.jpg";
 import happening from "@/assets/Groups/happening.jpg";
@@ -18,65 +21,65 @@ import testimony from "@/assets/testimony.png"
 
 export const books = [
   {
-  id: 1,
-  title: 'Collected Poems of Clarence Edwin Flynn',
-  author: 'Clarence Edwin',
-  image: Book1,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: '22 people viewing now', 
-},
+    id: 1,
+    title: 'Collected Poems of Clarence Edwin Flynn',
+    author: 'Clarence Edwin',
+    image: Book1,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: '22 people viewing now',
+  },
   {
-  id: 2,
-  title: 'The Unlimited Power of Faith: Operating In A World of Possibilities',
-  author: 'Rachel Engstrom',
-  image: Book2,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: '20 people viewing now', 
-},
+    id: 2,
+    title: 'The Unlimited Power of Faith: Operating In A World of Possibilities',
+    author: 'Rachel Engstrom',
+    image: Book2,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: '20 people viewing now',
+  },
   {
-  id: 3,
-  title: 'Handbook of Mental Health & Aging',
-  author: 'Nathan Hantke, Amit Etkin & Ruth O’Hara',
-  image: Book3,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: '18 people viewing now', 
-},
+    id: 3,
+    title: 'Handbook of Mental Health & Aging',
+    author: 'Nathan Hantke, Amit Etkin & Ruth O’Hara',
+    image: Book3,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: '18 people viewing now',
+  },
   {
-  id: 4,
-  title: 'The Widower’s Toolbox: Repairing Your Life After Losing Your Spouse',
-  author: 'Gerald J. Schaefer',
-  image: Book4,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: ' 58 people viewing now', 
-},
+    id: 4,
+    title: 'The Widower’s Toolbox: Repairing Your Life After Losing Your Spouse',
+    author: 'Gerald J. Schaefer',
+    image: Book4,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: ' 58 people viewing now',
+  },
   {
-  id: 5,
-  title: 'Spiritual Aging: Weekly Reflecions For Embracing Life',
-  author: 'Carol Orsborn, Ph.D.',
-  image: Book5,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: '37 people viewing now', 
-},
+    id: 5,
+    title: 'Spiritual Aging: Weekly Reflecions For Embracing Life',
+    author: 'Carol Orsborn, Ph.D.',
+    image: Book5,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: '37 people viewing now',
+  },
   {
-  id: 6,
-  title: 'The Peasants: Spring',
-  author: 'John C. Maxwell',
-  image: Book6,
-  rating: 4.5,
-  tag: 'Faith',
-  badge: 'Recently added',
-  views: '34 people viewing now', 
-}
+    id: 6,
+    title: 'The Peasants: Spring',
+    author: 'John C. Maxwell',
+    image: Book6,
+    rating: 4.5,
+    tag: 'Faith',
+    badge: 'Recently added',
+    views: '34 people viewing now',
+  }
 ];
 
 export const articles = [
@@ -106,21 +109,21 @@ export const articles = [
     title: 'What happens when your one source of connection disappears?',
     time: '5 mins ago',
     category: 'Social Well-Being',
-    image: article2,
+    image: article4,
   },
   {
     id: 5,
     title: 'The hidden emotional weight of aging alone and how to ease it with simple...',
     time: '5 mins ago',
     category: 'Mental Health',
-    image: article3,
+    image: article5,
   },
   {
     id: 6,
     title: 'One elder’s small daily ritual that turned loneliness into light.',
     time: '5 mins ago',
     category: 'Daily Living',
-    image: article1,
+    image: article6,
   },
 ];
 
@@ -155,7 +158,7 @@ export const groups = [
     members: '33k',
     image: connect,
   },
-   {
+  {
     name: 'The Lifestyle of Faith',
     members: '130k',
     image: faith,
@@ -185,7 +188,7 @@ export const groups = [
     members: '33k',
     image: connect,
   },
-  
+
 ];
 
 export const testimonials = [

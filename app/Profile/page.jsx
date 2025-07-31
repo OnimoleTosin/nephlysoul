@@ -32,13 +32,13 @@ export default function ProfilePage() {
     }));
   };
 
-const [fontSize, setFontSize] = useState(16); // default size (px)
-const [background, setBackground] = useState("Everyone");
-const [messagePermission, setMessagePermission] = useState("Everyone");
-const [msgApproval, setMsgApproval] = useState("Yes");
-const [lastSeen, setLastSeen] = useState("Connections Only");
-const [tagging, setTagging] = useState("Everyone");
-const [searchEngine, setSearchEngine] = useState("Yes");
+  const [fontSize, setFontSize] = useState(16); // default size (px)
+  const [background, setBackground] = useState("Everyone");
+  const [messagePermission, setMessagePermission] = useState("Everyone");
+  const [msgApproval, setMsgApproval] = useState("Yes");
+  const [lastSeen, setLastSeen] = useState("Connections Only");
+  const [tagging, setTagging] = useState("Everyone");
+  const [searchEngine, setSearchEngine] = useState("Yes");
 
 
 
@@ -131,8 +131,10 @@ const [searchEngine, setSearchEngine] = useState("Yes");
                   className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
                   placeholder="Birth Date" />
               </div>
-              <label className="block font-medium text-black">Bio</label>
-              <textarea className="col-span-2 border w-[100] rounded-md text-black border-black bg-white p-2 rounded" placeholder="Something About Me..." rows="3" />
+              <div>
+                <label className="block font-medium text-black">Bio</label>
+                <textarea className="w-full border rounded-md text-black border-black bg-white p-2" placeholder="Something About Me..." rows="3" />
+              </div>
               <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded w-30 hover:bg-blue-600 ">Save Changes</button>
             </form>
           </div>
@@ -219,7 +221,7 @@ const [searchEngine, setSearchEngine] = useState("Yes");
         return (
           <div className="p-4">
             <h2 className="text-2xl font-bold mb-1 text-black">Alerts</h2>
-            <p className="text-gray-600 mb-6 text-black">Adjust notification settings</p>
+            <p className=" mb-6 text-black">Adjust notification settings</p>
 
             <div className="flex items-center py-2">
               <hr className="flex-grow border-black" />
@@ -314,132 +316,132 @@ const [searchEngine, setSearchEngine] = useState("Yes");
         );
 
       case 'Privacy':
-  return (
-    <div className="space-y-8">
-      {/* Header */}
-      <h2 className="text-2xl font-bold mb-2 text-black">Privacy Settings</h2>
-      <p className="text-black mb-6">Adjust who can interact with you and see your information</p>
+        return (
+          <div className="space-y-8">
+            {/* Header */}
+            <h2 className="text-2xl font-bold mb-2 text-black">Privacy Settings</h2>
+            <p className="text-black mb-6">Adjust who can interact with you and see your information</p>
 
-      {/* Divider */}
-      <div className="flex items-center py-2">
-        <hr className="flex-grow border-black" />
-      </div>
+            {/* Divider */}
+            <div className="flex items-center py-2">
+              <hr className="flex-grow border-black" />
+            </div>
 
-      {/* Section 1: Who can see my profile */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Who can see my profile</label>
-        <div className="space-y-2">
-          {["Everyone", "Connections Only", "No one"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="profileVisibility"
-                value={option}
-                checked={background === option}
-                onChange={() => setBackground(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+            {/* Section 1: Who can see my profile */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Who can see my profile</label>
+              <div className="space-y-2">
+                {["Everyone", "Connections Only", "No one"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="profileVisibility"
+                      value={option}
+                      checked={background === option}
+                      onChange={() => setBackground(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-      {/* Section 2: Who can message me */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Who can message me</label>
-        <div className="space-y-2">
-          {["Everyone", "Connections Only", "No one"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="messagePermission"
-                value={option}
-                checked={messagePermission === option}
-                onChange={() => setMessagePermission(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+            {/* Section 2: Who can message me */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Who can message me</label>
+              <div className="space-y-2">
+                {["Everyone", "Connections Only", "No one"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="messagePermission"
+                      value={option}
+                      checked={messagePermission === option}
+                      onChange={() => setMessagePermission(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-      {/* Section 3: Message request approval needed */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Message request approval needed?</label>
-        <div className="space-y-2">
-          {["Yes", "No"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="msgApproval"
-                value={option}
-                checked={msgApproval === option}
-                onChange={() => setMsgApproval(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+            {/* Section 3: Message request approval needed */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Message request approval needed?</label>
+              <div className="space-y-2">
+                {["Yes", "No"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="msgApproval"
+                      value={option}
+                      checked={msgApproval === option}
+                      onChange={() => setMsgApproval(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-      {/* Section 4: Who can see my last seen */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Show when i'm online</label>
-        <div className="space-y-2">
-          {["Everyone", "Connections Only", "No one"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="lastSeen"
-                value={option}
-                checked={lastSeen === option}
-                onChange={() => setLastSeen(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+            {/* Section 4: Who can see my last seen */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Show when i'm online</label>
+              <div className="space-y-2">
+                {["Everyone", "Connections Only", "No one"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="lastSeen"
+                      value={option}
+                      checked={lastSeen === option}
+                      onChange={() => setLastSeen(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-      {/* Section 5: Who can tag me */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Show my profile picture to</label>
-        <div className="space-y-2">
-          {["Everyone", "Connections Only", "No one"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="tagging"
-                value={option}
-                checked={tagging === option}
-                onChange={() => setTagging(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+            {/* Section 5: Who can tag me */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Show my profile picture to</label>
+              <div className="space-y-2">
+                {["Everyone", "Connections Only", "No one"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="tagging"
+                      value={option}
+                      checked={tagging === option}
+                      onChange={() => setTagging(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-      {/* Section 6: Show in search engines */}
-      <div>
-        <label className="block mb-2 text-black font-semibold">Allow people to tag me in posts</label>
-        <div className="space-y-2">
-          {["Yes", "No"].map((option) => (
-            <label key={option} className="flex items-center gap-2 text-black">
-              <input
-                type="radio"
-                name="searchEngine"
-                value={option}
-                checked={searchEngine === option}
-                onChange={() => setSearchEngine(option)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+            {/* Section 6: Show in search engines */}
+            <div>
+              <label className="block mb-2 text-black font-semibold">Allow people to tag me in posts</label>
+              <div className="space-y-2">
+                {["Yes", "No"].map((option) => (
+                  <label key={option} className="flex items-center gap-2 text-black">
+                    <input
+                      type="radio"
+                      name="searchEngine"
+                      value={option}
+                      checked={searchEngine === option}
+                      onChange={() => setSearchEngine(option)}
+                    />
+                    <span>{option}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
 
       default:
         return null;
