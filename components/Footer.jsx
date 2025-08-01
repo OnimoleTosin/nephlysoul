@@ -18,9 +18,9 @@ export default function Footer() {
 
         <div>
           <ul className="space-y-2 text-sm">
-            <Link href="/FindFriends" className="hover:underline cursor-pointer">Find Friends</Link><br/>
-            <Link href="/Forum" className="hover:underline cursor-pointer">Forum</Link> <br/>
-            <Link href="/Resource" className="hover:underline cursor-pointer">Resources</Link><br/>
+            <Link href="/FindFriends" className="hover:underline cursor-pointer">Find Friends</Link><br />
+            <Link href="/Forum" className="hover:underline cursor-pointer">Forum</Link> <br />
+            <Link href="/Resource" className="hover:underline cursor-pointer">Resources</Link><br />
             <Link href="/" className="hover:underline cursor-pointer">Home</Link>
           </ul>
         </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <li className="hover:underline cursor-pointer">Privacy Policy</li>
             <li className="hover:underline cursor-pointer">Terms of Use</li>
             <li className="hover:underline cursor-pointer">Contact</li>
-            </ul>
+          </ul>
         </div>
 
         {/* Social Media */}
@@ -53,7 +53,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 text-center text-sm text-gray-400">
-        © 2025 A product of Soul Circle Group
+        © 2025 A product of NephlySoul Group
       </div>
     </footer>
   );

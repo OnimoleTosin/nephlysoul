@@ -14,7 +14,7 @@ export default function Community() {
             A Place To Be Heard and Held
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-            With <span className="font-semibold text-white">SoulCircle</span>, connection is just a gentle step away —
+            With <span className="font-semibold text-white">NephlySoul</span>, connection is just a gentle step away —
             a familiar voice, a shared prayer, or someone to listen to.<br className="hidden md:block" />
             This is a space where hearts meet, faith is shared,<br className="hidden md:block" />
             and every soul feels seen.
