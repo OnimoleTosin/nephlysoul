@@ -44,9 +44,10 @@ export default function HeroSection() {
 
         {/* Button block */}
         <div
-          onClick={handleFriends}
           className="mt-6">
-          <button className="w-[180px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700 transition">
+          <button
+            onClick={handleFriends}
+            className="w-[180px] h-[48px] px-6 py-2 bg-[#3566A0] text-white rounded-[8px] font-medium hover:bg-blue-700 transition">
             Call a Friend →
           </button>
         </div>

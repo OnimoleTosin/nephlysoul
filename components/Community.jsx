@@ -2,8 +2,16 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+
 
 export default function Community() {
+  const router = useRouter()
+
+  const handleFriends = () => {
+    router.push("/FindFriends")
+  }
+
   return (
     <div className=" relative w-full bg-[#3A3244] text-white px-4 sm:px-8 py-16 md:py-24 font-sans overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 relative z-10">
@@ -19,7 +27,9 @@ export default function Community() {
             This is a space where hearts meet, faith is shared,<br className="hidden md:block" />
             and every soul feels seen.
           </p>
-          <button className="bg-[#3566A0] hover:bg-blue-600 text-white px-6 py-3 rounded-md text-base sm:text-lg font-medium transition duration-300">
+          <button
+            onClick={handleFriends}
+            className="bg-[#3566A0] hover:bg-blue-600 text-white px-6 py-3 rounded-md text-base sm:text-lg font-medium transition duration-300">
             Call a friend &rarr;
           </button>
         </div>

@@ -59,7 +59,7 @@ const Navbar = () => {
     { href: '/FindFriends', label: 'Find Friends' },
     { href: '/Forum', label: 'Forum' },
     { href: '/Resource', label: 'Resources' },
-    { href: '/about', label: 'About' },
+    { href: '/About', label: 'About' },
   ];
 
   return (

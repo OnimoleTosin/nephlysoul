@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 export default function Books() {
   const router = useRouter();
 
-  const seeMore=()=>{
+  const seeMore = () => {
     router.push('/Resource');
   }
 
@@ -54,7 +54,9 @@ export default function Books() {
                 <span className="text-black text-xs">({book.views})</span>
               </div>
 
-              <button className="bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-700 transition w-full md:w-auto text-center">
+              <button
+                onClick={seeMore}
+                className="bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-700 transition w-full md:w-auto text-center">
                 Read &rarr;
               </button>
             </div>

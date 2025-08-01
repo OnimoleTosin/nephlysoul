@@ -18,6 +18,7 @@ export default function Footer() {
 
         <div>
           <ul className="space-y-2 text-sm">
+            <Link href="/About" className="hover:underline cursor-pointer">About</Link><br />
             <Link href="/FindFriends" className="hover:underline cursor-pointer">Find Friends</Link><br />
             <Link href="/Forum" className="hover:underline cursor-pointer">Forum</Link> <br />
             <Link href="/Resource" className="hover:underline cursor-pointer">Resources</Link><br />
