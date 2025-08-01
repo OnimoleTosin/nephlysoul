@@ -5,6 +5,17 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBell, FaBookmark, FaChevronDown, FaCogs, FaComment, FaConnectdevelop, FaEllipsisV, FaPeopleArrows, FaSignOutAlt, FaTimes, FaUser } from 'react-icons/fa';
+import { MdOutlineConnectWithoutContact } from "react-icons/md";
+import { MdGroups2 } from "react-icons/md";
+import { IoBookmarksOutline } from "react-icons/io5";
+import { TiMessageTyping } from "react-icons/ti";
+import { CgProfile } from "react-icons/cg";
+import { IoSettingsOutline } from "react-icons/io5";
+import { FaRegBell } from "react-icons/fa";
+
+
+
+
 import img1 from '@/assets/img1.png';
 
 const Navbar = () => {
@@ -95,7 +106,7 @@ const Navbar = () => {
             <>
               <Link href="#">
                 <button className="text-[22px] text-black hover:text-blue-600 transition">
-                  <FaBell />
+                  <FaRegBell />
                 </button>
               </Link>
 
@@ -117,7 +128,7 @@ const Navbar = () => {
                     onClick={() => router.push('/Profile')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaUser />
+                    <CgProfile />
                     <span className="text-sm">Profile</span>
                   </button>
 
@@ -125,7 +136,7 @@ const Navbar = () => {
                     onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaComment className='text-blue-8000 border-1 border-black' />
+                    <TiMessageTyping />
                     <span className="text-sm">Messages</span>
                   </button>
 
@@ -133,7 +144,7 @@ const Navbar = () => {
                     onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaConnectdevelop />
+                    <MdOutlineConnectWithoutContact />
                     <span className="text-sm">Connections</span>
                   </button>
 
@@ -141,7 +152,7 @@ const Navbar = () => {
                     onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaPeopleArrows />
+                    <MdGroups2 />
                     <span className="text-sm">My Groups</span>
                   </button>
 
@@ -149,7 +160,7 @@ const Navbar = () => {
                     onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaBookmark />
+                    <IoBookmarksOutline />
                     <span className="text-sm">Bookmarks</span>
                   </button>
 
@@ -158,7 +169,7 @@ const Navbar = () => {
                     onClick={() => router.push('#')}
                     className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
-                    <FaCogs />
+                    <IoSettingsOutline />
                     <span className="text-sm">Setting</span>
                   </button>
 

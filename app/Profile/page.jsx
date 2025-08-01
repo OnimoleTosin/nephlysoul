@@ -4,7 +4,15 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Profile from "@/assets/profile.png"
-import { FaBell, FaBiohazard, FaFont, FaLock, FaUser } from 'react-icons/fa';
+import { FaBell, FaExclamationCircle, FaFont, FaLock, FaUser } from 'react-icons/fa';
+import { CiCircleAlert } from 'react-icons/ci';
+import { PiTextAUnderline } from "react-icons/pi";
+import { FaRegBell } from "react-icons/fa";
+import { CiLock } from "react-icons/ci";
+import { FaRegUser } from "react-icons/fa";
+
+
+
 
 export default function ProfilePage() {
   const [activeSection, setActiveSection] = useState('Personal Info');
@@ -47,11 +55,17 @@ export default function ProfilePage() {
   };
 
   const sections = [
-    { name: 'Personal Info', icon: <FaUser /> },
-    { name: 'Security', icon: <FaLock /> },
-    { name: 'Alerts', icon: <FaBell /> },
-    { name: 'Display', icon: <FaFont /> },
-    { name: 'Privacy', icon: <FaBiohazard /> },
+    { name: 'Personal Info', icon: <FaRegUser /> },
+    {
+      name: 'Security', icon: <CiLock />
+    },
+    {
+      name: 'Alerts', icon: <FaRegBell />
+    },
+    {
+      name: 'Display', icon: <PiTextAUnderline />
+    },
+    { name: 'Privacy', icon: <CiCircleAlert className="text-bold" /> },
   ];
 
   const renderContent = () => {
