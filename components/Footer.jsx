@@ -3,14 +3,10 @@ import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1F2B40] text-white py-10 px-6 font-sans">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-
-        <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <div className="w-[48px] h-[48px] bg-white rounded-full" />
-            <div className="h-[12px] w-[108px] bg-white rounded-[8px]" />
-          </div>
+    <footer className="bg-[#1F2B40] text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div className="w-10 h-10 rounded-full bg-white mb-4" />
           <p className="text-sm text-gray-300">
             Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semper pellentesque ut.
           </p>
