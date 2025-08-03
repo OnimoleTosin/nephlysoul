@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 export default function Footer() {
   return (
@@ -43,8 +45,8 @@ export default function Footer() {
           <a href="#" className="text-white hover:text-pink-400">
             <FaInstagram size={20} />
           </a>
-          <a href="#" className="text-white hover:text-blue-300">
-            <FaTwitter size={20} />
+          <a href="#" className="text-white hover:text-black">
+            <FaXTwitter size={20} />
           </a>
         </div>
       </div>

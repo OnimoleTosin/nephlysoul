@@ -73,13 +73,25 @@ export default function ProfilePage() {
       case 'Personal Info':
         return (
           <div className=" bg-[#FAFAFA]">
-            <div className="flex flex-col items-center text-center">
+            <div className="w-full h-48 relative">
+              <Image
+                src={Profile} // change this to your cover image path
+                alt="Cover Photo"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-b-lg"
+              />
+            </div>
+
+            <div className="flex flex-col items-center text-center -mt-16">
               <Image
                 src={Profile}
                 alt="Profile"
-                className="rounded-full object-cover w-25 h-25 transition-transform duration-300 hover:scale-102"
+                className="rounded-full object-cover w-32 h-32 border-4 border-white shadow-md"
               />
-              <h2 className="text-xl font-semibold mt-2 text-black">John Doe <span className="text-gray-500 text-xs">@john2doe</span></h2>
+              <h2 className="text-xl font-semibold mt-2 text-black">
+                John Doe <span className="text-gray-500 text-xs">@john2doe</span>
+              </h2>
               <p className="text-sm mt-1 text-black">I love singing. I love nature</p>
             </div>
 
