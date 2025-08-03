@@ -1,21 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Profile from "@/assets/profile.png"
+import Cover from "@/assets/coverpics.png"
 import { FaBell, FaExclamationCircle, FaFont, FaLock, FaUser } from 'react-icons/fa';
 import { CiCircleAlert } from 'react-icons/ci';
 import { PiTextAUnderline } from "react-icons/pi";
 import { FaRegBell } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
+import Link from 'next/link';
 
 
 
 
-export default function ProfilePage() {
-  const [activeSection, setActiveSection] = useState('Personal Info');
+export default function ProfilePage({ searchParams }) {
+  const { view: activeSection } = use(searchParams) ?? {}
 
   const [alerts, setAlerts] = useState({
     "Daily devotional reminders": true,
@@ -70,102 +72,6 @@ export default function ProfilePage() {
 
   const renderContent = () => {
     switch (activeSection) {
-      case 'Personal Info':
-        return (
-          <div className=" bg-[#FAFAFA]">
-            <div className="w-full h-48 relative">
-              <Image
-                src={Profile} // change this to your cover image path
-                alt="Cover Photo"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-b-lg"
-              />
-            </div>
-
-            <div className="flex flex-col items-center text-center -mt-16">
-              <Image
-                src={Profile}
-                alt="Profile"
-                className="rounded-full object-cover w-32 h-32 border-4 border-white shadow-md"
-              />
-              <h2 className="text-xl font-semibold mt-2 text-black">
-                John Doe <span className="text-gray-500 text-xs">@john2doe</span>
-              </h2>
-              <p className="text-sm mt-1 text-black">I love singing. I love nature</p>
-            </div>
-
-            <form className="grid grid-cols-2 gap-4 mt-6 max-w-3xl mx-auto">
-              <div>
-                <label className="block font-medium text-black">First Name</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="First Name" />
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Last Name</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="Last Name" />
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">UserName</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="UserName" />
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Email</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="Email" />
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Phone Number</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="Phone Number" />
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Gender</label>
-                <select
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white">
-                  <option>Select Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Location</label>
-                <select
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white">
-                  <option>Select Location</option>
-                  <option>Lagos</option>
-                  <option>Abuja</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-medium text-black">Birth Date</label>
-                <input type="date"
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="Birth Date" />
-              </div>
-              <div>
-                <label className="block font-medium text-black">Bio</label>
-                <textarea className="w-full border rounded-md text-black border-black bg-white p-2" placeholder="Something About Me..." rows="3" />
-              </div>
-              <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded w-30 hover:bg-blue-600 ">Save Changes</button>
-            </form>
-          </div>
-        );
-
       case 'Security':
         return (
           <div className="p-6 max-w-3xl mx-auto">
@@ -470,7 +376,105 @@ export default function ProfilePage() {
         );
 
       default:
-        return null;
+        return (
+          <div className=" bg-[#FAFAFA]">
+            <div className='mb-25'>
+              <div className="w-full h-58 relative">
+                <Image
+                  src={Cover} // change this to your cover image path
+                  alt="Cover Photo"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-b-lg"
+                />
+              </div>
+
+              <div className=" absolute flex flex-row items-center text-center -mt-10">
+                <Image
+                  src={Profile}
+                  alt="Profile"
+                  objectFit="cover"
+                  className="rounded-full object-cover w-32 h-32 border-4 ml-10 border-white shadow-md"
+                />
+                <div className='mt-10'>
+                  <h2 className="text-xl font-bold mt-2 text-black">
+                    John Doe  .   <span className="text-gray-500 text-xs ml-3">@john2doe</span>
+                  </h2>
+                  <p className="text-sm mt-1 text-black">I love singing. I love nature</p>
+                </div>
+              </div>
+            </div>
+
+            <form className="grid grid-cols-2 gap-4 mt-6 max-w-3xl mx-auto">
+              <div>
+                <label className="block font-bold text-black">First Name</label>
+                <input
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                  placeholder="First Name" />
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Last Name</label>
+                <input
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                  placeholder="Last Name" />
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">UserName</label>
+                <input
+                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                  placeholder="UserName" />
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Email</label>
+                <input
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                  placeholder="Email" />
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Phone Number</label>
+                <input
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                  placeholder="Phone Number" />
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Gender</label>
+                <select
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                  <option>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Location</label>
+                <select
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                  <option>Select Location</option>
+                  <option>Lagos</option>
+                  <option>Abuja</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-bold text-black">Birth Date</label>
+                <input type="date"
+                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                  placeholder="Birth Date" />
+              </div>
+              <div className='col-span-2'>
+                <label className="block font-bold text-black">Bio</label>
+                <textarea className="w-full border rounded-md text-black border-gray-400 bg-white p-2" placeholder="Something About Me..." rows="3" />
+              </div>
+              <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded w-30 hover:bg-blue-600 ">Save Changes</button>
+            </form>
+          </div>
+        );
     }
   };
 
@@ -484,15 +488,15 @@ export default function ProfilePage() {
           <h2 className="text-lg font-semibold mb-4 text-black">Settings</h2>
           <ul>
             {sections.map((section) => (
-              <li
-                key={section.name}
-                className={`flex items-center gap-2 p-2 cursor-pointer rounded mb-4 text-black ${activeSection === section.name ? 'bg-[#3566A0] text-white' : 'hover:bg-gray-200'
-                  }`}
-                onClick={() => setActiveSection(section.name)}
-              >
-                {section.icon}
-                <span>{section.name}</span>
-              </li>
+              <Link key={section.name} href={section.name === "Personal Info" ? '/Profile' : `?view=${section.name}`}>
+                <li
+                  className={`flex items-center gap-2 p-2 cursor-pointer rounded mb-4 text-black ${(activeSection === section.name || !activeSection && section.name === "Personal Info") ? 'bg-[#3566A0] text-white' : 'hover:bg-gray-200'
+                    }`}
+                >
+                  {section.icon}
+                  <span>{section.name}</span>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
@@ -500,17 +504,17 @@ export default function ProfilePage() {
         {/* Mobile Tab Navigation */}
         <div className="md:hidden w-full bg-white sticky top-0 z-10 border-b border-gray-300 overflow-x-auto whitespace-nowrap flex gap-2 px-2 py-3">
           {sections.map((section) => (
-            <button
+            < Link
               key={section.name}
-              onClick={() => setActiveSection(section.name)}
-              className={`flex items-center gap-1 px-4 py-2 rounded-full border ${activeSection === section.name
+              href={section.name === "Personal Info" ? '/Profile' : `?view=${section.name}`}
+              className={`flex items-center gap-1 px-4 py-2 rounded-full border ${(activeSection === section.name || !activeSection && section.name === "Personal Info")
                 ? 'bg-[#3566A0] text-white border-[#3566A0]'
                 : 'text-black border-gray-300'
                 }`}
             >
               {section.icon}
               <span className="text-sm">{section.name}</span>
-            </button>
+            </Link>
           ))}
         </div>
 
