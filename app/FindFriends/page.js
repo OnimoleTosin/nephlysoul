@@ -10,7 +10,7 @@ import { FiLoader } from "react-icons/fi";
 
 const friends = new Array(20).fill(null).map((_, index) => ({
   id: index,
-  name: "John Doe",
+  name: index % 2 === 0 ? "John Doe" : "Jane Smith",
   gender: index % 2 === 0 ? "Male" : "Female",
   age: index % 2 === 0 ? "62yrs" : "56yrs",
   avatarBg: index % 3 === 0 ? "bg-orange-200" : "bg-slate-800",
@@ -33,39 +33,52 @@ const Page = () => {
     setShowModal(false);
   };
 
+  const filteredFriends = friends.filter((friend) => {
+    const q = query.toLowerCase();
+    return (
+      friend.name.toLowerCase().includes(q) ||
+      friend.gender.toLowerCase().includes(q) ||
+      friend.age.toLowerCase().includes(q)
+    );
+  });
+
   return (
     <>
       <Navbar />
 
-      {/* Hero Section */}
       <div
-        className="h-auto bg-cover bg-center"
+        className="relative bg-cover bg-center min-h-[563px]"
         style={{ backgroundImage: `url(${friendsbg.src})` }}
       >
-        <div className="text-center pt-[100px] px-4 md:pt-[166px]">
-          <h3 className="text-3xl md:text-[56px] font-semibold text-white leading-tight">
-            Find A Friend Near You.
-          </h3>
-          <p className="text-lg md:text-[28px] text-white max-w-2xl mx-auto mt-3">
+
+        <div className="absolute inset-0 bg-black/50 z-0" />
+
+        <div className="relative z-10 text-center pt-[100px] px-4 md:pt-[166px] font-sans">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight text-white">
+            Find A Friend Near You....
+          </h1>
+          <p className="text-sm md:text-[20px] text-white max-w-2xl mx-auto mt-3">
             Fill the form below to connect with a friend just near you and talk.
           </p>
+          <div className="flex flex-col md:flex-row justify-center md:items-center gap-3 pt-10 pb-20 px-4">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Enter zip code, city, LG, state"
+              className="w-full md:w-[300px] h-[48px] bg-[#FDFDFD] text-[#A1A1A1] rounded-[8px] pl-[16px] outline-none"
+            />
+            <button
+              className="w-full md:w-[119px] h-[48px] bg-[#3566A0] text-[#FAFAFA] rounded-[8px] cursor-pointer hover:bg-blue-600"
+              onClick={handleFindFriend}
+            >
+              Find friend &rarr;
+            </button>
+          </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center md:items-center gap-3 pt-10 pb-20 px-4">
-          <input
-            placeholder="Enter zip code, city, LG, state"
-            className="w-full md:w-[300px] h-[48px] bg-[#FDFDFD] text-[#A1A1A1] rounded-[8px] pl-[16px] outline-none"
-          />
-          <button
-            className="w-full md:w-[119px] h-[48px] bg-[#3566A0] text-[#FAFAFA] rounded-[8px]"
-            onClick={handleFindFriend}
-          >
-            Find friend
-          </button>
-        </div>
+
       </div>
 
-      {/* How It Works Section */}
       <section className="px-4 bg-white text-center mt-10 md:mt-20">
         <h2 className="text-2xl md:text-3xl font-semibold text-[#645674] mb-2">
           How It Works?
@@ -110,7 +123,6 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Loader with Spinner Icon */}
       {loading && (
         <div className="fixed inset-0 flex flex-col items-center justify-center backdrop-blur-md bg-black/20 z-50">
           <FiLoader className="w-16 h-16 sm:w-20 sm:h-20 text-[white] animate-spin" />
@@ -118,7 +130,6 @@ const Page = () => {
         </div>
       )}
 
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/20 z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-6xl h-[90vh] overflow-y-auto relative">
@@ -128,10 +139,11 @@ const Page = () => {
                   <input
                     type="text"
                     placeholder="Enter zip code, city, LG, state"
+                    value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    className="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none text-sm lg:w-[300px] sm:w-[200px] text-[#A1A1A1]"
+                    className="flex-1 px-4 py-2 h-13 rounded border border-black focus:outline-none text-sm lg:w-[300px] sm:w-[200px] text-[#A1A1A1]"
                   />
-                  <button className="w-full sm:w-auto px-4 py-2 bg-[#3566A0] hover:bg-[blue] text-white text-sm rounded">
+                  <button className="w-15 h-13 sm:w-auto px-4 py-2 bg-[#3566A0] hover:bg-[blue] text-white text-sm rounded">
                     Search
                   </button>
                 </div>
@@ -143,12 +155,12 @@ const Page = () => {
                 </button>
               </div>
 
-              <h2 className="text-[#2F80ED] font-semibold mb-4 text-sm sm:text-base bg-[#EDF4FC] w-full p-2 rounded">
-                120 friends found
+              <h2 className="text-[#3566A0] font-semibold mb-4 text-sm sm:text-base bg-[#EDF4FC] w-full p-2 rounded">
+                {filteredFriends.length} friend{filteredFriends.length !== 1 && "s"} found
               </h2>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {friends.map((friend) => (
+                {filteredFriends.map((friend) => (
                   <div
                     key={friend.id}
                     className="bg-white border rounded-lg p-3 sm:p-4 text-center shadow-sm"
@@ -167,7 +179,7 @@ const Page = () => {
                     <p className="text-xs sm:text-sm text-gray-500">
                       {friend.gender}, {friend.age}
                     </p>
-                    <button className="mt-3 w-8 h-8 mx-auto flex items-center justify-center bg-blue-500 text-white rounded-full hover:bg-blue-600">
+                    <button className="mt-3 w-8 h-8 mx-auto flex items-center justify-center bg-[#3566A0] text-white rounded-full hover:bg-blue-600">
                       <FaPhoneAlt size={12} />
                     </button>
                   </div>

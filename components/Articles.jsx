@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { articles } from "@/Data/Dummydata";
+import Link from "next/link";
 
 export default function Articles() {
   return (
@@ -44,7 +45,9 @@ export default function Articles() {
 
       <div className="mt-12 text-center">
         <button className="bg-[#3566A0] text-white px-6 py-2 text-sm sm:text-base rounded hover:bg-blue-700 transition">
+          <Link href = "/Forum/articles">
           See More Articles &rarr;
+          </Link>
         </button>
       </div>
     </section>

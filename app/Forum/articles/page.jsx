@@ -13,7 +13,6 @@ import wife3 from "@/assets/wife3.png";
 import qoutebg from "@/assets/quotebg.png";
 import Link from "next/link";
 
-
 const Comment = ({ nested = false }) => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
@@ -30,20 +29,37 @@ const Comment = ({ nested = false }) => {
 
   return (
     <div className={`flex ${nested ? "ml-10 mt-3" : "mt-5"} gap-3`}>
-      <img src="https://i.pravatar.cc/40" alt="avatar" className="w-10 h-10 rounded-full" />
+      <img
+        src="https://i.pravatar.cc/40"
+        alt="avatar"
+        className="w-10 h-10 rounded-full"
+      />
       <div className="mb-[53px]">
         <h3 className="font-semibold mb-[5px]">John Doe</h3>
         <p className="text-sm text-gray-700 mb-[24px]">
-          Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semp pellentesque ut. Nam sed non nullam nisl non pulvinar.
+          Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque
+          semp pellentesque ut. Nam sed non nullam nisl non pulvinar.
         </p>
         <div className="flex items-center gap-4 text-xs text-gray-500">
-          <button onClick={handleLike} className={`flex items-center gap-1 ${liked ? "text-blue-600" : ""}`}>
+          <button
+            onClick={handleLike}
+            className={`flex items-center gap-1 ${
+              liked ? "text-blue-600" : ""
+            }`}
+          >
             <LuThumbsUp size={14} /> {liked ? 21 : 20}
           </button>
-          <button onClick={handleDislike} className={`flex items-center gap-1 ${disliked ? "text-blue-600" : ""}`}>
+          <button
+            onClick={handleDislike}
+            className={`flex items-center gap-1 ${
+              disliked ? "text-blue-600" : ""
+            }`}
+          >
             <LuThumbsDown size={16} /> {disliked ? 3 : 2}
           </button>
-          <button className="flex items-center gap-1 hover:text-blue-600">Reply (3)</button>
+          <button className="flex items-center gap-1 hover:text-blue-600">
+            Reply (3)
+          </button>
         </div>
       </div>
     </div>
@@ -74,22 +90,29 @@ const ArticlePage = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Navbar/>
+      <Navbar />
 
       <header className="flex justify-between items-center px-4 sm:px-6 py-3 border-b text-sm flex-wrap gap-2">
         <div className="flex items-center gap-6">
-          <Link href="/Forum" className="text-gray-700 cursor-pointer">Community</Link>
-          <span className="text-blue-600 border-b-2 border-blue-600 pb-1 cursor-pointer">Articles</span>
+          <Link href="/Forum" className="text-gray-700 cursor-pointer">
+            Community
+          </Link>
+          <span className="text-blue-600 border-b-2 border-blue-600 pb-1 cursor-pointer">
+            Articles
+          </span>
         </div>
         <div className="text-xs text-gray-500">
-          <a href="#" className="hover:underline">Forum / <span className="text-blue-700">Articles </span></a>
+          <a href="#" className="hover:underline">
+            Forum / <span className="text-blue-700">Articles </span>
+          </a>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8 py-6">
-
         <div className="w-full md:w-2/3">
-          <span className="inline-block border border-gray-300 text-gray-600 text-sm px-3 py-1 rounded-full mb-3">Faith</span>
+          <span className="inline-block border border-gray-300 text-gray-600 text-sm px-3 py-1 rounded-full mb-3">
+            Faith
+          </span>
 
           <h1 className="text-2xl md:text-3xl font-semibold leading-snug mb-2">
             Lorem ipsum dolor sit amet ipsum dolor sit <br /> amet
@@ -105,11 +128,16 @@ const ArticlePage = () => {
             <span>12 Views</span>
           </div>
 
-          <img src={laughter.src} alt="image" className="rounded-md w-full h-auto mb-5" />
+          <img
+            src={laughter.src}
+            alt="image"
+            className="rounded-md w-full h-auto mb-5"
+          />
 
           <div className="text-[15px] leading-relaxed space-y-4">
             <p>
-              Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam aliquet a enim dui molestie...
+              Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla
+              aliquam aliquet a enim dui molestie...
             </p>
           </div>
 
@@ -125,7 +153,9 @@ const ArticlePage = () => {
             </div>
           </div>
 
-          <div className="text-[#767676] my-[40px]"><hr /></div>
+          <div className="text-[#767676] my-[40px]">
+            <hr />
+          </div>
 
           <div className="mb-8">
             <h3 className="font-medium text-gray-700 mb-2">Leave a comment</h3>
@@ -144,27 +174,57 @@ const ArticlePage = () => {
 
         <aside className="w-full md:w-1/3 space-y-8">
           <div>
-            <input type="text" placeholder="Search" className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none"
+            />
           </div>
 
           <div className="bg-white shadow-md rounded-md overflow-hidden">
-            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">Categories</h3>
+            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">
+              Categories
+            </h3>
             <ul className="text-sm divide-y divide-gray-200 px-4 py-2">
-              {["Culture", "Creativity", "Food", "Travel", "Humor", "Music", "Faith"].map((category) => (
-                <li key={category} className="py-2 hover:text-blue-600 cursor-pointer">{category}</li>
+              {[
+                "Culture",
+                "Creativity",
+                "Food",
+                "Travel",
+                "Humor",
+                "Music",
+                "Faith",
+              ].map((category) => (
+                <li
+                  key={category}
+                  className="py-2 hover:text-blue-600 cursor-pointer"
+                >
+                  {category}
+                </li>
               ))}
             </ul>
           </div>
 
           <div className="bg-white shadow-md rounded-md overflow-hidden">
-            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">Top Posts</h3>
+            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">
+              Top Posts
+            </h3>
             <div className="p-4 space-y-4">
               {topPosts.map((post, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <img src={wife1.src} alt="post" className="w-12 h-12 object-cover rounded" />
+                <div
+                  key={index}
+                  className="flex items-start gap-3 hover:bg-blue-100 rounded transition"
+                >
+                  <img
+                    src={wife1.src}
+                    alt="post"
+                    className="w-12 h-12 object-cover rounded"
+                  />
                   <div>
                     <p className="text-xs text-gray-500 mb-1">{post.date}</p>
-                    <p className="text-sm font-medium text-gray-800 leading-snug">{post.text}</p>
+                    <p className="text-sm font-medium text-gray-800 leading-snug">
+                      {post.text}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -172,18 +232,39 @@ const ArticlePage = () => {
           </div>
 
           <div className="bg-white shadow-md rounded-md overflow-hidden">
-            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">Tags</h3>
+            <h3 className="bg-[#3566A0] text-white px-4 py-2 font-semibold">
+              Tags
+            </h3>
             <div className="flex flex-wrap gap-2 text-sm px-4 py-3">
-              {["Culture", "Spirituality", "Faith", "Digital", "Politics", "Social Well-being"].map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full cursor-pointer hover:bg-blue-100">{tag}</span>
+              {[
+                "Culture",
+                "Spirituality",
+                "Faith",
+                "Digital",
+                "Politics",
+                "Social Well-being",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full cursor-pointer hover:bg-blue-100"
+                >
+                  {tag}
+                </span>
               ))}
             </div>
           </div>
 
           <div className="bg-[red] rounded-lg overflow-hidden shadow max-w-full">
-            <div className="bg-cover bg-center p-6 text-white text-center w-full h-[380px]" style={{ backgroundImage: `url(${qoutebg.src})` }}>
-              <p className="text-[24px] font-medium mb-[49px]">Quote Of The Day</p>
-              <p className="text-lg font-semibold leading-snug text-[32px] text-center">{quotes[quoteIndex]}</p>
+            <div
+              className="bg-cover bg-center p-6 text-white text-center w-full h-[380px]"
+              style={{ backgroundImage: `url(${qoutebg.src})` }}
+            >
+              <p className="text-[24px] font-medium mb-[49px]">
+                Quote Of The Day
+              </p>
+              <p className="text-lg font-semibold leading-snug text-[32px] text-center">
+                {quotes[quoteIndex]}
+              </p>
             </div>
           </div>
 
@@ -192,7 +273,14 @@ const ArticlePage = () => {
               Need a friend to <br /> talk to? Find one <br /> today!
             </h4>
             <button className="bg-[#4A90E2] text-white font-medium px-6 py-2 rounded-md hover:bg-blue-600 transition inline-flex items-center gap-2 cursor-pointer">
-              Find friend <span className="text-lg"><IoIosArrowForward /></span>
+              <Link
+                href="/FindFriends"
+              >
+                Find Friends
+              </Link>
+              <span className="text-lg">
+                <IoIosArrowForward />
+              </span>
             </button>
           </div>
         </aside>
@@ -200,12 +288,20 @@ const ArticlePage = () => {
 
       <section className="bg-white mt-10 px-4 pb-16">
         <div className="max-w-7xl mx-auto">
-          <h1 className="mb-6 text-[32px] font-semibold text-[#645674]">More Articles</h1>
+          <h1 className="mb-6 text-[32px] font-semibold text-[#645674]">
+            More Articles
+          </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10">
             {[wife1, wife2, wife3].map((img, idx) => (
               <div key={idx} className="rounded overflow-hidden">
-                <img src={img.src} alt={`article-${idx + 1}`} className="w-full h-[300px] object-cover rounded" />
-                <p className="text-[24px] text-[#333333] mt-2 px-2">Lorem ipsum dolor sit amet ipsum dolor sit amet</p>
+                <img
+                  src={img.src}
+                  alt={`article-${idx + 1}`}
+                  className="w-full h-[300px] object-cover rounded"
+                />
+                <p className="text-[24px] text-[#333333] mt-2 px-2">
+                  Lorem ipsum dolor sit amet ipsum dolor sit amet
+                </p>
               </div>
             ))}
           </div>
