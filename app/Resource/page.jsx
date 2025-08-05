@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { books } from '@/Data/Dummydata';
 import Navbar from '@/components/Navbar';
 import { FaAdn, FaSearch } from 'react-icons/fa';
+import { MdCancel } from "react-icons/md";
 import NewsLetter from '@/components/NewsLetter';
 import Footer from '@/components/Footer';
 
@@ -85,13 +86,13 @@ const BookLibrary = () => {
 
             <div className="col-span-full text-center mt-6">
               <button className="bg-white text-black px-6 py-2 text-sm sm:text-base rounded ">
-                <span className='text-blue-700 m-2 cursor-pointer'>1</span> 
-                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>2</span> 
-                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>3</span> 
-                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>4</span> 
-                <span className='text-black m-2 cursor-pointer hover:text-blue-500' >5</span> 
-                
-                 &rarr;
+                <span className='text-blue-700 m-2 cursor-pointer'>1</span>
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>2</span>
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>3</span>
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500'>4</span>
+                <span className='text-black m-2 cursor-pointer hover:text-blue-500' >5</span>
+
+                &rarr;
               </button>
             </div>
           </div>
@@ -123,7 +124,7 @@ const BookLibrary = () => {
                     Category ({selectedCategories.length})
                   </span>
                   <button onClick={clearCategories}>
-                    <FaAdn size={16} className="text-gray-600 hover:text-red-500" />
+                    <MdCancel size={16} className="text-gray-600 hover:text-red-500" />
                   </button>
                 </div>
               )}
@@ -166,7 +167,7 @@ const BookLibrary = () => {
                     Authors ({selectedAuthors.length})
                   </span>
                   <button onClick={clearAuthors}>
-                    <FaAdn size={16} className="text-gray-600 hover:text-red-500" />
+                    <MdCancel size={16} className="text-gray-600 hover:text-red-500" />
                   </button>
                 </div>
               )}
