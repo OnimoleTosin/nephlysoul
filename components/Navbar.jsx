@@ -12,7 +12,7 @@ import { TiMessageTyping } from "react-icons/ti";
 import { CgProfile } from "react-icons/cg";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa";
-
+import Logo from "./logo.jsx"
 
 
 
@@ -66,12 +66,7 @@ const Navbar = () => {
     <nav className="bg-[#FAFAFA] shadow-md px-4 md:px-10 py-4 font-sans relative z-50">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <div
-          className="flex items-center space-x-2">
-          <div className="w-[48px] h-[48px] bg-black rounded-full"></div>
-          <div className="h-[12px] w-[108px] bg-black rounded-[8px]"></div>
-        </div>
-
+      <Logo />
         {/* Desktop Nav Links */}
         <div className="hidden md:flex gap-8">
           {navLinks.map(({ href, label }) => {
