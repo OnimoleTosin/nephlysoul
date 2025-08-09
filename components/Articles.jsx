@@ -35,9 +35,12 @@ export default function Articles() {
               <h3 className="text-lg sm:text-xl font-bold text-black mb-4">
                 {article.title}
               </h3>
-              <button className="bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-600 transition">
+              <Link
+                href="/Forum/articles"
+                className="inline-block bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-600 transition"
+              >
                 Read &rarr;
-              </button>
+              </Link>
             </div>
           </div>
         ))}
