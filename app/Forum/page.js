@@ -16,24 +16,25 @@ import {
   FaRegBookmark,
   FaBookmark,
 } from "react-icons/fa";
-import Group4 from "@/assets/Group4.png";
+import Group4g from "@/assets/Group4g.png";
+import Group4h from "@/assets/Group4h.png";
+import Group4i from "@/assets/Group4i.png";
 import { IoIosArrowForward } from "react-icons/io";
 import Footer from "@/components/Footer";
 
-// --- Add initial posts array ---
-const initialPosts = Array(5)
+const initialPosts = Array(8)
   .fill(0)
   .map((_, i) => ({
     id: i + 1,
     user: {
-      name: "John Doe",
+      name: "Patrick Adeyanju",
       avatar: "https://randomuser.me/api/portraits/men/32.jpg",
       date: "Jun 7",
       group: "Growing Stronger",
     },
     content:
-      "Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam...",
-    image: Group4.src,
+      "Sometimes we carry thoughts that were never meant to be rushed. This space invites you to pause, look inward, and make sense of your journey",
+
     liked: false,
     saved: false,
     likeCount: 12,
@@ -44,10 +45,15 @@ const initialPosts = Array(5)
 const Page = () => {
   const [postText, setPostText] = useState("");
   const [showMoreTags, setShowMoreTags] = useState(false);
+  const [postImages, setPostImages] = useState([
+    Group4g.src,
+    Group4h.src,
+    Group4i.src,
+    null,
+  ]);
   const fileInputRef = useRef(null);
   const pathname = usePathname();
 
-  // --- Manage posts state ---
   const [posts, setPosts] = useState(initialPosts);
 
   const quotes = [
@@ -71,7 +77,14 @@ const Page = () => {
     setPostText("");
   };
 
- 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setPostImages([postImages[0], postImages[1], url]);
+    }
+  };
+
   const handleLike = (id) => {
     setPosts((prev) =>
       prev.map((post) =>
@@ -115,7 +128,6 @@ const Page = () => {
     fileInputRef.current.click();
   };
 
- 
   const PostCard = ({ post, onLike, onSave, onExpand, onComment }) => (
     <div className="bg-white p-4 rounded-lg shadow-sm">
       <div className="flex items-center space-x-3 mb-2">
@@ -134,18 +146,65 @@ const Page = () => {
 
       <p className="text-gray-700 text-sm mb-3">
         {post.expanded
-          ? `Lorem ipsum dolor sit amet consectetur. Turpis mattis nulla aliquam aliquet a enim dui molestie. Urna ullamcorper ipsum ornare a vehicula vel. Rhoncus pellen ...more.`
+          ? `Sometimes we carry thoughts that were never meant to be rushed. This space invites you to pause, look inward, and make sense of your journey...more`
           : post.content}
         <button className="text-blue-600 text-sm ml-1" onClick={onExpand}>
           {post.expanded ? "less" : "more"}
         </button>
       </p>
 
-      <img
-        src={post.image}
-        alt="Post content"
-        className="rounded-md object-cover h-[382px] w-full"
-      />
+      <div className="grid grid-cols-2 grid-rows-2 gap-2 mb-3 w-full h-[250px] max-w-full">
+        <img
+          src={postImages[0]}
+          alt="Post image 1"
+          className="rounded-md object-cover w-full h-full"
+          style={{ gridRow: "1 / span 2", gridColumn: "1 / span 1" }}
+        />
+
+        <img
+          src={postImages[1]}
+          alt="Post image 2"
+          className="rounded-md object-cover w-full h-full"
+          style={{ gridRow: "1 / span 1", gridColumn: "2 / span 1" }}
+        />
+
+        <div
+          className="relative w-full h-full"
+          style={{ gridRow: "2 / span 1", gridColumn: "2 / span 1" }}
+        >
+          {postImages[2] ? (
+            <>
+              <img
+                src={postImages[2]}
+                alt="Post image 3"
+                className="rounded-md object-cover w-full h-full"
+              />
+              <label
+                className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/20 rounded-md"
+                title="Add more images"
+              >
+                <input
+                  type="file"
+                  className="hidden"
+                  onChange={handleImageUpload}
+                  accept="image/*"
+                />
+                <span className="text-4xl text-white font-bold">+</span>
+              </label>
+            </>
+          ) : (
+            <label className="flex items-center justify-center rounded-md bg-gray-100 w-full h-full cursor-pointer border-2 border-dashed border-gray-300">
+              <input
+                type="file"
+                className="hidden"
+                onChange={handleImageUpload}
+                accept="image/*"
+              />
+              <span className="text-3xl text-gray-400">+</span>
+            </label>
+          )}
+        </div>
+      </div>
 
       <div className="text-sm text-gray-500 mb-2">
         <span>{post.likeCount} Likes • </span>
@@ -221,7 +280,7 @@ const Page = () => {
           </div>
         </header>
 
-        <div className="mt-4 flex gap-3 overflow-x-auto whitespace-nowrap">
+        <div className="mt-4 flex gap-[22px] overflow-x-auto whitespace-nowrap">
           {[
             "Health",
             "Social Well-being",
@@ -292,7 +351,6 @@ const Page = () => {
             </div>
           </div>
 
-         
           {posts.map((post) => (
             <PostCard
               key={post.id}
@@ -410,7 +468,10 @@ const Page = () => {
                   img: "https://i.pravatar.cc/40?img=27",
                 },
               ].map((group, index) => (
-                <div key={index} className="flex items-center gap-3 hover:bg-blue-100 transition">
+                <div
+                  key={index}
+                  className="flex items-center gap-3 hover:bg-blue-100 transition"
+                >
                   <img
                     src={group.img}
                     alt={group.name}
@@ -466,11 +527,7 @@ const Page = () => {
                 <br /> today!{" "}
               </h4>
               <button className="bg-[#4A90E2] text-white font-medium px-6 py-2 rounded-md hover:bg-blue-600 transition inline-flex items-center gap-2 cursor-pointer">
-                <Link
-                href="/FindFriends"
-              >
-                Find Friends
-              </Link>
+                <Link href="/FindFriends">Find Friends</Link>
                 <span className="text-lg">
                   <IoIosArrowForward />
                 </span>
