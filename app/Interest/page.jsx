@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Logo from '@/components/logo';
 
 const interestData = {
   'Popular Interests': [
@@ -73,12 +74,14 @@ export default function InterestsPage() {
 
   return (
     <>
-      <div className="p-4 px-[40px] shadow-md bg-[#FAFAFA] font-sans">
+       <div className="p-4 px-6 sm:px-10 shadow-md bg-[#FAFAFA] font-sans">
         <div className="flex items-center space-x-2">
-          <div className="w-[48px] h-[48px] bg-black rounded-full "></div>
-          <div className="h-[12px] w-[108px] bg-black rounded-[8px] "></div>
+          <Logo/>
+          {/* <div className="w-10 h-10 bg-black rounded-full"></div>
+          <div className="h-3 w-28 bg-black rounded-md"></div> */}
         </div>
       </div>
+
 
       <div className="min-h-screen flex flex-col justify-between bg-blue-50 px-4 py-8">
         <div className="w-full max-w-3xl mx-auto rounded-lg p-6 font-sans">

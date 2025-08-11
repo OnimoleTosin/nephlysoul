@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Logo from '@/components/logo';
 
 export default function OTPPage() {
   const router = useRouter();
@@ -23,8 +24,9 @@ export default function OTPPage() {
       {/* Top Header */}
       <div className="p-4 px-6 sm:px-10 shadow-md bg-[#FAFAFA] font-sans">
         <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-black rounded-full"></div>
-          <div className="h-3 w-28 bg-black rounded-md"></div>
+          <Logo/>
+          {/* <div className="w-10 h-10 bg-black rounded-full"></div>
+          <div className="h-3 w-28 bg-black rounded-md"></div> */}
         </div>
       </div>
 

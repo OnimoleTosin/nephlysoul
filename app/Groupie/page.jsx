@@ -1,5 +1,5 @@
 'use client';
-
+import Logo from "@/components/logo";
 import React, { useState } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -27,12 +27,14 @@ export default function Groupie() {
   return (
     <div className="min-h-screen bg-blue-50 pb-32 font-sans relative">
       {/* Top Bar */}
-      <div className="p-4 px-6 md:px-[40px] shadow-md bg-[#FAFAFA]">
+       <div className="p-4 px-6 sm:px-10 shadow-md bg-[#FAFAFA] font-sans">
         <div className="flex items-center space-x-2">
-          <div className="w-12 h-12 bg-black rounded-full" />
-          <div className="h-3 w-28 bg-black rounded-md" />
+          <Logo/>
+          {/* <div className="w-10 h-10 bg-black rounded-full"></div>
+          <div className="h-3 w-28 bg-black rounded-md"></div> */}
         </div>
       </div>
+
 
       {/* Main Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
