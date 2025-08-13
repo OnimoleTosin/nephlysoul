@@ -11,8 +11,7 @@ export default function Footer() {
         <div>
           <Image src={fav} className="w-10 h-10 rounded-full bg-white mb-4" />
           <p className="text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur. Sed dis fermentum pellentesque semper pellentesque ut.
-          </p>
+A warm, faith-filled space for older adults to connect, share, and find comfort in community and spirit.          </p>
         </div>
 
         <div>

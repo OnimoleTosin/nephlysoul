@@ -161,8 +161,8 @@ const ArticlePage = () => {
         </button>
 
         <div className="text-xs text-gray-500">
-          <a href="#" className="hover:underline">
-            Forum / <span className="text-blue-700">Articles</span>
+          <a href="#">
+            Community/ <span className="text-blue-700">Articles</span>
           </a>
         </div>
       </div>
