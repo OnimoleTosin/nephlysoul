@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FaCheckCircle } from 'react-icons/fa';
 import { groups } from '@/Data/Dummydata';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Groupie() {
   const [joinedGroups, setJoinedGroups] = useState([]);
@@ -17,12 +19,15 @@ export default function Groupie() {
     }
   };
 
-  const handleSeeMore = () => {
-    setShowWelcome(true);
-    setTimeout(() => {
-      router.push('/');
-    }, 1000);
-  };
+const handleSeeMore = () => {
+  toast.success("🎉 Login successful!", { position: "top-center" });
+  setShowWelcome(true);
+
+  setTimeout(() => {
+    router.push('/');
+  }, 2000); // wait 1.5s so user sees the toast
+};
+
 
   return (
     <div className="min-h-screen bg-blue-50 pb-32 font-sans relative">
@@ -129,6 +134,8 @@ export default function Groupie() {
           </div>
         </div>
       )}
+      <ToastContainer />
+
     </div>
   );
 }
