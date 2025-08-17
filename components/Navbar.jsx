@@ -1,5 +1,7 @@
 'use client';
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useEffect, useState, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -13,12 +15,11 @@ import { CgProfile } from "react-icons/cg";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa";
 import Logo from "./logo.jsx"
-
-
-
 import img1 from '@/assets/img1.png';
 
+
 const Navbar = () => {
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -38,11 +39,14 @@ const Navbar = () => {
     return () => window.removeEventListener('userChanged', fetchUser);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('currentUser');
-    window.dispatchEvent(new Event('userChanged'));
-    router.push('/');
-  };
+const handleLogout = () => {
+  localStorage.removeItem('currentUser');
+  window.dispatchEvent(new Event('userChanged'));
+  toast.success("You have been logged out!", { position: "top-center" });
+  router.push('/');
+};
+
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -66,7 +70,7 @@ const Navbar = () => {
     <nav className="bg-[#FAFAFA] shadow-md px-4 md:px-10 py-4 font-sans relative z-50">
       <div className="flex justify-between items-center">
         {/* Logo */}
-      <Logo />
+        <Logo />
         {/* Desktop Nav Links */}
         <div className="hidden md:flex gap-8">
           {navLinks.map(({ href, label }) => {
@@ -121,7 +125,7 @@ const Navbar = () => {
                 <div className="absolute top-[60px] text-black right-4 bg-white shadow-lg rounded-md w-[150px]  z-50 mt-2">
                   <button
                     onClick={() => router.push('/Profile')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3 w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <CgProfile />
                     <span className="text-sm">Profile</span>
@@ -129,7 +133,7 @@ const Navbar = () => {
 
                   <button
                     onClick={() => router.push('#')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3  w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <TiMessageTyping />
                     <span className="text-sm">Messages</span>
@@ -137,7 +141,7 @@ const Navbar = () => {
 
                   <button
                     onClick={() => router.push('#')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3 w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <MdOutlineConnectWithoutContact />
                     <span className="text-sm">Connections</span>
@@ -145,7 +149,7 @@ const Navbar = () => {
 
                   <button
                     onClick={() => router.push('#')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3  w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <MdGroups2 />
                     <span className="text-sm">My Groups</span>
@@ -153,7 +157,7 @@ const Navbar = () => {
 
                   <button
                     onClick={() => router.push('#')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3 w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <IoBookmarksOutline />
                     <span className="text-sm">Bookmarks</span>
@@ -162,7 +166,7 @@ const Navbar = () => {
 
                   <button
                     onClick={() => router.push('#')}
-                    className="flex gap-3 block w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="flex gap-3 w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                   >
                     <IoSettingsOutline />
                     <span className="text-sm">Setting</span>
@@ -170,7 +174,7 @@ const Navbar = () => {
 
                   <button
                     onClick={handleLogout}
-                    className="flex gap-3 block w-full px-4 py-2 border-t border-black text-left text-sm text-red-600 hover:bg-gray-100"
+                    className="flex gap-3 w-full px-4 py-2 border-t border-black text-left text-sm text-red-600 hover:bg-gray-100"
                   >
                     <FaSignOutAlt />
                     <span className="text-sm">LogOut</span>
@@ -215,8 +219,10 @@ const Navbar = () => {
           })}
         </div>
       )}
+        <ToastContainer />
     </nav>
-  );
-};
 
+  );
+
+};
 export default Navbar;
