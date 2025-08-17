@@ -18,6 +18,7 @@ import Link from 'next/link';
 
 export default function ProfilePage({ searchParams }) {
   const { view: activeSection } = use(searchParams) ?? {}
+  const [isOpen, setIsOpen] = useState(false);
 
   const [alerts, setAlerts] = useState({
     "Daily devotional reminders": true,
@@ -404,75 +405,183 @@ export default function ProfilePage({ searchParams }) {
                 </div>
               </div>
             </div>
+            {/* Profile Details Section */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">About Me</h3>
 
-            <form className="grid grid-cols-2 gap-4 mt-6 max-w-3xl mx-auto">
-              <div>
-                <label className="block font-bold text-black">First Name</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                  placeholder="First Name" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-gray-600"><span className="font-semibold">Age:</span> 24</p>
+                  <p className="text-gray-600"><span className="font-semibold">Date of Birth:</span> Jan 10, 2001</p>
+                  <p className="text-gray-600"><span className="font-semibold">Relationship:</span> Single</p>
+                </div>
+                <div>
+                  <p className="text-gray-600"><span className="font-semibold">Phone:</span> +234 812 345 6789</p>
+                  <p className="text-gray-600"><span className="font-semibold">Email:</span> johndoe@mail.com</p>
+                  <p className="text-gray-600"><span className="font-semibold">Location:</span> Lagos, Nigeria</p>
+                </div>
               </div>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">Last Name</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                  placeholder="Last Name" />
+            {/* Hobbies Section */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Hobbies</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">🎤 Singing</span>
+                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">🌱 Gardening</span>
+                <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">🎨 Drawing</span>
+                <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">⚽ Football</span>
               </div>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">UserName</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
-                  placeholder="UserName" />
+            {/* Education & Work Section */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Education & Work</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-gray-600"><span className="font-semibold">Education:</span> B.Sc. Computer Science</p>
+                  <p className="text-gray-600"><span className="font-semibold">School:</span> University of Lagos</p>
+                </div>
+                <div>
+                  <p className="text-gray-600"><span className="font-semibold">Occupation:</span> Software Developer</p>
+                  <p className="text-gray-600"><span className="font-semibold">Company:</span> Tech Innovations Ltd.</p>
+                </div>
               </div>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">Email</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                  placeholder="Email" />
+            {/* Skills Section */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">💻 JavaScript</span>
+                <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">⚛️ React</span>
+                <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">📱 Mobile Apps</span>
+                <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">🎨 UI/UX</span>
               </div>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">Phone Number</label>
-                <input
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                  placeholder="Phone Number" />
+            {/* Social Links */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Social Links</h3>
+              <div className="flex flex-col gap-2">
+                <a href="https://twitter.com/johndoe" className="text-blue-600 hover:underline">🐦 Twitter</a>
+                <a href="https://linkedin.com/in/johndoe" className="text-blue-800 hover:underline">🔗 LinkedIn</a>
+                <a href="https://github.com/johndoe" className="text-gray-800 hover:underline">💻 GitHub</a>
               </div>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">Gender</label>
-                <select
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
-                  <option>Select Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
+            {/* Favorites */}
+            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Favorites</h3>
+              <p className="text-gray-600"><span className="font-semibold">Favorite Movie:</span> Inception</p>
+              <p className="text-gray-600"><span className="font-semibold">Favorite Music:</span> Jazz & Afrobeat</p>
+              <p className="text-gray-600"><span className="font-semibold">Favorite Food:</span> Jollof Rice 🍲</p>
+            </div>
 
-              <div>
-                <label className="block font-bold text-black">Location</label>
-                <select
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
-                  <option>Select Location</option>
-                  <option>Lagos</option>
-                  <option>Abuja</option>
-                </select>
-              </div>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="bg-[#3566A0] text-white px-6 py-2 mt-5 rounded-lg hover:bg-blue-600"
+            >
+              Edit Profile
+            </button>
 
-              <div>
-                <label className="block font-bold text-black">Birth Date</label>
-                <input type="date"
-                  className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                  placeholder="Birth Date" />
+            {/* Modal */}
+            {isOpen && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl"
+                  >
+                    ✕
+                  </button>
+
+                  {/* Form */}
+                  <form className="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <label className="block font-bold text-black">First Name</label>
+                      <input
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                        placeholder="First Name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Last Name</label>
+                      <input
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                        placeholder="Last Name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">UserName</label>
+                      <input
+                        className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                        placeholder="UserName"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Email</label>
+                      <input
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                        placeholder="Email"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Phone Number</label>
+                      <input
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                        placeholder="Phone Number"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Gender</label>
+                      <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Location</label>
+                      <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                        <option>Select Location</option>
+                        <option>Lagos</option>
+                        <option>Abuja</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-black">Birth Date</label>
+                      <input
+                        type="date"
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                        placeholder="Birth Date"
+                      />
+                    </div>
+
+                    <div className="col-span-2">
+                      <label className="block font-bold text-black">Bio</label>
+                      <textarea
+                        className="w-full border rounded-md text-black border-gray-400 bg-white p-2"
+                        placeholder="Something About Me..."
+                        rows="3"
+                      />
+                    </div>
+
+                    <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded hover:bg-blue-600">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
               </div>
-              <div className='col-span-2'>
-                <label className="block font-bold text-black">Bio</label>
-                <textarea className="w-full border rounded-md text-black border-gray-400 bg-white p-2" placeholder="Something About Me..." rows="3" />
-              </div>
-              <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded w-30 hover:bg-blue-600 ">Save Changes</button>
-            </form>
+            )}
           </div>
         );
     }
@@ -529,3 +638,55 @@ export default function ProfilePage({ searchParams }) {
 };
 
 
+
+
+
+
+
+
+
+
+
+<div className="bg-[#FAFAFA] min-h-screen p-4">
+  {/* Cover Photo */}
+  <div className="mb-16 relative">
+    <div className="w-full h-58 relative">
+      <Image
+        src={Cover}
+        alt="Cover Photo"
+        layout="fill"
+        objectFit="cover"
+        className="rounded-b-lg"
+      />
+    </div>
+
+    {/* Profile Picture + Name */}
+    <div className="absolute flex flex-row items-center text-center -mt-10">
+      <Image
+        src={Profile}
+        alt="Profile"
+        objectFit="cover"
+        className="rounded-full object-cover w-32 h-32 border-4 ml-10 border-white shadow-md"
+      />
+      <div className="mt-10 ml-4">
+        <h2 className="text-xl font-bold mt-2 text-black">
+          John Doe
+          <span className="text-gray-500 text-xs ml-3">@john2doe</span>
+        </h2>
+        <p className="text-sm mt-1 text-black">I love singing. I love nature 🌱</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Edit Button */}
+  <div className="flex justify-end mr-5">
+    <button
+      onClick={() => setIsOpen(true)}
+      className="bg-[#3566A0] text-white px-6 py-2 rounded-lg hover:bg-blue-600"
+    >
+      Edit Profile
+    </button>
+  </div>
+
+
+</div>
