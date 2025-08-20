@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1F2B40] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        
+
         {/* Logo + Intro */}
         <div>
           {/* <Image 
@@ -17,9 +17,9 @@ export default function Footer() {
             alt="favicon" 
             className="w-10 h-10 rounded-full bg-white mb-4" 
           /> */}
-          <Logo className="text-white"/>
+          <Logo color="text-white" heartColor="text-pink-500" size="text-3xl" />
           <p className="text-sm text-gray-300 sm:text-base md:text-sm max-w-2xl mx-auto">
-            A warm, faith-filled space for older adults to connect, share, 
+            A warm, faith-filled space for older adults to connect, share,
             and find comfort in community and spirit.
           </p>
         </div>

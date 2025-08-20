@@ -12,6 +12,7 @@ import { FaRegBell } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 
 
@@ -486,7 +487,7 @@ export default function ProfilePage({ searchParams }) {
             </button>
 
             {/* Modal */}
-            {isOpen && ( 
+            {isOpen && (
               <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
                   {/* Close Button */}
@@ -633,7 +634,9 @@ export default function ProfilePage({ searchParams }) {
           {renderContent()}
         </div>
       </div>
+
     </>
+
   );
 };
 
