@@ -48,7 +48,10 @@ const Page = () => {
 
   <div
   className="relative bg-cover bg-center min-h-[563px]"
-  style={{ backgroundImage: `url(${friendsbg.src})` }}
+  style={{
+    backgroundImage: `url(${friendsbg.src})`,
+    filter: "brightness(1)"
+  }}
 >
 
   <div className="absolute inset-0 bg-black/50 z-0" />
