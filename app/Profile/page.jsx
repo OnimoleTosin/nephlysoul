@@ -486,7 +486,7 @@ export default function ProfilePage({ searchParams }) {
             </button>
 
             {/* Modal */}
-            {isOpen && (
+            {isOpen && ( 
               <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
                   {/* Close Button */}
@@ -518,7 +518,7 @@ export default function ProfilePage({ searchParams }) {
                     <div>
                       <label className="block font-bold text-black">UserName</label>
                       <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-black bg-white"
+                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
                         placeholder="UserName"
                       />
                     </div>
