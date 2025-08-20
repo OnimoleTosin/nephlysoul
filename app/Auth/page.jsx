@@ -154,6 +154,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { FaExclamationCircle } from 'react-icons/fa';
+import Logo from '@/components/logo';
 
 export default function AuthPage() {
   const router = useRouter();
@@ -180,7 +181,7 @@ export default function AuthPage() {
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        router.push('/'); 
+        router.push('/');
       } else {
         setError('Invalid email or password');
       }
@@ -195,7 +196,7 @@ export default function AuthPage() {
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('currentUser', JSON.stringify(newUser));
-      router.push('/OTP'); 
+      router.push('/OTP');
     }
   };
 
@@ -215,12 +216,14 @@ export default function AuthPage() {
         <div className="bg-[#f6f8fb] flex flex-col w-full max-w-md relative space-y-6 rounded-lg">
 
           {/* Spinner logo */}
-          <div className="flex justify-center items-center space-x-2">
+          <div className="flex justify-center items-center space-x-2 mt-4">
+            <Logo />
+            {/* 
             <div className="w-[48px] h-[48px] border-t-transparent rounded-full animate-spin border-2 border-black"></div>
-            <div className="h-[12px] w-[108px] bg-black rounded-[8px]" />
+            <div className="h-[12px] w-[108px] bg-black rounded-[8px]" /> */}
           </div>
 
-          {/* Switch button top-right */}
+          {/* Switch button top-right */} 
           <div className="absolute top-4 right-4 text-sm">
             <button
               onClick={() => setIsLogin(!isLogin)}

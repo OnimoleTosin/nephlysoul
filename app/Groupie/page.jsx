@@ -1,10 +1,12 @@
 'use client';
-
+import Logo from "@/components/logo";
 import React, { useState } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FaCheckCircle } from 'react-icons/fa';
 import { groups } from '@/Data/Dummydata';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Groupie() {
   const [joinedGroups, setJoinedGroups] = useState([]);
@@ -18,21 +20,26 @@ export default function Groupie() {
   };
 
   const handleSeeMore = () => {
+    toast.success("🎉 Login successful!", { position: "top-center" });
     setShowWelcome(true);
+
     setTimeout(() => {
       router.push('/');
-    }, 1000);
+    }, 2000); // wait 1.5s so user sees the toast
   };
+
 
   return (
     <div className="min-h-screen bg-blue-50 pb-32 font-sans relative">
       {/* Top Bar */}
-      <div className="p-4 px-6 md:px-[40px] shadow-md bg-[#FAFAFA]">
+      <div className="p-4 px-6 sm:px-10 shadow-md bg-[#FAFAFA] font-sans">
         <div className="flex items-center space-x-2">
-          <div className="w-12 h-12 bg-black rounded-full" />
-          <div className="h-3 w-28 bg-black rounded-md" />
+          <Logo />
+          {/* <div className="w-10 h-10 bg-black rounded-full"></div>
+          <div className="h-3 w-28 bg-black rounded-md"></div> */}
         </div>
       </div>
+
 
       {/* Main Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
@@ -81,9 +88,8 @@ export default function Groupie() {
 
                 <button
                   onClick={() => handleJoin(index)}
-                  className={`text-sm px-4 py-2 rounded transition-all duration-300 w-full flex justify-center items-center gap-2 ${
-                    isJoined ? 'bg-white text-blue-700 border border-blue-700' : 'bg-[#3566A0] text-white hover:bg-blue-700'
-                  }`}
+                  className={`text-sm px-4 py-2 rounded transition-all duration-300 w-full flex justify-center items-center gap-2 ${isJoined ? 'bg-white text-blue-700 border border-blue-700' : 'bg-[#3566A0] text-white hover:bg-blue-700'
+                    }`}
                 >
                   {isJoined ? (
                     <>
@@ -112,9 +118,31 @@ export default function Groupie() {
       {/* Welcome Modal */}
       {showWelcome && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-sm">
-            <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center border border-black rounded-full">
-              {/* Optional celebration image */}
+          <div className="relative bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-sm">
+            {/* Corner Images */}
+            <img
+              src="/assets/confety.png"
+              alt="corner top left"
+              className="absolute top-0 left-0 w-10 h-10"
+            />
+            <img
+              src="/assets/confeti.png"
+              alt="corner top right"
+              className="absolute top-0 right-0 w-10 h-10"
+            />
+            <img
+              src="/assets/confeti.png"
+              alt="corner bottom left"
+              className="absolute bottom-0 left-0 w-10 h-10"
+            />
+            <img
+              src="/assets/confety.png"
+              alt="corner bottom right"
+              className="absolute bottom-0 right-0 w-10 h-10"
+            />
+
+            {/* Center Content */}
+            <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center rounded-full">
             </div>
 
             <h2 className="text-xl font-bold text-black">Welcome on board!</h2>
@@ -126,7 +154,10 @@ export default function Groupie() {
             </button>
           </div>
         </div>
+
       )}
+      <ToastContainer />
+
     </div>
   );
 }

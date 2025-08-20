@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
@@ -19,21 +21,28 @@ const nunito = Nunito({
 });
 
 export const metadata = {
-  title: "Soul Circle",
+  title: "Nephly Soul",
   description: "Connect and grow with your circle",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+<link rel="icon" href="/my-logo.png" />
+        {/* Optional: other favicon types */}
+        {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
+        {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} antialiased font-nunito`}
       >
         {/* Navbar */}
-        
-        {/* Page Content */}
+
         <main>{children}</main>
+        <ToastContainer/>
       </body>
     </html>
   );
 }
+

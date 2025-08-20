@@ -2,8 +2,16 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+
 
 export default function Community() {
+  const router = useRouter()
+
+  const handleFriends = () => {
+    router.push("/FindFriends")
+  }
+
   return (
     <div className=" relative w-full bg-[#3A3244] text-white px-4 sm:px-8 py-16 md:py-24 font-sans overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 relative z-10">
@@ -14,12 +22,14 @@ export default function Community() {
             A Place To Be Heard and Held
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-            With <span className="font-semibold text-white">SoulCircle</span>, connection is just a gentle step away —
+            With <span className="font-semibold text-white">NephlySoul</span>, connection is just a gentle step away —
             a familiar voice, a shared prayer, or someone to listen to.<br className="hidden md:block" />
             This is a space where hearts meet, faith is shared,<br className="hidden md:block" />
             and every soul feels seen.
           </p>
-          <button className="bg-[#3566A0] hover:bg-blue-600 text-white px-6 py-3 rounded-md text-base sm:text-lg font-medium transition duration-300">
+          <button
+            onClick={handleFriends}
+            className="bg-[#3566A0] hover:bg-blue-600 text-white px-6 py-3 rounded-md text-base sm:text-lg font-medium transition duration-300">
             Call a friend &rarr;
           </button>
         </div>

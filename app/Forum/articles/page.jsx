@@ -152,10 +152,10 @@ const ArticlePage = () => {
       <Navbar />
 
       <div className="flex justify-between items-center px-4 sm:px-6 pt-6 pb-2">
-        {/* Removed Back Arrow Button */}
+
         <div className="text-xs text-gray-500 ml-auto">
-          <a href="#" className="hover:underline">
-            Forum / <span className="text-blue-700">Articles</span>
+          <a href="#">
+            Forum/ <span className="text-blue-700">Articles</span>
           </a>
         </div>
       </div>

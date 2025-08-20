@@ -1,85 +1,70 @@
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import Image from 'next/image';
+import fav from '@/public/assets/favicon.png';
+import Logo from "./logo";
 
 export default function Footer() {
   return (
     <footer className="bg-[#1F2B40] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        {/* Logo + Intro */}
         <div>
-          <div className="w-10 h-10 rounded-full bg-white mb-4" />
-          <p className="text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur. Sed dis fermentum
-            pellentesque semper pellentesque ut.
+          {/* <Image 
+            src={fav} 
+            alt="favicon" 
+            className="w-10 h-10 rounded-full bg-white mb-4" 
+          /> */}
+          <Logo color="text-white" heartColor="text-pink-500" size="text-3xl" />
+          <p className="text-sm text-gray-300 sm:text-base md:text-sm max-w-2xl mx-auto">
+            A warm, faith-filled space for older adults to connect, share,
+            and find comfort in community and spirit.
           </p>
         </div>
 
+        {/* Quick Links */}
         <div>
           <ul className="space-y-2 text-sm">
-            <li>
-              <Link
-                href="/FindFriends"
-                className="hover:underline cursor-pointer"
-              >
-                Find Friends
-              </Link>
-            </li>
-            <li>
-              <Link href="/Forum" className="hover:underline cursor-pointer">
-                Forum
-              </Link>
-            </li>
-            <li>
-              <Link href="/Resource" className="hover:underline cursor-pointer">
-                Resources
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:underline cursor-pointer">
-                Home
-              </Link>
-            </li>
+            <li><Link href="/About" className="hover:text-blue-400">About</Link></li>
+            <li><Link href="/FindFriends" className="hover:text-blue-400">Find Friends</Link></li>
+            <li><Link href="/Forum" className="hover:text-blue-400">Forum</Link></li>
+            <li><Link href="/Resource" className="hover:text-blue-400">Resources</Link></li>
+            <li><Link href="/" className="hover:text-blue-400">Home</Link></li>
           </ul>
         </div>
 
+        {/* Info Links */}
         <div>
           <ul className="space-y-2 text-sm">
-            <li className="hover:underline cursor-pointer">Subscribe</li>
-            <li className="hover:underline cursor-pointer">Privacy Policy</li>
-            <li className="hover:underline cursor-pointer">Terms of Use</li>
-            <li className="hover:underline cursor-pointer">Contact</li>
+            <li><a href="#" className="hover:text-blue-400">Subscribe</a></li>
+            <li><a href="#" className="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-blue-400">Terms of Use</a></li>
+            <li><a href="#" className="hover:text-blue-400">Contact</a></li>
           </ul>
         </div>
 
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          <a
-            href="#"
-            className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-blue-100"
-          >
-            <FaFacebook size={16} />
+        {/* Social Media */}
+        <div className="flex items-start md:items-center gap-4 flex-wrap">
+          <a href="#" aria-label="Facebook" className="text-white hover:text-blue-500">
+            <FaFacebook size={20} />
           </a>
-          <a
-            href="#"
-            className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-green-100"
-          >
-            <FaWhatsapp size={16} />
+          <a href="#" aria-label="WhatsApp" className="text-white hover:text-green-500">
+            <FaWhatsapp size={20} />
           </a>
-          <a
-            href="#"
-            className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-pink-100"
-          >
-            <FaInstagram size={16} />
+          <a href="#" aria-label="Instagram" className="text-white hover:text-pink-500">
+            <FaInstagram size={20} />
           </a>
-          <a
-            href="#"
-            className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-blue-100"
-          >
-            <FaTwitter size={16} />
+          <a href="#" aria-label="Twitter / X" className="text-white hover:text-gray-300">
+            <FaXTwitter size={20} />
           </a>
         </div>
       </div>
 
+      {/* Bottom Note */}
       <div className="mt-10 text-center text-sm text-gray-400">
-        © 2025 A product of Soul Circle Group
+        © {new Date().getFullYear()} A product of NephlySoul Group
       </div>
     </footer>
   );

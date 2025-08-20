@@ -46,37 +46,34 @@ const Page = () => {
     <>
       <Navbar />
 
-  <div
-  className="relative bg-cover bg-center min-h-[563px]"
-  style={{
-    backgroundImage: `url(${friendsbg.src})`,
-    filter: "brightness(1)"
-  }}
->
+      <div
+        className="relative bg-cover bg-center min-h-[563px]"
+        style={{ backgroundImage: `url(${friendsbg.src})` }}
+      >
 
-  <div className="absolute inset-0 bg-black/50 z-0" />
+        <div className="absolute inset-0 bg-black/50 z-0" />
 
-  <div className="relative z-10 text-center pt-[100px] px-4 md:pt-[166px] font-sans">
-    <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight text-white">
-      Find A Friend Near You....
-    </h1>
+        <div className="relative z-10 text-center pt-[100px] px-4 md:pt-[166px] font-sans">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold leading-tight text-white">
+            Find A Friend Near You....
+          </h1>
           <p className="text-sm md:text-[20px] text-white max-w-2xl mx-auto mt-3">
             Fill the form below to connect with a friend just near you and talk.
           </p>
-                  <div className="flex flex-col md:flex-row justify-center md:items-center gap-3 pt-10 pb-20 px-4">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter zip code, city, LG, state"
-            className="w-full md:w-[300px] h-[48px] bg-[#FDFDFD] text-[#A1A1A1] rounded-[8px] pl-[16px] outline-none"
-          />
-          <button
-            className="w-full md:w-[119px] h-[48px] bg-[#3566A0] text-[#FAFAFA] rounded-[8px] cursor-pointer hover:bg-blue-600"
-            onClick={handleFindFriend}
-          >
-            Find friend &rarr;
-          </button>
-        </div>
+          <div className="flex flex-col md:flex-row justify-center md:items-center gap-3 pt-10 pb-20 px-4">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Enter zip code, city, LG, state"
+              className="w-full md:w-[300px] h-[48px] bg-[#FDFDFD] text-[#A1A1A1] rounded-[8px] pl-[16px] outline-none"
+            />
+            <button
+              className="w-full md:w-[119px] h-[48px] bg-[#3566A0] text-[#FAFAFA] rounded-[8px] cursor-pointer hover:bg-blue-600"
+              onClick={handleFindFriend}
+            >
+              Find friend &rarr;
+            </button>
+          </div>
         </div>
 
 
@@ -100,7 +97,7 @@ const Page = () => {
             },
             {
               step: 2,
-              color: "#4600A9", 
+              color: "#4600A9",
               text: "We'll search our community for a warm, trusted person close to you — someone who is also willing to speak with a friend.",
             },
             {

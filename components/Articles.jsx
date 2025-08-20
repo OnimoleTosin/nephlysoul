@@ -35,12 +35,11 @@ export default function Articles() {
               <h3 className="text-lg sm:text-xl font-bold text-black mb-4">
                 {article.title}
               </h3>
-              <Link
-                href="/Forum/articles"
-                className="inline-block bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-600 transition"
-              >
-                Read &rarr;
-              </Link>
+              <button className="bg-[#3566A0] text-white px-4 py-2 text-sm rounded hover:bg-blue-600 transition">
+                <Link href="/Forum/articles">
+                  Read &rarr;
+                </Link>
+              </button>
             </div>
           </div>
         ))}
@@ -48,8 +47,8 @@ export default function Articles() {
 
       <div className="mt-12 text-center">
         <button className="bg-[#3566A0] text-white px-6 py-2 text-sm sm:text-base rounded hover:bg-blue-700 transition">
-          <Link href = "/Forum/articles">
-          See More Articles &rarr;
+          <Link href="/Forum/articles">
+            See More Articles &rarr;
           </Link>
         </button>
       </div>
