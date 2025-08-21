@@ -5,14 +5,15 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Profile from "@/assets/profile.png"
 import Cover from "@/assets/coverpics.png"
-import { FaBell, FaExclamationCircle, FaFont, FaLock, FaUser } from 'react-icons/fa';
+import { FaBell, FaCamera, FaExclamationCircle, FaFont, FaLock, FaUser } from 'react-icons/fa';
 import { CiCircleAlert } from 'react-icons/ci';
 import { PiTextAUnderline } from "react-icons/pi";
 import { FaRegBell } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import Link from 'next/link';
-import Footer from '@/components/Footer';
+import { FiCamera } from "react-icons/fi";
+
 
 
 
@@ -382,22 +383,53 @@ export default function ProfilePage({ searchParams }) {
           <div className=" bg-[#FAFAFA]">
             <div className='mb-25'>
               <div className="w-full h-58 relative">
-                <Image
-                  src={Cover} // change this to your cover image path
-                  alt="Cover Photo"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-b-lg"
-                />
-              </div>
+  {/* Background Image */}
+ 
+<div className="w-full h-58 relative">
+  {/* Background Image */}
+  <Image
+    src={Cover}
+    alt="Cover Photo"
+    layout="fill"
+    objectFit="cover"
+    className="rounded-b-lg"
+  />
+
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/40 rounded-b-lg"></div>
+
+  {/* Camera Icon Centered */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50 transition">
+      <FaCamera className="text-black text-3xl" />
+    </div>
+  </div>
+</div>
+</div>
 
               <div className=" absolute flex flex-row items-center text-center -mt-10">
-                <Image
-                  src={Profile}
-                  alt="Profile"
-                  objectFit="cover"
-                  className="rounded-full object-cover w-32 h-32 border-4 ml-10 border-white shadow-md"
-                />
+               
+<div className="relative w-32 h-32 ml-10">
+  {/* Profile Image */}
+  <Image
+    src={Profile}
+    alt="Profile"
+    layout="fill"
+    objectFit="cover"
+    className="rounded-full border-4 border-white shadow-md"
+  />
+
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/40 rounded-full"></div>
+
+  {/* Camera Icon Centered */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50 transition">
+      <FiCamera className="text-white text-2xl" />
+    </div>
+  </div>
+</div>
+
                 <div className='mt-10'>
                   <h2 className="text-xl font-bold mt-2 text-black">
                     John Doe  .   <span className="text-gray-500 text-xs ml-3">@john2doe</span>
@@ -406,98 +438,8 @@ export default function ProfilePage({ searchParams }) {
                 </div>
               </div>
             </div>
-            {/* Profile Details Section */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">About Me</h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <p className="text-gray-600"><span className="font-semibold">Age:</span> 24</p>
-                  <p className="text-gray-600"><span className="font-semibold">Date of Birth:</span> Jan 10, 2001</p>
-                  <p className="text-gray-600"><span className="font-semibold">Relationship:</span> Single</p>
-                </div>
-                <div>
-                  <p className="text-gray-600"><span className="font-semibold">Phone:</span> +234 812 345 6789</p>
-                  <p className="text-gray-600"><span className="font-semibold">Email:</span> johndoe@mail.com</p>
-                  <p className="text-gray-600"><span className="font-semibold">Location:</span> Lagos, Nigeria</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Hobbies Section */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Hobbies</h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">🎤 Singing</span>
-                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">🌱 Gardening</span>
-                <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">🎨 Drawing</span>
-                <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">⚽ Football</span>
-              </div>
-            </div>
-
-            {/* Education & Work Section */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Education & Work</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <p className="text-gray-600"><span className="font-semibold">Education:</span> B.Sc. Computer Science</p>
-                  <p className="text-gray-600"><span className="font-semibold">School:</span> University of Lagos</p>
-                </div>
-                <div>
-                  <p className="text-gray-600"><span className="font-semibold">Occupation:</span> Software Developer</p>
-                  <p className="text-gray-600"><span className="font-semibold">Company:</span> Tech Innovations Ltd.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Skills Section */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">💻 JavaScript</span>
-                <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">⚛️ React</span>
-                <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">📱 Mobile Apps</span>
-                <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">🎨 UI/UX</span>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Social Links</h3>
-              <div className="flex flex-col gap-2">
-                <a href="https://twitter.com/johndoe" className="text-blue-600 hover:underline">🐦 Twitter</a>
-                <a href="https://linkedin.com/in/johndoe" className="text-blue-800 hover:underline">🔗 LinkedIn</a>
-                <a href="https://github.com/johndoe" className="text-gray-800 hover:underline">💻 GitHub</a>
-              </div>
-            </div>
-
-            {/* Favorites */}
-            <div className="bg-white shadow-md rounded-lg mt-6 p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Favorites</h3>
-              <p className="text-gray-600"><span className="font-semibold">Favorite Movie:</span> Inception</p>
-              <p className="text-gray-600"><span className="font-semibold">Favorite Music:</span> Jazz & Afrobeat</p>
-              <p className="text-gray-600"><span className="font-semibold">Favorite Food:</span> Jollof Rice 🍲</p>
-            </div>
-
-            <button
-              onClick={() => setIsOpen(true)}
-              className="bg-[#3566A0] text-white px-6 py-2 mt-5 rounded-lg hover:bg-blue-600"
-            >
-              Edit Profile
-            </button>
-
-            {/* Modal */}
-            {isOpen && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
-                  {/* Close Button */}
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl"
-                  >
-                    ✕
-                  </button>
-
+                <div className="bg-white rounded-lg shadow-lg w-full p-6 relative">
                   {/* Form */}
                   <form className="grid grid-cols-2 gap-4 mt-4">
                     <div>
@@ -581,8 +523,7 @@ export default function ProfilePage({ searchParams }) {
                     </button>
                   </form>
                 </div>
-              </div>
-            )}
+
           </div>
         );
     }
