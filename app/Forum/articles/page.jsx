@@ -152,17 +152,10 @@ const ArticlePage = () => {
       <Navbar />
 
       <div className="flex justify-between items-center px-4 sm:px-6 pt-6 pb-2">
-        <button
-          onClick={() => router.push("/Forum")}
-          className=" cursor-pointer flex items-center gap-2 text-black hover:text-blue-900 font-medium text-base"
-        >
-          <IoIosArrowBack size={22} />
-          <span>Back</span>
-        </button>
 
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-gray-500 ml-auto">
           <a href="#">
-            Community/ <span className="text-blue-700">Articles</span>
+            Forum/ <span className="text-blue-700">Articles</span>
           </a>
         </div>
       </div>
@@ -483,15 +476,28 @@ const ArticlePage = () => {
             More Articles
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10">
-            {[wife1, wife2, wife3].map((img, idx) => (
+            {[
+              {
+                img: wife1.src,
+                text: "How widows and widowers are learning to breathe again through...",
+              },
+              {
+                img: wife2.src,
+                text: "What happens when your one source of connection disappears?",
+              },
+              {
+                img: wife3.src,
+                text: "One elder’s small daily ritual that turned loneliness into light.",
+              },
+            ].map((article, idx) => (
               <div key={idx} className="rounded overflow-hidden">
                 <img
-                  src={img.src}
+                  src={article.img}
                   alt={`article-${idx + 1}`}
                   className="w-full h-[300px] object-cover rounded"
                 />
                 <p className="text-[24px] text-[#333333] mt-2 px-2">
-                  Lorem ipsum dolor sit amet ipsum dolor sit amet
+                  {article.text}
                 </p>
               </div>
             ))}

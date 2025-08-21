@@ -274,8 +274,8 @@ const Page = () => {
           </div>
 
           <div className="text-xs text-gray-500">
-            <a href="#">
-              <span className="text-blue-700">Community </span>/ Articles
+            <a href="#" className="hover:underline">
+              <span className="text-blue-700">Forum </span>/ Community
             </a>
           </div>
         </header>
