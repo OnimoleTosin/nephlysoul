@@ -7,19 +7,19 @@ import Navbar from '@/components/Navbar';
 import Pro from "@/assets/profile.png";
 import Pm from "@/assets/pm.png";
 import Guy from "@/assets/datguy.jpeg";
+import sarah from "@/assets/Sarah.jpg";
 import Sof from "@/assets/sofiyah.jpeg";
 import Babs from "@/assets/des.jpeg";
 import Profile from "@/assets/profile1.png";
 import Footer from '@/components/Footer';
 import NewsLetter from '@/components/NewsLetter';
-import { FaUser } from 'react-icons/fa';
 
 const teamMembers = [
-  { name: "Sarah", role: "Team Lead", img: <FaUser className='text-black'/>},
+  { name: "Sarah", role: "Head Of Product", img: sarah},
   { name: "Boluwatiwi", role: "Product Manager", img: Pm },
-  { name: "Onimole Sodiq Oluwatosin", role: "Senior Web Developer", img: Profile },
+  { name: "Onimole Sodiq Oluwatosin", role: "Software Developer", img: Profile },
   { name: "Sofiyyah", role: "Product Manager", img: Sof },
-  { name: "Adeyanju Sunday", role: "Content Strategist and web developer", img: Guy },
+  { name: "Adeyanju Sunday", role: "Software Developer", img: Guy },
   { name: "Babatunde", role: "UI/UX Designer", img: Babs },
 ];
 

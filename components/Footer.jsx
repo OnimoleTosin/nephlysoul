@@ -17,7 +17,7 @@ export default function Footer() {
             alt="favicon" 
             className="w-10 h-10 rounded-full bg-white mb-4" 
           /> */}
-          <Logo color="text-white" heartColor="text-pink-500" size="text-3xl" />
+          <Logo color="text-white" heartColor="text-white" size="text-3xl" />
           <p className="text-sm text-gray-300 sm:text-base md:text-sm max-w-2xl mx-auto">
             A warm, faith-filled space for older adults to connect, share,
             and find comfort in community and spirit.

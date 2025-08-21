@@ -78,19 +78,8 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           {/* Desktop Logo */}
-          <div className="hidden sm:block">
+          <div className="sm:block">
             <Logo />
-          </div>
-
-          {/* Mobile Logo (image) */}
-          <div className="block sm:hidden">
-            <Image
-              src={fav} // put your mobile logo in public/assets
-              alt="Mobile Logo"
-              width={40}
-              height={40}
-              className="object-contain"
-            />
           </div>
         </div>
         {/* Desktop Nav Links */}
