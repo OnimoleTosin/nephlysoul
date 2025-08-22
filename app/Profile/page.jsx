@@ -3,7 +3,7 @@
 import React, { use, useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
-import Profile from "@/assets/profile.png"
+import Profile from "@/assets/profile.svg"
 import Cover from "@/assets/coverpics.png"
 import { FaBell, FaCamera, FaExclamationCircle, FaFont, FaLock, FaUser } from 'react-icons/fa';
 import { CiCircleAlert } from 'react-icons/ci';
@@ -383,52 +383,52 @@ export default function ProfilePage({ searchParams }) {
           <div className=" bg-[#FAFAFA]">
             <div className='mb-25'>
               <div className="w-full h-58 relative">
-  {/* Background Image */}
- 
-<div className="w-full h-58 relative">
-  {/* Background Image */}
-  <Image
-    src={Cover}
-    alt="Cover Photo"
-    layout="fill"
-    objectFit="cover"
-    className="rounded-b-lg"
-  />
+                {/* Background Image */}
 
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/40 rounded-b-lg"></div>
+                <div className="w-full h-58 relative group">
+                  {/* Background Image */}
+                  <Image
+                    src={Cover}
+                    alt="Cover Photo"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-b-lg"
+                  />
 
-  {/* Camera Icon Centered */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50 transition">
-      <FaCamera className="text-black text-3xl" />
-    </div>
-  </div>
-</div>
-</div>
+                  {/* Dark overlay - hidden until hover */}
+                  <div className="absolute inset-0 bg-black/40 rounded-b-lg opacity-0 group-hover:opacity-100 transition"></div>
+
+                  {/* Camera Icon Centered - hidden until hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50">
+                      <FaCamera className="text-white text-3xl" />
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className=" absolute flex flex-row items-center text-center -mt-10">
-               
-<div className="relative w-32 h-32 ml-10">
-  {/* Profile Image */}
-  <Image
-    src={Profile}
-    alt="Profile"
-    layout="fill"
-    objectFit="cover"
-    className="rounded-full border-4 border-white shadow-md"
-  />
 
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/40 rounded-full"></div>
+                <div className="relative w-32 h-32 ml-10 group">
+                  {/* Profile Image */}
+                  <Image
+                    src={Profile}
+                    alt="Profile"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-full border-4 border-white shadow-md"
+                  />
 
-  {/* Camera Icon Centered */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50 transition">
-      <FiCamera className="text-white text-2xl" />
-    </div>
-  </div>
-</div>
+                  {/* Dark overlay - hidden until hover */}
+                  <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition"></div>
+
+                  {/* Camera Icon Centered - hidden until hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <div className="bg-white/30 p-3 rounded-full cursor-pointer hover:bg-white/50">
+                      <FiCamera className="text-white text-2xl" />
+                    </div>
+                  </div>
+                </div>
 
                 <div className='mt-10'>
                   <h2 className="text-xl font-bold mt-2 text-black">
@@ -439,90 +439,90 @@ export default function ProfilePage({ searchParams }) {
               </div>
             </div>
 
-                <div className="bg-white rounded-lg shadow-lg w-full p-6 relative">
-                  {/* Form */}
-                  <form className="grid grid-cols-2 gap-4 mt-4">
-                    <div>
-                      <label className="block font-bold text-black">First Name</label>
-                      <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="First Name"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Last Name</label>
-                      <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="Last Name"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">UserName</label>
-                      <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="UserName"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Email</label>
-                      <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="Email"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Phone Number</label>
-                      <input
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="Phone Number"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Gender</label>
-                      <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
-                        <option>Select Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Location</label>
-                      <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
-                        <option>Select Location</option>
-                        <option>Lagos</option>
-                        <option>Abuja</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-black">Birth Date</label>
-                      <input
-                        type="date"
-                        className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
-                        placeholder="Birth Date"
-                      />
-                    </div>
-
-                    <div className="col-span-2">
-                      <label className="block font-bold text-black">Bio</label>
-                      <textarea
-                        className="w-full border rounded-md text-black border-gray-400 bg-white p-2"
-                        placeholder="Something About Me..."
-                        rows="3"
-                      />
-                    </div>
-
-                    <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded hover:bg-blue-600">
-                      Save Changes
-                    </button>
-                  </form>
+            <div className="bg-white rounded-lg shadow-lg w-full p-6 relative">
+              {/* Form */}
+              <form className="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label className="block font-bold text-black">First Name</label>
+                  <input
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="First Name"
+                  />
                 </div>
+
+                <div>
+                  <label className="block font-bold text-black">Last Name</label>
+                  <input
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="Last Name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">UserName</label>
+                  <input
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="UserName"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">Email</label>
+                  <input
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">Phone Number</label>
+                  <input
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="Phone Number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">Gender</label>
+                  <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">Location</label>
+                  <select className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white">
+                    <option>Select Location</option>
+                    <option>Lagos</option>
+                    <option>Abuja</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-black">Birth Date</label>
+                  <input
+                    type="date"
+                    className="w-full px-4 py-3 border rounded-md text-black border-gray-400 bg-white"
+                    placeholder="Birth Date"
+                  />
+                </div>
+
+                <div className="col-span-2">
+                  <label className="block font-bold text-black">Bio</label>
+                  <textarea
+                    className="w-full border rounded-md text-black border-gray-400 bg-white p-2"
+                    placeholder="Something About Me..."
+                    rows="3"
+                  />
+                </div>
+
+                <button className="col-span-2 bg-[#3566A0] text-white p-2 rounded hover:bg-blue-600">
+                  Save Changes
+                </button>
+              </form>
+            </div>
 
           </div>
         );

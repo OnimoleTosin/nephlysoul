@@ -20,7 +20,7 @@ export default function Books() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {books.map((book, index) => (
           <div
             key={index}

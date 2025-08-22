@@ -13,7 +13,7 @@ export default function Articles() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
         {articles.map((article) => (
           <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform duration-300 hover:scale-102">
             <div className="overflow-hidden h-[200px]">

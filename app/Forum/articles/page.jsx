@@ -148,8 +148,10 @@ const ArticlePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-white text-gray-800 ">
       <Navbar />
+  <div className="bg-[#FAFAFA] px-20 py-4">
+
 
       <div className="flex justify-between items-center px-4 sm:px-6 pt-6 pb-2">
 
@@ -504,7 +506,7 @@ const ArticlePage = () => {
           </div>
         </div>
       </section>
-
+</div>
       <Footer />
     </div>
   );
