@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import About from '@/assets/about.png';
 import Navbar from '@/components/Navbar';
-import Pro from "@/assets/profile.png";
 import Pm from "@/assets/pm.png";
 import Guy from "@/assets/datguy.jpeg";
 import sarah from "@/assets/Sarah.jpg";
